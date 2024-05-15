@@ -14,12 +14,12 @@
     <div class="bottom-bar">
       <div class="bar-items">
         <div class="item">
-          <img src="../assets/news-files/cropped-resultados-bcp-2023_15.jpg" />
+          <img src="../assets/news-files/cropped-bcp.avif" />
           <p>BCP quer financiar "oportunidades" do novo aeroporto</p>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
         <div class="item">
-          <img src="../assets/news-files/cropped-resultados-bcp-2023_15.jpg" />
+          <img src="../assets/news-files/cropped-bcp.avif" />
           <p>BCP quer financiar "oportunidades" do novo aeroporto</p>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -57,6 +57,11 @@
   color: white;
 }
 
+.article-text:hover {
+  cursor: pointer;
+  color: #00d700;
+}
+
 .img-wrapper > img {
   opacity: 45%;
   width: 100%;
@@ -80,13 +85,12 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: hsla(0, 0%, 0%, 0.403);
+  background-color: hsla(0, 0%, 0%, 0.4);
   grid-row: 5 / 6;
 }
 
 .bar-items {
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
   height: 100%;
@@ -102,18 +106,25 @@
   width: 320px;
 }
 
+.bar-items .item:hover {
+  background-color: hsla(0, 0%, 0%, 0.45);
+  cursor: pointer;
+}
+
 .item img {
   margin: auto;
   margin-left: 20px;
   margin-right: 5px;
   border-radius: 10px;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .item i {
   margin: auto;
-  color: green;
+  color: rgb(0, 174, 0);
   margin-right: 20px;
   font-size: x-large;
 }

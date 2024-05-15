@@ -30,4 +30,9 @@
   font-size: small;
   font-weight: bold;
 }
+
+.tabs-bar > a:hover {
+  cursor: pointer;
+  color: #00d700;
+}
 </style>

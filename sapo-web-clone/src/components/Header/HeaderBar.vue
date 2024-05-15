@@ -25,7 +25,8 @@ export default {
   height: 60px;
   background-color: rgb(31, 31, 31);
 }
-.sapo-logo {
+.sapo-logo:hover {
+  cursor: pointer;
 }
 .header-links {
   box-sizing: content-box;

@@ -26,11 +26,19 @@
   margin: auto;
   font-size: x-large;
 }
+.main-bar i:hover {
+  cursor: pointer;
+}
+
 .main-bar img {
   box-sizing: content-box;
   max-height: 50px;
   margin: auto;
   margin-left: 50%;
+}
+
+.main-bar img:hover {
+  cursor: pointer;
 }
 
 .main-bar-links {
