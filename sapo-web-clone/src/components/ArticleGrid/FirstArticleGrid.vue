@@ -36,8 +36,8 @@ export default {
   margin: 15px;
   margin-top: 40px;
   display: flex;
+  flex-wrap: wrap;
   align-items: start;
-  max-height: 650px;
   gap: 20px;
 }
 .col > * {
@@ -46,6 +46,7 @@ export default {
 .first-col {
   display: flex;
   flex-direction: column;
+  max-width: 400px;
 }
 .main-news-box {
   margin: auto;

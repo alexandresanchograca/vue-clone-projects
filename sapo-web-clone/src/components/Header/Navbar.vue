@@ -35,6 +35,10 @@
   max-height: 50px;
   margin: auto;
   margin-left: 50%;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 }
 
 .main-bar img:hover {

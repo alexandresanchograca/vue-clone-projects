@@ -27,6 +27,13 @@
   background-color: white;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.168);
 }
+
+div div:not(:first-child) {
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+
 .news-item {
   display: flex;
   justify-content: center;

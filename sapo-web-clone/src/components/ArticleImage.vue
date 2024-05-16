@@ -73,6 +73,10 @@
   font-size: 3.2rem;
   width: 75%;
   margin: auto;
+
+  @media (max-width: 700px) {
+    font-size: 1.2rem;
+  }
 }
 
 .article-img p {
@@ -87,6 +91,10 @@
   height: 100%;
   background-color: hsla(0, 0%, 0%, 0.4);
   grid-row: 5 / 6;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 }
 
 .bar-items {

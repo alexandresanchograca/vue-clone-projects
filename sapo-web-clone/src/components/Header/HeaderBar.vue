@@ -37,6 +37,10 @@ export default {
   font-size: small;
   float: left;
   color: white;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 }
 .header-links > a {
   margin-right: 5px;

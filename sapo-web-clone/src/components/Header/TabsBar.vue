@@ -23,6 +23,10 @@
   align-items: center;
   height: 25px;
   background-color: #009600;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 }
 
 .tabs-bar > a {
