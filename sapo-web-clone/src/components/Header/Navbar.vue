@@ -21,6 +21,9 @@
   color: white;
   background-color: #00af00;
   border: 1px solid rgba(0, 0, 0, 0.199);
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 .main-bar i {
   margin: auto;

@@ -32,7 +32,7 @@ h3 i {
   color: #00d700;
 }
 ul {
-  overflow: scroll;
+  overflow-y: scroll;
   list-style-type: none;
   padding: 0px;
 }

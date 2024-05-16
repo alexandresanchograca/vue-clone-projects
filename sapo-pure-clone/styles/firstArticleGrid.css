@@ -90,7 +90,7 @@
   color: #00d700;
 }
 .latest-news-box ul {
-  overflow: scroll;
+  overflow-y: scroll;
   list-style-type: none;
   padding: 0px;
 }
@@ -127,7 +127,7 @@
   cursor: pointer;
 }
 .markets-box ul {
-  overflow: scroll;
+  overflow-y: scroll;
   list-style-type: none;
   padding: 0px;
 }

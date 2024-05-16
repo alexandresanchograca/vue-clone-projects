@@ -68,7 +68,7 @@ h3 {
   cursor: pointer;
 }
 ul {
-  overflow: scroll;
+  overflow-y: scroll;
   list-style-type: none;
   padding: 0px;
 }
