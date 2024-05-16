@@ -1,0 +1,66 @@
+.sapo-logo {
+  margin: auto;
+  margin-bottom: 0px;
+  height: 100%;
+  width: 100%;
+  max-width: 220px;
+  max-height: 98px;
+  box-sizing: content-box;
+}
+#bsu-logoSegment1 {
+  fill: #69a618;
+}
+#bsu-logoSegment2 {
+  fill: #7ab800;
+}
+#bsu-logoSegment3 {
+  fill: #69a618;
+}
+#bsu-logoSegment4 {
+  fill: #7ab800;
+}
+#bsu-logoSegment5 {
+  fill: #5b8f22;
+}
+#bsu-logoEyeOutside {
+  fill: #fff;
+}
+#bsu-logoEyeInside {
+  fill: black;
+}
+#bsu-logoText {
+  fill: #fff;
+}
+
+.header-bar {
+  display: block;
+  height: 60px;
+  background-color: rgb(31, 31, 31);
+}
+.sapo-logo:hover {
+  cursor: pointer;
+}
+.header-links {
+  box-sizing: content-box;
+  line-height: 30px;
+  position: relative;
+  top: 15px;
+  left: 30px;
+  font-size: small;
+  float: left;
+  color: white;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+.header-links > a {
+  margin-right: 5px;
+}
+.header-links > a:hover {
+  color: green;
+  cursor: pointer;
+}
+.header-links > a:first-child {
+  font-weight: bold;
+}

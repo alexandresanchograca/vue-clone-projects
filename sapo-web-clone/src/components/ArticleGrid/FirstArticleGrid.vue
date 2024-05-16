@@ -1,5 +1,5 @@
 <template>
-  <div class="main-article-grid">
+  <div class="first-main-article-grid">
     <div class="col first-col">
       <MainNewsBox class="main-news-box"></MainNewsBox>
       <SmallNewsBox class="small-news-box"></SmallNewsBox>
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-.main-article-grid {
+.first-main-article-grid {
   margin: 15px;
   margin-top: 40px;
   display: flex;

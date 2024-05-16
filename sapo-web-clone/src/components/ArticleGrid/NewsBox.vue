@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
 }
-img {
+.medium-news-box img {
   flex-shrink: 0;
   max-width: 100%;
   overflow: hidden;
