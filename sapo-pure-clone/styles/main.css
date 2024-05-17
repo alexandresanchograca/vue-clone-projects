@@ -5,6 +5,7 @@
 @import url("newsBar.css");
 @import url("firstArticleGrid.css");
 @import url("articleGrid.css");
+@import url("footer.css");
 
 :root {
   background-color: rgb(244, 244, 244);
@@ -18,7 +19,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .home {
   display: flex;
   flex-direction: column;

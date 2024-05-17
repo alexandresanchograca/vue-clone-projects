@@ -10,10 +10,20 @@
   grid-column: 1;
   grid-row: 1;
 }
+
+.main-article-grid img {
+  cursor: pointer;
+}
+
 .big-news-card h2 {
   font-size: 1.3em;
   font-weight: bold;
 }
+.big-news-card h2:hover {
+  cursor: pointer;
+  color: green;
+}
+
 .big-news-card p {
   margin-top: 15px;
 }
@@ -21,6 +31,7 @@
 .red-pill {
   float: left;
 }
+
 .red-pill p {
   float: left;
   margin-top: 5px;
@@ -34,6 +45,20 @@
   background-color: red;
 }
 
+.green-pill {
+  float: right;
+  font-size: small;
+  margin-top: 50px;
+  border: 1px solid green;
+  border-radius: 20px;
+  color: green;
+  padding: 5px;
+}
+
+.green-pill:hover {
+  color: white;
+  background-color: green;
+}
 .medium-news-box {
   display: flex;
   flex-direction: column;
