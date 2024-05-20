@@ -46,3 +46,10 @@
   height: 2px;
   background-color: rgba(128, 128, 128, 0.176);
 }
+
+.author-note {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: gray;
+  margin-top: 1.2rem;
+}
