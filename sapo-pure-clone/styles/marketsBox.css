@@ -38,11 +38,13 @@
   padding: 5px;
   text-align: center;
   color: #ffffff;
+  font-weight: bold;
 }
 
 .market-status i {
   text-align: center;
-  margin-left: 14px;
+  margin-right: 14px;
+  margin-left: 4px;
   color: #ffffff;
   transform: rotate(-90deg);
 }

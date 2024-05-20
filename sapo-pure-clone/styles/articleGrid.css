@@ -21,7 +21,7 @@
 }
 .big-news-card h2:hover {
   cursor: pointer;
-  color: green;
+  color: rgb(0, 170, 0);
 }
 
 .big-news-card p {
@@ -63,6 +63,11 @@
   display: flex;
   flex-direction: column;
 }
+
+.medium-news-box:hover {
+  color: rgb(0, 170, 0);
+}
+
 .medium-news-box img {
   flex-shrink: 0;
   max-width: 100%;
