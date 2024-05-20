@@ -8,6 +8,7 @@
 @import url("articleGrid.css");
 @import url("footer.css");
 @import url("marketsBar.css");
+@import url("stocksCarousel.css");
 
 :root {
   background-color: rgb(244, 244, 244);
