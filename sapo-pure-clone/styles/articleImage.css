@@ -151,3 +151,19 @@
   font-weight: 500;
   color: white;
 }
+
+.pill-wrapper {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  padding: 20px;
+}
+
+.img-green-pill {
+  background-color: #00d700;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
