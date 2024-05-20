@@ -15,6 +15,11 @@
   cursor: pointer;
 }
 
+.big-news-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .big-news-card h2 {
   font-size: 1.3em;
   font-weight: bold;
@@ -49,7 +54,7 @@
   display: flex;
   align-items: center;
   color: green;
-  margin-top: 50px;
+  margin-top: auto;
 }
 
 .icon-bar > * {
