@@ -5,7 +5,12 @@
   height: 80px;
   width: 100%;
   background-color: white;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.168);
+  box-shadow: 2px 5px 2px 2px rgba(0, 0, 0, 0.168);
+}
+
+.news-bar p:hover {
+  cursor: pointer;
+  color: rgb(0, 151, 0);
 }
 
 .news-bar div:not(:first-child) {

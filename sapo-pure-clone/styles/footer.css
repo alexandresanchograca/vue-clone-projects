@@ -11,6 +11,10 @@
   margin-bottom: 1.2rem;
 }
 
+.footer-cols li {
+  cursor: pointer;
+}
+
 .newsletters {
   display: flex;
   flex-direction: column;
@@ -59,6 +63,13 @@
   border-radius: 20px;
   padding: 8px;
 }
+
+.social .fa-brands:hover {
+  background-color: rgb(0, 255, 0);
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
 .green-newsletter-pill:hover {
   color: white;
   border: 0px;

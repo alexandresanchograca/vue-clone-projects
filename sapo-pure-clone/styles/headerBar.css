@@ -32,10 +32,15 @@
   fill: #fff;
 }
 
+.header-bar-wrapper {
+  background-color: rgb(31, 31, 31);
+}
+
 .header-bar {
   display: block;
   height: 60px;
-  background-color: rgb(31, 31, 31);
+  max-width: 1200px;
+  margin: auto;
 }
 .sapo-logo:hover {
   cursor: pointer;

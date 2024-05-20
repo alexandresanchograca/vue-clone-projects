@@ -1,13 +1,17 @@
+.main-bar-wrapper {
+  background-color: #00af00;
+}
+
 .main-bar {
   display: grid;
   grid-template-columns: 50px 50px 1fr 220px;
   grid-template-rows: 1fr;
   height: 70px;
   color: white;
-  background-color: #00af00;
-  border: 1px solid rgba(0, 0, 0, 0.199);
   position: sticky;
   top: 0;
+  max-width: 1140px;
+  margin: auto;
   z-index: 3;
 }
 .main-bar i {
@@ -72,12 +76,17 @@
   color: white;
 }
 
+.tabs-bar-wrapper {
+  background-color: #009600;
+}
+
 .tabs-bar {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 25px;
-  background-color: #009600;
+  max-width: 1140px;
+  margin: auto;
 
   @media (max-width: 700px) {
     display: none;
