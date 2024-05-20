@@ -1,0 +1,8 @@
+@import url("SearchBar.css");
+
+.head-bar {
+  display: flex;
+  background-color: #131921;
+  height: 60px;
+  color: white;
+}
