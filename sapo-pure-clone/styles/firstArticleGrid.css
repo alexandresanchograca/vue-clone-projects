@@ -32,6 +32,13 @@
   padding: 20px;
 }
 
+.main-news-box .icon {
+  font-size: 1.2rem;
+  padding: 20px;
+  color: rgb(0, 170, 0);
+  cursor: pointer;
+}
+
 .small-news-box {
   display: flex;
   height: 150px;
