@@ -22,7 +22,7 @@ img {
 .news-desc {
   display: block;
   padding: 20px;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   font-weight: bold;
 }
 </style>

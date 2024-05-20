@@ -18,12 +18,12 @@ img {
 }
 h3 {
   float: right;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 .small-news-desc {
   display: block;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 .red-pill {

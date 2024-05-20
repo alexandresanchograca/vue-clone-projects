@@ -80,7 +80,7 @@
 }
 
 .article-img p {
-  font-size: 1em;
+  font-size: 1rem;
   width: 75%;
   margin: auto;
 }

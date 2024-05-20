@@ -42,7 +42,7 @@ export default {
   grid-row: 1;
 }
 .big-news-card h2 {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 .big-news-card p {
