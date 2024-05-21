@@ -6,3 +6,46 @@
   height: 60px;
   color: white;
 }
+
+.navbar-home-logo {
+  display: flex;
+  width: 130px;
+  height: 50px;
+  padding: 8px;
+  margin-left: 10px;
+}
+
+.logo-region {
+  margin-top: 16px;
+  text-wrap: nowrap;
+}
+
+#nav-amazon-logo {
+  width: 97px;
+  height: 30px;
+  background: url(../../assets/sprite1x.png) -10px -51px;
+  margin-top: 12px;
+}
+
+.delivery-location {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  height: 50px;
+  width: 105px;
+  font-size: 0.8rem;
+  padding: 8px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#nav-location-logo {
+  display: flex;
+  position: static;
+  width: 15px;
+  height: 18px;
+  background-size: 350px;
+  background: url(../../assets/sprite1x.png) -71px -378px;
+  margin-top: 4px;
+  margin-right: 3px;
+}
