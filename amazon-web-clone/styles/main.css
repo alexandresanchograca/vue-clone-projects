@@ -5,6 +5,8 @@
 @import url("content/Carousel.css");
 @import url("content/InitialGrid.css");
 @import url("content/Carousel.css");
+@import url("content/recomendations.css");
+@import url("footer/footer.css");
 
 :root {
   background-color: rgb(244, 244, 244);

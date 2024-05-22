@@ -1,0 +1,35 @@
+.recomendations {
+  margin-top: -330px;
+  background-color: white;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+#is-authed {
+  padding: 20px;
+  padding-top: 30px;
+  border: 1px solid rgba(53, 53, 53, 0.35);
+}
+
+#is-authed p {
+  font-size: 0.8rem;
+  line-height: 2rem;
+}
+
+#is-authed button {
+  background-color: #ffe093;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 8px 80px;
+  border: #ffe093;
+  cursor: pointer;
+}
+#is-authed button:focus {
+  background-color: #d7bd7c;
+}
+#is-authed a {
+  text-decoration: none;
+  color: rgb(44, 114, 172);
+}
