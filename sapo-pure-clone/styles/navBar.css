@@ -1,5 +1,8 @@
 .main-bar-wrapper {
   background-color: #00af00;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 
 .main-bar {
@@ -8,11 +11,8 @@
   grid-template-rows: 1fr;
   height: 70px;
   color: white;
-  position: sticky;
-  top: 0;
   max-width: 1140px;
   margin: auto;
-  z-index: 3;
 }
 .main-bar i {
   margin: auto;

@@ -1,5 +1,3 @@
-@import url("SearchBar.css");
-
 .head-bar {
   display: flex;
   background-color: #131921;
@@ -31,6 +29,7 @@
   display: flex;
   box-sizing: border-box;
   align-items: center;
+  flex-shrink: 0;
   height: 50px;
   width: 105px;
   font-size: 0.8rem;
@@ -41,11 +40,118 @@
 
 #nav-location-logo {
   display: flex;
-  position: static;
   width: 15px;
   height: 18px;
-  background-size: 350px;
   background: url(../../assets/sprite1x.png) -71px -378px;
   margin-top: 4px;
   margin-right: 3px;
+}
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px 10px;
+}
+
+.country-logo-es {
+  width: 24px;
+  height: 18px;
+  margin: 0px 5px;
+  background: url(../../assets/countries_small.png) -48px -166px;
+}
+
+.auth-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+  padding: 0px 10px;
+}
+
+.auth-status p {
+  flex-shrink: 0;
+  text-wrap: nowrap;
+}
+
+.orders-returns {
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  text-wrap: nowrap;
+  font-size: 0.85rem;
+}
+
+.shopping-cart {
+  display: flex;
+  font-size: 0.85rem;
+}
+
+.shopping-cart p {
+  align-self: center;
+}
+
+#shopping-nav-logo {
+  width: 40px;
+  height: 48px;
+  margin-top: auto;
+  background: url(../../assets/sprite1x.png) -10px -340px;
+}
+
+#cart-items-counter {
+  position: relative;
+  font-size: 1rem;
+  left: 27px;
+  top: 10px;
+  font-weight: bold;
+  color: #febd69;
+}
+.auth-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+  padding: 0px 10px;
+}
+
+.auth-status p {
+  flex-shrink: 0;
+  text-wrap: nowrap;
+}
+
+.orders-returns {
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  text-wrap: nowrap;
+  font-size: 0.85rem;
+}
+
+.shopping-cart {
+  display: flex;
+  font-size: 0.85rem;
+  padding: 0px 10px;
+  margin-right: 5px;
+}
+
+.shopping-cart p {
+  align-self: center;
+}
+
+#shopping-nav-logo {
+  width: 40px;
+  height: 48px;
+  margin-top: auto;
+  background: url(../../assets/sprite1x.png) -10px -340px;
+}
+
+#cart-items-counter {
+  position: relative;
+  font-size: 1rem;
+  left: 27px;
+  top: 10px;
+  font-weight: bold;
+  color: #febd69;
 }

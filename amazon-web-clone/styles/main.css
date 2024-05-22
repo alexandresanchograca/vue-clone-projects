@@ -1,5 +1,10 @@
 @import url("navbar/HeadBar.css");
+@import url("navbar/SearchBar.css");
 @import url("navbar/TabsBar.css");
+@import url("content/Content.css");
+@import url("content/Carousel.css");
+@import url("content/InitialGrid.css");
+@import url("content/Carousel.css");
 
 :root {
   background-color: rgb(244, 244, 244);
