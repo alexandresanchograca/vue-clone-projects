@@ -18,16 +18,16 @@
 }
 
 #is-authed button {
-  background-color: #ffe093;
+  background-color: #ffd814;
   font-size: 0.8rem;
   font-weight: bold;
   border-radius: 5px;
   padding: 8px 80px;
-  border: #ffe093;
+  border: #ffd814;
   cursor: pointer;
 }
 #is-authed button:focus {
-  background-color: #d7bd7c;
+  background-color: #cfaf11;
 }
 #is-authed a {
   text-decoration: none;
