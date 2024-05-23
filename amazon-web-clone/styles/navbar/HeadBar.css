@@ -31,7 +31,7 @@
 .delivery-location {
   display: flex;
   box-sizing: border-box;
-  align-items: center;
+  align-items: flex-end;
   flex-shrink: 0;
   height: 50px;
   width: 105px;
@@ -54,22 +54,27 @@
   margin-right: 3px;
 }
 
+.fa-caret-down.navbar {
+  color: rgb(180, 180, 180);
+  font-size: 0.7rem;
+}
+
 .country-selector {
   display: flex;
   align-items: center;
   box-sizing: border-box;
   padding: 8px 10px;
-  font-size: 0.9rem;
+  gap: 5px;
 }
 
 .country-selector p {
+  font-size: 0.9rem;
   font-weight: bold;
 }
 
 .country-logo-es {
   width: 24px;
   height: 18px;
-  margin: 0px 5px;
   background: url(../../assets/countries_small.png) -48px -166px;
 }
 

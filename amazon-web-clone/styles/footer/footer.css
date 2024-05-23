@@ -97,6 +97,11 @@
   max-width: 980px;
 }
 
+.other-services .item-service:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .terms-and-conditions {
   background-color: #131a22;
   color: white;
@@ -108,6 +113,11 @@
   justify-content: center;
   gap: 20px;
   line-height: 1.6rem;
+}
+
+.terms-and-conditions p:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .terms-and-conditions .copyrights {
