@@ -3,6 +3,7 @@
   background-color: #131921;
   height: 60px;
   color: white;
+  line-height: 0.9rem;
 }
 
 .navbar-home-logo {
@@ -14,7 +15,9 @@
 }
 
 .logo-region {
-  margin-top: 16px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 14px;
   text-wrap: nowrap;
 }
 
@@ -32,10 +35,14 @@
   flex-shrink: 0;
   height: 50px;
   width: 105px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 8px;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.delivery-location p span {
+  font-size: 0.9rem;
 }
 
 #nav-location-logo {
@@ -52,6 +59,11 @@
   align-items: center;
   box-sizing: border-box;
   padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.country-selector p {
+  font-weight: bold;
 }
 
 .country-logo-es {
@@ -142,7 +154,7 @@
 
 #shopping-nav-logo {
   width: 40px;
-  height: 48px;
+  height: 42px;
   margin-top: auto;
   background: url(../../assets/sprite1x.png) -10px -340px;
 }
@@ -151,7 +163,7 @@
   position: relative;
   font-size: 1rem;
   left: 27px;
-  top: 10px;
+  top: 14px;
   font-weight: bold;
   color: #febd69;
 }

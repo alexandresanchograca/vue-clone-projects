@@ -47,6 +47,11 @@
   border: 1px solid #ffd814;
   margin-top: 20px;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.login-item button:focus {
+  background-color: #e2bf13;
 }
 
 .items-carousel-item {
