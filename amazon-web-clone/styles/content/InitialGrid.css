@@ -19,6 +19,7 @@
 }
 
 .grid-item h3 {
+  font-size: 1.4rem;
   margin-bottom: 20px;
 }
 
@@ -29,7 +30,7 @@
 
 .grid-item a {
   font-size: 0.8rem;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
   color: rgb(44, 114, 172);
 }
@@ -80,7 +81,7 @@
 }
 
 .carousel-title h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 
