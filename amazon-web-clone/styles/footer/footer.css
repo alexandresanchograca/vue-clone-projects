@@ -30,7 +30,14 @@
 .footer-content ul {
   list-style-type: none;
   padding: 0;
-  line-height: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.footer-content li {
+  margin-bottom: 0.8rem;
+  max-width: 140px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .footer-content li:hover {
