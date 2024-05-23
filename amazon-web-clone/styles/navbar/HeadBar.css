@@ -6,6 +6,11 @@
   line-height: 0.9rem;
 }
 
+.head-bar > *:hover {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
 .navbar-home-logo {
   display: flex;
   width: 130px;

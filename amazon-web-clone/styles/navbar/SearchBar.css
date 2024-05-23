@@ -13,6 +13,7 @@
 
 .search-bar:hover {
   outline: 3px solid #fea32d;
+  border: 0px;
 }
 
 .categories {
