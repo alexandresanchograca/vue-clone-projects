@@ -28,6 +28,7 @@
 }
 #is-authed button:focus {
   background-color: #cfaf11;
+  background-image: linear-gradient(#ffe992 15%, #ffd81488);
 }
 #is-authed a {
   text-decoration: none;

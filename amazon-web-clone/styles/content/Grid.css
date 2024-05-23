@@ -1,9 +1,9 @@
 .initial-grid {
   position: relative;
   top: -350px;
-  margin: auto;
+  margin: 0px 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-content: center;
   gap: 20px;
   box-sizing: border-box;
@@ -24,6 +24,7 @@
 }
 
 .grid-item img {
+  cursor: pointer;
   flex-shrink: 0;
   margin-bottom: 20px;
 }
@@ -33,6 +34,10 @@
   font-weight: 600;
   text-decoration: none;
   color: rgb(44, 114, 172);
+}
+
+.grid-item a:hover {
+  color: #cc0c39;
 }
 
 .img-grid {
