@@ -1,13 +1,18 @@
 .search-bar {
   display: flex;
   flex-wrap: nowrap;
-  height: 70%;
+  height: 65%;
   width: 80%;
   margin: auto 10px;
-  border-radius: 8px;
+  border-radius: 5px;
   overflow: hidden;
   min-width: 400px;
   box-sizing: border-box;
+  outline: 3px solid #fea32d00;
+}
+
+.search-bar:hover {
+  outline: 3px solid #fea32d;
 }
 
 .categories {
@@ -20,8 +25,6 @@
   box-sizing: border-box;
   background-color: #ebebeb;
   cursor: pointer;
-  border: 1px solid #ebebeb;
-  margin: 0;
 }
 
 .dropdown-category:hover {
@@ -31,27 +34,27 @@
 #drop-btn {
   height: 100%;
   color: rgb(0, 0, 0);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 0px 10px;
   align-self: center;
   text-wrap: nowrap;
+  border: 0px;
 }
 
 .search-bar input {
   margin: 0;
   flex-grow: 1;
+  border: 0px;
+  text-indent: 10px;
+  font-size: 0.9rem;
   /* Removing default styles*/
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-.search-bar input:focus {
-}
-
 #search-btn {
   flex-shrink: 0;
-  margin: 1px 0px;
   box-sizing: border-box;
   background-color: #febd69;
   border: 1px solid #febd69;
@@ -66,11 +69,11 @@
 #search-nav-logo {
   display: flex;
   box-sizing: border-box;
-  width: 40px;
-  height: 48px;
-  margin: 0;
+  width: 35px;
+  height: 40px;
+  margin: auto;
   background: url(../../assets/sprite1x.png) -2px -280px;
-  margin-top: 4px;
+  margin-top: 0px;
 }
 
 .fa-caret-down {
