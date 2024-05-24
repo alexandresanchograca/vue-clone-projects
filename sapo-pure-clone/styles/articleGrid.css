@@ -18,6 +18,9 @@
 .big-news-card {
   display: flex;
   flex-direction: column;
+  margin-left: 0px;
+  padding-left: 20px;
+  background-color: white;
 }
 
 .big-news-card h2 {
