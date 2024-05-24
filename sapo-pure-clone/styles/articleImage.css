@@ -9,8 +9,12 @@
 .img-wrapper {
   background-color: black;
   overflow: hidden;
-  max-height: 670px;
+  max-height: 580px;
   width: 100vw;
+}
+
+.article-img-secondary .img-wrapper {
+  max-height: 480px;
 }
 
 .article-img > * {

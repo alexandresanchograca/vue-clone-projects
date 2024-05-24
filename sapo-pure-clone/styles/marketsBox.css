@@ -5,25 +5,30 @@
 .markets-box h3 {
   font-weight: bold;
   color: #00b100;
-  margin-left: 12px;
   margin-right: 12px;
-  padding: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 15px 10px;
   cursor: pointer;
 }
 .markets-box ul {
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   list-style-type: none;
   padding: 0px;
+  overflow-y: scroll;
 }
 .markets-box li {
   display: flex;
-  font-size: large;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 1rem;
   margin: auto;
   font-weight: bold;
   cursor: pointer;
-  margin: 10px;
-  padding: 5px;
+  width: 100%;
+  padding: 10px 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
 }
 .markets-box h4 {
   flex-grow: 1;
