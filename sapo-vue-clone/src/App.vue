@@ -6,7 +6,7 @@
     <MainArticleImage :articleImg="mainArticleImg"></MainArticleImage>
     <div class="main-content">
       <StocksBar :stockItems="stockItems"></StocksBar>
-      <BreakingNewsBar></BreakingNewsBar>
+      <BreakingNewsBar :breakingNews="breakingNews"></BreakingNewsBar>
       <FirstArticleGrid></FirstArticleGrid>
     </div>
     <div v-for="articleImg in articleImages" :key="articleImg.title">
@@ -32,10 +32,13 @@ import BreakingNewsBar from "@/components/ArticleGrid/BreakingNewsBar.vue";
 import Footer from "./components/Footer/Footer.vue";
 import getData from "./composables/getData";
 
-const { getMainArticleImage, getArticleImages, getStocks } = getData();
+const { getMainArticleImage, getArticleImages, getStocks, getBreakingNews } =
+  getData();
+
 const mainArticleImg = getMainArticleImage();
 const articleImages = getArticleImages();
 const stockItems = getStocks();
+const breakingNews = getBreakingNews();
 </script>
 
 <style>

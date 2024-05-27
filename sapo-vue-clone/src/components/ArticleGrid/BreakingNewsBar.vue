@@ -1,8 +1,8 @@
 <template>
-  <div class="breaking-news-bar">
+  <div v-if="breakingNews" class="breaking-news-bar">
     <div class="markets-bar">
-      <div class="red-box live-news">Em Direto</div>
-      <h2>Ouro atinge novo recorde e prata negoceia em máximos de 11 anos</h2>
+      <div v-if="liveBreakingNews" class="red-box live-news">Em Direto</div>
+      <h2>{{ liveBreakingNews.title }}</h2>
       <div class="arrow-square">
         <div class="square-box">
           <div class="skewed-box">
@@ -12,24 +12,38 @@
       </div>
     </div>
     <div class="line-break-bar"></div>
-    <div class="news-bar">
-      <div class="news-item">
+    <div v-if="pastBreakingNews" class="news-bar">
+      <div v-for="news in pastBreakingNews" :key="news.title" class="news-item">
         <i class="fa-regular fa-clock"></i>
-        <p>PM eslovaco "estável” após cirurgia, mas em estado “muito grave"</p>
-      </div>
-      <div class="news-item">
-        <i class="fa-regular fa-clock"></i>
-        <p>PM eslovaco "estável” após cirurgia, mas em estado “muito grave"</p>
-      </div>
-      <div class="news-item">
-        <i class="fa-regular fa-clock"></i>
-        <p>PM eslovaco "estável” após cirurgia, mas em estado “muito grave"</p>
+        <p>{{ news.title }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { computed } from "vue";
+
+const props = defineProps(["breakingNews"]);
+
+const liveBreakingNews = computed(() => {
+  return props.breakingNews.findLast((news) => news.live);
+});
+
+const pastBreakingNews = computed(() => {
+  const oldNews = [];
+  for (let i = 0; i < props.breakingNews.length; i++) {
+    if (oldNews.length > 2) {
+      break;
+    }
+
+    if (!props.breakingNews[i].live) {
+      oldNews.push(props.breakingNews[i]);
+    }
+  }
+  return oldNews;
+});
+</script>
 
 <style scoped>
 .breaking-news-bar {
