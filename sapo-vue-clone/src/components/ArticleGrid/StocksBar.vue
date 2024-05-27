@@ -135,7 +135,9 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["stockItems"]);
+</script>
 
 <style scoped>
 .stocks-carousel {

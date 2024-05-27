@@ -17,6 +17,7 @@ const articleImages = [
     ],
     isSpecial: false,
     mainArticle: true,
+    authorSignature: null,
   },
   {
     title: "Têxteis de Guimarães puxam os lençóis aos italianos",
@@ -25,6 +26,24 @@ const articleImages = [
     barItems: null,
     isSpecial: true,
     mainArticle: false,
+    authorSignature: {
+      name: "John Doe",
+      date: "19 Maio 2024",
+      picture: "pabreu_perfil.avif",
+    },
+  },
+  {
+    title: "Têxteis de Guimarães puxam os lençóis aos italianos",
+    description: null,
+    imgName: "texteis.jpg",
+    barItems: null,
+    isSpecial: true,
+    mainArticle: false,
+    authorSignature: {
+      name: "John Doe",
+      date: "19 Maio 2024",
+      picture: "pabreu_perfil.avif",
+    },
   },
 ];
 

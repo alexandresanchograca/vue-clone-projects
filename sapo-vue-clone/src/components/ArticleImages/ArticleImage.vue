@@ -1,22 +1,26 @@
 <template>
   <div class="article-img article-img-secondary">
     <div class="img-wrapper">
-      <img src="@/assets/news-files/texteis.jpg" />
+      <img :src="require(`@/assets/news-files/${articleImg.imgName}`)" />
     </div>
     <div class="article-text">
-      <div class="pill-wrapper">
+      <div v-if="articleImg.isSpecial" class="pill-wrapper">
         <div class="img-green-pill">ESPECIAL</div>
       </div>
-      <h1>Têxteis de Guimarães puxam os lençóis aos italianos</h1>
-      <div class="article-icons">
+      <h1>{{ articleImg.title }}</h1>
+      <div v-if="articleImg.authorSignature" class="article-icons">
         <div class="author-profile-card">
           <img
             class="author-profile-img"
-            src="../../assets/news-files/pabreu_perfil.avif"
+            :src="
+              require(`@/assets/news-files/${articleImg.authorSignature.picture}`)
+            "
           />
           <span class="author-desc">
-            <div class="author-name">John Doe</div>
-            <div class="publish-date">19 Maio 2024</div>
+            <div class="author-name">{{ articleImg.authorSignature.name }}</div>
+            <div class="publish-date">
+              {{ articleImg.authorSignature.date }}
+            </div>
           </span>
         </div>
         <i class="fa-solid fa-share"></i>

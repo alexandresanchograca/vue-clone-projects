@@ -5,19 +5,15 @@
     <TabsBar></TabsBar>
     <MainArticleImage :articleImg="mainArticleImg"></MainArticleImage>
     <div class="main-content">
-      <StocksBar></StocksBar>
+      <StocksBar :stockItems="stockItems"></StocksBar>
       <BreakingNewsBar></BreakingNewsBar>
       <FirstArticleGrid></FirstArticleGrid>
     </div>
     <div v-for="articleImg in articleImages" :key="articleImg.title">
-      <ArticleImage></ArticleImage>
+      <ArticleImage :articleImg="articleImg"></ArticleImage>
       <div class="main-content">
         <ArticleGrid></ArticleGrid>
       </div>
-    </div>
-    <ArticleImage></ArticleImage>
-    <div class="main-content">
-      <ArticleGrid></ArticleGrid>
     </div>
     <Footer></Footer>
   </div>
@@ -36,9 +32,10 @@ import BreakingNewsBar from "@/components/ArticleGrid/BreakingNewsBar.vue";
 import Footer from "./components/Footer/Footer.vue";
 import getData from "./composables/getData";
 
-const { getMainArticleImage, getArticleImages } = getData();
+const { getMainArticleImage, getArticleImages, getStocks } = getData();
 const mainArticleImg = getMainArticleImage();
 const articleImages = getArticleImages();
+const stockItems = getStocks();
 </script>
 
 <style>
