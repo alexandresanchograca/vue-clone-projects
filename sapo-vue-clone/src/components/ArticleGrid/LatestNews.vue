@@ -34,8 +34,11 @@
 
 <style scoped>
 .latest-news-box {
+  display: flex;
+  flex-direction: column;
   width: 240px;
 }
+
 h3 {
   text-align: center;
   font-weight: bold;

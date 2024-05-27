@@ -1,15 +1,20 @@
 <template>
-  <div class="small-news-box">
-    <img src="../../assets/news-files/small-crop.jpg" />
+  <div v-if="news" class="small-news-box">
+    <img :src="require(`@/assets/news-files/${news.imgName}`)" />
     <div class="small-news-desc">
-      <div class="red-pill"><p>EXCLUSIVO</p></div>
-      35 consorcios do PRR pediram para alterar composicao
-      <p class="author-note">John Doe, 10:43</p>
+      <div v-if="news.isExclusive" class="red-pill"><p>EXCLUSIVO</p></div>
+      {{ news.title }}
+      <p v-if="news.authorSignature" class="author-note">
+        {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
+      </p>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { defineProps } from "vue";
+const props = defineProps(["news"]);
+</script>
 
 <style scoped>
 .small-news-box {

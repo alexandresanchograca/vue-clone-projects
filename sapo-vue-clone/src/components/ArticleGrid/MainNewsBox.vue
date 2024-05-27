@@ -1,13 +1,14 @@
 <template>
-  <div v-if="mainNews" class="main-news-box">
+  <div v-if="news" class="main-news-box">
     <h3>
-      Garantia aos jovens para crédito da casa não é "dinheiro a fundo perdido"
+      {{ news.title }}
     </h3>
-    <p class="author-note">John Doe, 10:43</p>
-    <img src="../../assets/news-files/main-box-img.avif" />
+    <p v-if="news.authorSignature" class="author-note">
+      {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
+    </p>
+    <img :src="require(`@/assets/news-files/${news.imgName}`)" />
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Id corporis
-      eveniet optio rem nobis doloribus amet ut nisi, ducimus sed totam.
+      {{ news.description }}
     </p>
     <i class="fa-solid fa-share icon"></i>
     <i class="fa-regular fa-comment icon"></i>
@@ -16,7 +17,7 @@
 
 <script setup>
 import { defineProps } from "vue";
-const props = defineProps(["mainNews"]);
+const props = defineProps(["news"]);
 </script>
 
 <style scoped>

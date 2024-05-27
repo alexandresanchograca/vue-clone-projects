@@ -38,6 +38,7 @@ const news = [
       time: "10:43",
     },
     size: "S",
+    isExclusive: true,
   },
 ];
 

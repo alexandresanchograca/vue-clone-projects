@@ -1,8 +1,8 @@
 <template>
   <div class="first-main-article-grid">
     <div class="col first-col">
-      <MainNewsBox></MainNewsBox>
-      <SmallNewsBox></SmallNewsBox>
+      <MainNewsBox :news="mainNews"></MainNewsBox>
+      <SmallNewsBox :news="smallNews"></SmallNewsBox>
     </div>
     <div class="col sec-col">
       <LatestNews></LatestNews>
@@ -19,10 +19,20 @@ import SmallNewsBox from "@/components/ArticleGrid/SmallNewsBox.vue";
 import LatestNews from "./LatestNews.vue";
 import Markets from "./Markets.vue";
 import getData from "@/composables/getData";
+import { computed } from "vue";
 
-const { getStocks } = getData();
+const { getStocks, getNews } = getData();
 
 const stocks = getStocks();
+const news = getNews();
+
+const mainNews = computed(() => {
+  return news.findLast((news) => news.size === "M");
+});
+
+const smallNews = computed(() => {
+  return news.findLast((news) => news.size === "S");
+});
 </script>
 
 <style scoped>

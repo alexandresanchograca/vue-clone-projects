@@ -14,8 +14,12 @@ function getBreakingNews() {
   return news.breakingNews;
 }
 
+function getNews() {
+  return news.news;
+}
+
 function getData() {
-  return { getArticleImages, getStocks, getBreakingNews };
+  return { getArticleImages, getStocks, getBreakingNews, getNews };
 }
 
 export default getData;
