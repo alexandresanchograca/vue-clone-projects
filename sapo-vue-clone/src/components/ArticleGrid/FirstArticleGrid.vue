@@ -53,6 +53,9 @@ const smallNews = computed(() => {
   flex-direction: column;
   max-width: 400px;
 }
+.sec-col {
+  align-self: flex-end;
+}
 .third-col {
   align-self: flex-end;
 }
