@@ -1,54 +1,23 @@
 <template>
   <div class="markets-box">
     <h3>Mercados</h3>
-    <ul>
-      <li>
-        <h4>Google</h4>
-        <div class="market-status">
-          <i class="ap fa-solid fa-arrow-right"></i>5,04%
-        </div>
-      </li>
-      <li>
-        <h4>Microsoft</h4>
-        <div class="mi market-status">
-          <i class="fa-solid fa-arrow-right"></i>5,04%
-        </div>
-      </li>
-      <li>
-        <h4>Google</h4>
-        <div class="market-status">
-          <i class="ap fa-solid fa-arrow-right"></i>5,04%
-        </div>
-      </li>
-      <li>
-        <h4>Microsoft</h4>
-        <div class="mi market-status">
-          <i class="ap fa-solid fa-arrow-right"></i>5,04%
-        </div>
-      </li>
-      <li>
-        <h4>Google</h4>
-        <div class="market-status">
-          <i class="ap fa-solid fa-arrow-right"></i>5,04%
-        </div>
-      </li>
-      <li>
-        <h4>Microsoft</h4>
-        <div class="mi market-status">
-          <i class="ap fa-solid fa-arrow-right"></i>5,04%
-        </div>
-      </li>
-      <li>
-        <h4>Google</h4>
-        <div class="market-status">
-          <i class="ap fa-solid fa-arrow-right"></i>5,04%
+    <ul v-if="stocks">
+      <li v-for="stock in stocks" :key="stock.name">
+        <h4>{{ stock.fullName }}</h4>
+        <div
+          :class="{ 'down-stock': !stock.yesterdayIncrease }"
+          class="market-status"
+        >
+          <i class="ap fa-solid fa-arrow-right"></i>{{ stock.priceDelta }}%
         </div>
       </li>
     </ul>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["stocks"]);
+</script>
 
 <style scoped>
 .markets-box {
@@ -107,11 +76,11 @@ h4 {
   transform: rotate(-90deg);
 }
 
-.mi {
+.down-stock {
   background-color: red;
 }
 
-.mi i {
+.down-stock i {
   transform: rotate(90deg);
 }
 </style>

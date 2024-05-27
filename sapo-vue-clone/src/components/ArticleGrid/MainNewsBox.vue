@@ -1,5 +1,5 @@
 <template>
-  <div class="main-news-box">
+  <div v-if="mainNews" class="main-news-box">
     <h3>
       Garantia aos jovens para crédito da casa não é "dinheiro a fundo perdido"
     </h3>
@@ -14,7 +14,10 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { defineProps } from "vue";
+const props = defineProps(["mainNews"]);
+</script>
 
 <style scoped>
 .main-news-box {

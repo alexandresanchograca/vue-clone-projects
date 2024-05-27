@@ -1,15 +1,9 @@
 import articleImages from "@/data/articleImages.js";
 import stockItems from "@/data/stocks";
-import breakingNews from "@/data/news";
-
-function getMainArticleImage() {
-  return articleImages.findLast((img) => img.mainArticle);
-}
+import news from "@/data/news";
 
 function getArticleImages() {
-  console.log(articleImages);
-
-  return articleImages.filter((img) => !img.mainArticle);
+  return articleImages;
 }
 
 function getStocks() {
@@ -17,11 +11,11 @@ function getStocks() {
 }
 
 function getBreakingNews() {
-  return breakingNews;
+  return news.breakingNews;
 }
 
 function getData() {
-  return { getMainArticleImage, getArticleImages, getStocks, getBreakingNews };
+  return { getArticleImages, getStocks, getBreakingNews };
 }
 
 export default getData;

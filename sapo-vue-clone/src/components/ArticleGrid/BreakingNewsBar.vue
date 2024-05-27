@@ -31,17 +31,7 @@ const liveBreakingNews = computed(() => {
 });
 
 const pastBreakingNews = computed(() => {
-  const oldNews = [];
-  for (let i = 0; i < props.breakingNews.length; i++) {
-    if (oldNews.length > 2) {
-      break;
-    }
-
-    if (!props.breakingNews[i].live) {
-      oldNews.push(props.breakingNews[i]);
-    }
-  }
-  return oldNews;
+  return props.breakingNews.filter((news) => !news.live).slice(0, 3);
 });
 </script>
 
@@ -60,6 +50,7 @@ const pastBreakingNews = computed(() => {
   height: 80px;
   overflow: hidden;
 }
+
 .markets-bar .live-news {
   align-self: flex-start;
   margin-top: auto;

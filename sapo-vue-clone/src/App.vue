@@ -31,12 +31,18 @@ import StocksBar from "./components/ArticleGrid/StocksBar.vue";
 import BreakingNewsBar from "@/components/ArticleGrid/BreakingNewsBar.vue";
 import Footer from "./components/Footer/Footer.vue";
 import getData from "./composables/getData";
+import { computed } from "vue";
 
-const { getMainArticleImage, getArticleImages, getStocks, getBreakingNews } =
-  getData();
+const { getArticleImages, getStocks, getBreakingNews } = getData();
 
-const mainArticleImg = getMainArticleImage();
-const articleImages = getArticleImages();
+const mainArticleImg = computed(() => {
+  return getArticleImages().findLast((img) => img.mainArticle);
+});
+
+const articleImages = computed(() => {
+  return getArticleImages().filter((img) => !img.mainArticle);
+});
+
 const stockItems = getStocks();
 const breakingNews = getBreakingNews();
 </script>

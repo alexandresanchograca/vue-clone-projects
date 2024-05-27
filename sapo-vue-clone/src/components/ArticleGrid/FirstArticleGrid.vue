@@ -8,7 +8,7 @@
       <LatestNews></LatestNews>
     </div>
     <div class="col third-col">
-      <Markets></Markets>
+      <Markets :stocks="stocks"></Markets>
     </div>
   </div>
 </template>
@@ -18,6 +18,11 @@ import MainNewsBox from "@/components/ArticleGrid/MainNewsBox.vue";
 import SmallNewsBox from "@/components/ArticleGrid/SmallNewsBox.vue";
 import LatestNews from "./LatestNews.vue";
 import Markets from "./Markets.vue";
+import getData from "@/composables/getData";
+
+const { getStocks } = getData();
+
+const stocks = getStocks();
 </script>
 
 <style scoped>
