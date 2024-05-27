@@ -45,7 +45,9 @@
   margin-right: 5px;
 }
 .fa-brands {
-  margin-right: 10px;
+  box-sizing: border-box;
+  min-width: 34px;
+  text-align: center;
 }
 .social {
   margin-top: auto;
