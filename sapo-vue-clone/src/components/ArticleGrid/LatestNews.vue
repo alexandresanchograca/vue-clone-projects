@@ -1,36 +1,27 @@
 <template>
-  <div class="latest-news-box">
+  <div v-if="smallNewsList" class="latest-news-box">
     <h3>
       Últimas
       <i class="fa-solid fa-arrow-right"></i>
     </h3>
     <ul>
-      <li>
-        <p>12:40</p>
-        Prazo do concurso do TGV adiado para julho.
-      </li>
-      <li>
-        <p>12:40</p>
-        Prazo do concurso do TGV adiado para julho.
-      </li>
-      <li>
-        <p>12:40</p>
-        Prazo do concurso do TGV adiado para julho.
-      </li>
-      <li>
-        <p>12:40</p>
-        Prazo do concurso do TGV adiado para julho.
-      </li>
-      <li>
-        <p>12:40</p>
-        Prazo do concurso do TGV adiado para julho.
+      <li v-for="news in smallNewsList" :key="news.title">
+        <p>{{ news.time }}</p>
+        {{ news.title }}
       </li>
     </ul>
     <a>+</a>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { computed, defineProps } from "vue";
+const props = defineProps(["newsList"]);
+
+const smallNewsList = computed(() => {
+  return props.newsList.slice(0, 5);
+});
+</script>
 
 <style scoped>
 .latest-news-box {

@@ -1,9 +1,11 @@
 <template>
-  <div class="medium-news-box">
-    <img src="../../assets/news-files/mediumbox.avif" />
+  <div v-if="news" class="medium-news-box">
+    <img :src="require(`@/assets/news-files/${news.imgName}`)" />
     <div class="news-desc">
-      35 consorcios do PRR pediram para alterar composicao
-      <p class="author-note">John Doe, 10:43</p>
+      {{ news.title }}
+      <p v-if="news.authorSignature" class="author-note">
+        {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
+      </p>
       <div class="icon-bar">
         <i class="fa-solid fa-share icon"></i>
         <i class="fa-regular fa-comment icon"></i>
@@ -12,7 +14,10 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { defineProps } from "vue";
+const props = defineProps(["news"]);
+</script>
 
 <style scoped>
 .medium-news-box {

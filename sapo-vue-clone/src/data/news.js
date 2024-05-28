@@ -17,7 +17,7 @@ const breakingNews = [
   },
 ];
 
-const news = [
+const newsList = [
   {
     title: `Garantia aos jovens para crédito da casa não é "dinheiro a fundo perdido"`,
     description:
@@ -27,7 +27,7 @@ const news = [
       name: "John Doe",
       time: "10:43",
     },
-    size: "M",
+    size: "L",
   },
   {
     title: `35 consorcios do PRR pediram para alterar composicao `,
@@ -39,6 +39,60 @@ const news = [
     },
     size: "S",
     isExclusive: true,
+  },
+  {
+    title: `Anacom e Governo têm de incentivar consolidação`,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quidem aspernatur repellendus accusantium voluptatibus sequi placeat ullam esse ad minus tenetur.",
+    imgName: "big-img.jpeg",
+    authorSignature: null,
+    size: "XL",
+    isExclusive: true,
+    tags: ["Finanças"],
+  },
+  {
+    title: `35 consorcios do PRR pediram para alterar composicao `,
+    description: null,
+    imgName: "mediumbox.avif",
+    authorSignature: {
+      name: "John Doe",
+      time: "10:43",
+    },
+    size: "M",
+    isExclusive: false,
+  },
+  {
+    title: `35 consorcios do PRR pediram para alterar composicao `,
+    description: null,
+    imgName: "mediumbox.avif",
+    authorSignature: {
+      name: "John Doe",
+      time: "10:43",
+    },
+    size: "M",
+    isExclusive: false,
+  },
+  {
+    title: `35 consorcios do PRR pediram para alterar composicao `,
+    description: null,
+    imgName: "mediumbox.avif",
+    authorSignature: {
+      name: "John Doe",
+      time: "10:43",
+    },
+    size: "M",
+    isExclusive: false,
+  },
+  {
+    title: `35 consorcios do PRR pediram para alterar composicao `,
+    description: null,
+    imgName: "mediumbox.avif",
+    authorSignature: {
+      name: "John Doe",
+      time: "10:43",
+    },
+    size: "M",
+    isExclusive: false,
   },
 ];
 
@@ -65,4 +119,4 @@ const latestNews = [
   },
 ];
 
-export default { breakingNews, news, latestNews };
+export default { breakingNews, newsList, latestNews };

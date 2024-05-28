@@ -14,12 +14,22 @@ function getBreakingNews() {
   return news.breakingNews;
 }
 
-function getNews() {
-  return news.news;
+function getLatestNews() {
+  return news.latestNews;
+}
+
+function getNewsList() {
+  return news.newsList;
 }
 
 function getData() {
-  return { getArticleImages, getStocks, getBreakingNews, getNews };
+  return {
+    getArticleImages,
+    getStocks,
+    getBreakingNews,
+    getNewsList,
+    getLatestNews,
+  };
 }
 
 export default getData;
