@@ -13,7 +13,7 @@ import BigNewsBox from "./BigNewsBox.vue";
 import getData from "@/composables/getData";
 import { computed } from "vue";
 
-const { getStocks, getNewsList, getLatestNews } = getData();
+const { getNewsList } = getData();
 
 const xLargeNews = computed(() => {
   return getNewsList().findLast((news) => news.size === "XL");
