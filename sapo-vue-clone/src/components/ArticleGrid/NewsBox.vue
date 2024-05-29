@@ -6,15 +6,14 @@
       <p v-if="news.authorSignature" class="author-note">
         {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
       </p>
-      <div class="icon-bar">
-        <i class="fa-solid fa-share icon"></i>
-        <i class="fa-regular fa-comment icon"></i>
-      </div>
+      <IconBar></IconBar>
     </div>
   </div>
 </template>
 
 <script setup>
+import IconBar from "@/components/ArticleGrid/badges/IconBar.vue";
+
 import { defineProps } from "vue";
 const props = defineProps(["news"]);
 </script>
@@ -23,6 +22,7 @@ const props = defineProps(["news"]);
 .medium-news-box {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .medium-news-box:hover {
@@ -39,7 +39,6 @@ const props = defineProps(["news"]);
   flex-direction: column;
   flex-grow: 1;
   padding: 20px;
-  padding-bottom: 0px;
   font-size: 1.1rem;
   font-weight: bold;
 }

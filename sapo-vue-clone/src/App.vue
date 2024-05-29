@@ -93,12 +93,4 @@ const breakingNews = getBreakingNews();
   color: gray;
   margin-top: 1.2rem;
 }
-
-.icon {
-  font-size: 1.2rem;
-  padding: 20px;
-  padding-left: 0;
-  color: rgb(0, 170, 0);
-  cursor: pointer;
-}
 </style>

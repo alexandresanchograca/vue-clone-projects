@@ -4,18 +4,14 @@
     <ul v-if="stocks">
       <li v-for="stock in stocks" :key="stock.name">
         <h4>{{ stock.fullName }}</h4>
-        <div
-          :class="{ 'down-stock': !stock.yesterdayIncrease }"
-          class="market-status"
-        >
-          <i class="ap fa-solid fa-arrow-right"></i>{{ stock.priceDelta }}%
-        </div>
+        <StockPill :stock="stock"></StockPill>
       </li>
     </ul>
   </div>
 </template>
 
 <script setup>
+import StockPill from "@/components/ArticleGrid//badges/StockPill.vue";
 const props = defineProps(["stocks"]);
 </script>
 
@@ -55,32 +51,5 @@ li {
 h4 {
   flex-grow: 1;
   font-weight: bold;
-}
-.market-status {
-  flex-grow: 1/30;
-  font-size: small;
-  background-color: #00b100;
-  border-radius: 5px;
-  margin: 2px;
-  padding: 5px;
-  text-align: center;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.market-status i {
-  text-align: center;
-  margin-right: 14px;
-  margin-left: 4px;
-  color: #ffffff;
-  transform: rotate(-90deg);
-}
-
-.down-stock {
-  background-color: red;
-}
-
-.down-stock i {
-  transform: rotate(90deg);
 }
 </style>

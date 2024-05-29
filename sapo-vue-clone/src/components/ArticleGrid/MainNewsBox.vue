@@ -7,15 +7,17 @@
       {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
     </p>
     <img :src="require(`@/assets/news-files/${news.imgName}`)" />
-    <p>
-      {{ news.description }}
-    </p>
-    <i class="fa-solid fa-share icon"></i>
-    <i class="fa-regular fa-comment icon"></i>
+    <div class="news-content">
+      <p>
+        {{ news.description }}
+      </p>
+      <IconBar></IconBar>
+    </div>
   </div>
 </template>
 
 <script setup>
+import IconBar from "@/components/ArticleGrid/badges/IconBar.vue";
 import { defineProps } from "vue";
 const props = defineProps(["news"]);
 </script>
@@ -35,13 +37,12 @@ h3 {
 img {
   width: 100%;
 }
-p {
+
+.news-content {
   padding: 20px;
 }
-.icon {
-  font-size: 1.2rem;
-  padding: 20px;
-  color: rgb(0, 170, 0);
-  cursor: pointer;
+
+p {
+  margin-bottom: 20px;
 }
 </style>

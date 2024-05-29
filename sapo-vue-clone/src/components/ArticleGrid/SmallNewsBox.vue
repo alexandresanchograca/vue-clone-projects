@@ -2,7 +2,7 @@
   <div v-if="news" class="small-news-box">
     <img :src="require(`@/assets/news-files/${news.imgName}`)" />
     <div class="small-news-desc">
-      <div v-if="news.isExclusive" class="red-pill"><p>EXCLUSIVO</p></div>
+      <div v-if="news.isExclusive"><RedPill></RedPill></div>
       {{ news.title }}
       <p v-if="news.authorSignature" class="author-note">
         {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
@@ -12,6 +12,7 @@
 </template>
 
 <script setup>
+import RedPill from "@/components/ArticleGrid/badges/RedPill.vue";
 import { defineProps } from "vue";
 const props = defineProps(["news"]);
 </script>
@@ -44,22 +45,5 @@ h3 {
 
 .author-note {
   margin-top: 10px;
-}
-
-.red-pill {
-  float: left;
-}
-
-.red-pill p {
-  float: left;
-  margin-top: 5px;
-  margin-right: 10px;
-  padding: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  border-radius: 20px;
-  font-size: small;
-  color: white;
-  background-color: red;
 }
 </style>
