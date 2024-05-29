@@ -2,21 +2,18 @@
   <div class="initial-grid">
     <ProductsItem></ProductsItem>
     <TopOffer></TopOffer>
-    <GridItem></GridItem>
+    <ProductsItem></ProductsItem>
     <LoginItem></LoginItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
+    <div v-for="category in initalShopCategories" :key="category.title">
+      <GridItem :category="category"></GridItem>
+    </div>
     <CarouselItem></CarouselItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
-    <GridItem></GridItem>
+    <div v-for="category in initalShopCategories" :key="category.title">
+      <GridItem :category="category"></GridItem>
+    </div>
+    <div v-for="category in initalShopCategories" :key="category.title">
+      <GridItem :category="category"></GridItem>
+    </div>
   </div>
 </template>
 
@@ -26,6 +23,16 @@ import TopOffer from "@/components/content/grid/TopOffer.vue";
 import GridItem from "@/components/content/grid/GridItem.vue";
 import LoginItem from "@/components/content/grid/LoginItem.vue";
 import CarouselItem from "@/components/content/grid/carousel/GridCarousel.vue";
+import getData from "@/composables/getData.js";
+import { computed } from "vue";
+
+const { getShopCategories } = getData();
+
+const initalShopCategories = computed(() => {
+  return getShopCategories().slice(0, 4);
+});
+
+console.log(getShopCategories());
 </script>
 
 <style>

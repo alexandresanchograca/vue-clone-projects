@@ -4,7 +4,7 @@
       <input type="radio" name="radio-buttons" id="img-1" checked />
       <li class="slide-container">
         <div class="slide-image">
-          <img src="../../assets/carousel/carouselImgOne.jpg" />
+          <img src="@/assets/carousel/carouselImgOne.jpg" />
         </div>
         <div class="carousel-controls">
           <label for="img-2" class="prev-slide">
@@ -18,7 +18,7 @@
       <input type="radio" name="radio-buttons" id="img-2" />
       <li class="slide-container">
         <div class="slide-image">
-          <img src="../../assets/carousel/carouselImgTwo.jpg" />
+          <img src="@/assets/carousel/carouselImgTwo.jpg" />
         </div>
         <div class="carousel-controls">
           <label for="img-1" class="prev-slide">
