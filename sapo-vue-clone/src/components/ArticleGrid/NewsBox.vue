@@ -42,17 +42,6 @@ const props = defineProps(["news"]);
   font-size: 1.1rem;
   font-weight: bold;
 }
-.icon-bar {
-  display: flex;
-  align-items: center;
-  color: green;
-  margin-top: auto;
-}
-
-.icon-bar > * {
-  margin-right: 20px;
-}
-
 .news-desc .author-note {
   margin-top: 15px;
 }
