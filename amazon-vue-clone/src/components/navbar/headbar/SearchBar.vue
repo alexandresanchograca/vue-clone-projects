@@ -8,7 +8,7 @@
     </div>
     <input placeholder="Pesquisar Amazon.es" />
     <div id="search-btn">
-      <img id="search-nav-logo" src="../../assets/trasnparent_pixel.gif" />
+      <img id="search-nav-logo" src="@/assets/trasnparent_pixel.gif" />
     </div>
   </div>
 </template>
@@ -91,7 +91,7 @@
   width: 35px;
   height: 40px;
   margin: auto;
-  background: url(../../assets/sprite1x.png) -2px -280px;
+  background: url(@/assets/sprite1x.png) -2px -280px;
   margin-top: 0px;
 }
 

@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import HeadBar from "./HeadBar.vue";
+import HeadBar from "./headbar/HeadBar.vue";
 import TabsBar from "./TabsBar.vue";
 </script>
 
