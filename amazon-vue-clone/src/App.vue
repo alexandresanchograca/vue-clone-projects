@@ -1,6 +1,14 @@
-<template></template>
+<template>
+  <Navbar></Navbar>
+  <Content></Content>
+  <Footer></Footer>
+</template>
 
-<script setup></script>
+<script setup>
+import Navbar from "@/components/navbar/Navbar.vue";
+import Content from "@/components/content/Content.vue";
+import Footer from "@/components/footer/content/Footer.vue";
+</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");

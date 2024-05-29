@@ -1,0 +1,102 @@
+<template>
+  <div class="search-bar">
+    <div class="dropdown-category">
+      <button id="drop-btn">
+        Todas as Categorias
+        <i class="fa-solid fa-caret-down"></i>
+      </button>
+    </div>
+    <input placeholder="Pesquisar Amazon.es" />
+    <div id="search-btn">
+      <img id="search-nav-logo" src="../../assets/trasnparent_pixel.gif" />
+    </div>
+  </div>
+</template>
+
+<script setup></script>
+
+<style scoped>
+.search-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 65%;
+  width: 80%;
+  margin: auto 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  min-width: 400px;
+  box-sizing: border-box;
+  outline: 3px solid #fea32d00;
+}
+
+.search-bar:hover {
+  outline: 3px solid #fea32d;
+  border: 0px;
+}
+
+.categories {
+  flex-shrink: 0;
+}
+
+.dropdown-category {
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #ebebeb;
+  cursor: pointer;
+}
+
+.dropdown-category:hover {
+  background-color: #bcbcbc;
+}
+
+#drop-btn {
+  height: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 0.7rem;
+  padding: 0px 10px;
+  align-self: center;
+  text-wrap: nowrap;
+  border: 0px;
+}
+
+.search-bar input {
+  margin: 0;
+  flex-grow: 1;
+  border: 0px;
+  text-indent: 10px;
+  font-size: 0.9rem;
+  /* Removing default styles*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#search-btn {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background-color: #febd69;
+  border: 1px solid #febd69;
+  padding: 0px 5px;
+}
+
+#search-btn:hover {
+  cursor: pointer;
+  background-color: rgb(232, 208, 178);
+}
+
+#search-nav-logo {
+  display: flex;
+  box-sizing: border-box;
+  width: 35px;
+  height: 40px;
+  margin: auto;
+  background: url(../../assets/sprite1x.png) -2px -280px;
+  margin-top: 0px;
+}
+
+.fa-caret-down {
+  color: #666;
+  align-self: center;
+}
+</style>
