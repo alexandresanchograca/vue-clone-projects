@@ -1,10 +1,10 @@
 <template>
   <div v-if="news" class="medium-news-box">
-    <img :src="require(`@/assets/news-files/${news.imgName}`)" />
+    <img :src="news.urlToImage" />
     <div class="news-desc">
       {{ news.title }}
-      <p v-if="news.authorSignature" class="author-note">
-        {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
+      <p v-if="news.author" class="author-note">
+        {{ news.author }}, {{ news.publishedAt.substring(0, 10) }}
       </p>
       <IconBar></IconBar>
     </div>
@@ -32,6 +32,7 @@ const props = defineProps(["news"]);
 .medium-news-box img {
   flex-shrink: 0;
   max-width: 100%;
+  max-height: 175px;
   overflow: hidden;
 }
 .news-desc {

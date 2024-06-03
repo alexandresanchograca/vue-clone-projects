@@ -21,16 +21,20 @@ import Markets from "./Markets.vue";
 import getData from "@/composables/getData";
 import { computed } from "vue";
 
-const { getStocks, getNewsList, getLatestNews } = getData();
+const { getStocks, getNewsList, getLatestNews, getNewsListData } = getData();
 
 const stocks = getStocks();
 const newsList = getNewsList();
 const latestNews = getLatestNews();
+const dataList = getNewsListData();
 
 const mainNews = computed(() => {
-  return newsList.findLast((news) => news.size === "L");
-});
+  const newsArr = dataList.splice(0, 1);
 
+  if (newsArr.length) {
+    return newsArr[0];
+  }
+});
 const smallNews = computed(() => {
   return newsList.findLast((news) => news.size === "S");
 });

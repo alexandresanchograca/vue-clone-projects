@@ -1,4 +1,7 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import getData from "./composables/getData";
 
-createApp(App).mount('#app')
+const { getNewsData } = getData();
+await getNewsData();
+createApp(App).mount("#app");

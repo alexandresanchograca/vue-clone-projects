@@ -1,12 +1,14 @@
 <template>
   <div v-if="news" class="main-news-box">
-    <h3>
-      {{ news.title }}
-    </h3>
-    <p v-if="news.authorSignature" class="author-note">
-      {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
-    </p>
-    <img :src="require(`@/assets/news-files/${news.imgName}`)" />
+    <div class="head-news">
+      <h3>
+        {{ news.title }}
+      </h3>
+      <p v-if="news.author" class="author-note">
+        {{ news.author }}, {{ news.publishedAt.substring(0, 10) }}
+      </p>
+    </div>
+    <img :src="news.urlToImage" />
     <div class="news-content">
       <p>
         {{ news.description }}
@@ -30,10 +32,14 @@ const props = defineProps(["news"]);
   width: fit-content;
 }
 
-h3 {
-  font-weight: bold;
+.head-news {
   padding: 20px;
 }
+
+h3 {
+  font-weight: bold;
+}
+
 img {
   width: 100%;
 }

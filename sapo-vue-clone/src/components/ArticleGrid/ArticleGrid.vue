@@ -1,7 +1,7 @@
 <template>
   <div class="main-article-grid">
     <BigNewsBox :news="xLargeNews"></BigNewsBox>
-    <div v-for="news in mediumNews">
+    <div v-for="news in dataNews" :key="news.title">
       <NewsBox :news="news"></NewsBox>
     </div>
   </div>
@@ -11,18 +11,16 @@
 import NewsBox from "./NewsBox.vue";
 import BigNewsBox from "./BigNewsBox.vue";
 import getData from "@/composables/getData";
-import { computed } from "vue";
+import { computed, onBeforeMount } from "vue";
 
-const { getNewsList } = getData();
+const { getNewsList, getNewsListData } = getData();
 
 const xLargeNews = computed(() => {
   return getNewsList().findLast((news) => news.size === "XL");
 });
 
-const mediumNews = computed(() => {
-  return getNewsList()
-    .filter((news) => news.size === "M")
-    .slice(0, 4);
+const dataNews = computed(() => {
+  return getNewsListData().splice(0, 4);
 });
 </script>
 
