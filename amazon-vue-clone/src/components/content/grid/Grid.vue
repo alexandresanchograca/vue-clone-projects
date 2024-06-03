@@ -1,13 +1,13 @@
 <template>
   <div class="initial-grid">
-    <ProductsItem></ProductsItem>
-    <TopOffer></TopOffer>
-    <ProductsItem></ProductsItem>
+    <ProductsItem :products="productCategories"></ProductsItem>
+    <TopOffer :product="topOffer()"></TopOffer>
+    <ProductsItem :products="productCategories"></ProductsItem>
     <LoginItem></LoginItem>
     <div v-for="category in initalShopCategories" :key="category.title">
       <GridItem :category="category"></GridItem>
     </div>
-    <CarouselItem></CarouselItem>
+    <CarouselItem :products="carouselProducts"></CarouselItem>
     <div v-for="category in initalShopCategories" :key="category.title">
       <GridItem :category="category"></GridItem>
     </div>
@@ -26,13 +26,28 @@ import CarouselItem from "@/components/content/grid/carousel/GridCarousel.vue";
 import getData from "@/composables/getData.js";
 import { computed } from "vue";
 
-const { getShopCategories } = getData();
+const { getShopCategories, getProducts } = getData();
+
+const shopCategories = getShopCategories();
+const products = getProducts();
+
+const topOffer = () => {
+  return products.findLast((prod) => prod.discount > 35.0);
+};
 
 const initalShopCategories = computed(() => {
-  return getShopCategories().slice(0, 4);
+  return shopCategories.slice(0, 4);
 });
 
-console.log(getShopCategories());
+const productCategories = computed(() => {
+  return shopCategories.filter((prod) => prod.imageSize == "S").slice(0, 4);
+});
+
+const carouselProducts = computed(() => {
+  return products.filter(
+    (prod) => prod.discount > 20 && prod.title !== topOffer().title
+  );
+});
 </script>
 
 <style>

@@ -1,24 +1,32 @@
 <template>
-  <div class="carousel-item">
+  <div v-if="product" class="carousel-item">
     <div class="img-wrapper">
-      <img class="item-image" src="@/assets/grid/item-carousel/keyboard.jpg" />
+      <img :src="require(`@/assets/grid/${product.imageName}`)" />
     </div>
     <div class="item-desc">
-      <p class="discount">36% de desconto</p>
+      <p class="discount">{{ product.discount }}% de desconto</p>
       <p class="limited-time-offer">Oferta por tempo limitado</p>
       <div class="item-price">
-        <span class="current-price">86.00$</span>
+        <span class="current-price">{{ discountedPrice }}$</span>
         <span>Preço recomendado:</span>
-        <span class="recommended-price">135.00$</span>
+        <span class="recommended-price">{{ product.price }}$</span>
       </div>
       <p class="item-full-desc">
-        Logitech MX keys Advanced Teclado sem fios com retroiluminação
+        {{ product.description }}
       </p>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { computed } from "vue";
+
+const props = defineProps(["product"]);
+
+const discountedPrice = computed(() => {
+  return props.product.price * (1 - props.product.discount / 100);
+});
+</script>
 
 <style scoped>
 .carousel-item {

@@ -1,29 +1,19 @@
 <template>
-  <div class="grid-item">
+  <div v-if="products" class="grid-item">
     <h3 class="bold">Descobrir produtos usados</h3>
     <div class="img-grid">
-      <div class="img-item">
-        <img src="@/assets/grid/informatica.jpg" />
-        <p>Informática</p>
-      </div>
-      <div class="img-item">
-        <img src="@/assets/grid/casa.jpg" />
-        <p>Casa e cozinha</p>
-      </div>
-      <div class="img-item">
-        <img src="@/assets/grid/fotografia.jpg" />
-        <p>Eletrônica e fotografia</p>
-      </div>
-      <div class="img-item">
-        <img src="@/assets/grid/bricolage.jpg" />
-        <p>Bricolage e Ferramentas</p>
+      <div v-for="product in products" class="img-item">
+        <img :src="require(`@/assets/grid/${product.imageName}`)" />
+        <p>{{ product.title }}</p>
       </div>
     </div>
     <a href="#top">Veja mais</a>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["products"]);
+</script>
 
 <style scoped>
 .img-grid {

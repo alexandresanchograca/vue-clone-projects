@@ -1,39 +1,29 @@
 <template>
   <div class="main-image-carousel">
-    <ul class="slides">
-      <input type="radio" name="radio-buttons" id="img-1" checked />
-      <li class="slide-container">
-        <div class="slide-image">
-          <img src="@/assets/carousel/carouselImgOne.jpg" />
-        </div>
-        <div class="carousel-controls">
-          <label for="img-2" class="prev-slide">
-            <span>‹</span>
-          </label>
-          <label for="img-2" class="next-slide">
-            <span>›</span>
-          </label>
-        </div>
-      </li>
-      <input type="radio" name="radio-buttons" id="img-2" />
-      <li class="slide-container">
-        <div class="slide-image">
-          <img src="@/assets/carousel/carouselImgTwo.jpg" />
-        </div>
-        <div class="carousel-controls">
-          <label for="img-1" class="prev-slide">
-            <span>‹</span>
-          </label>
-          <label for="img-1" class="next-slide">
-            <span>›</span>
-          </label>
-        </div>
-      </li>
+    <ul v-if="banners" class="slides">
+      <div v-for="(banner, index) in banners" :key="banner.id">
+        <input type="radio" name="radio-buttons" :id="index" checked />
+        <li class="slide-container">
+          <div class="slide-image">
+            <img :src="require(`@/assets/carousel/${banner.imageName}`)" />
+          </div>
+          <div class="carousel-controls">
+            <label :for="index - 1" class="prev-slide">
+              <span>‹</span>
+            </label>
+            <label :for="index + 1" class="next-slide">
+              <span>›</span>
+            </label>
+          </div>
+        </li>
+      </div>
     </ul>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["banners"]);
+</script>
 
 <style scoped>
 .main-image-carousel {

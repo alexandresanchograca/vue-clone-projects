@@ -1,19 +1,21 @@
 <template>
-  <div class="grid-item">
+  <div v-if="product" class="grid-item">
     <h3 class="bold">Oferta Top</h3>
     <div class="img-container">
-      <img src="@/assets/grid/drone.jpg" />
+      <img :src="require(`@/assets/grid/${product.imageName}`)" />
       <div class="item-desc">
-        <p class="discount">36% de desconto</p>
+        <p class="discount">{{ product.discount }}% de desconto</p>
         <p class="limited-time-offer">Oferta por tempo limitado</p>
-        <p>Poupe em DJI e mais</p>
+        <p>Poupe em {{ product.brand }} e mais</p>
       </div>
     </div>
     <a href="#top">Ver mais</a>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["product"]);
+</script>
 
 <style scoped>
 .img-container {

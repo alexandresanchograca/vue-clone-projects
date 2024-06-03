@@ -1,15 +1,19 @@
 <template>
   <div class="content">
-    <ImageCarousel></ImageCarousel>
+    <ImageCarousel :banners="banners"></ImageCarousel>
     <Grid></Grid>
-    <Recomendations></Recomendations>
   </div>
+  <Recomendations></Recomendations>
 </template>
 
 <script setup>
 import ImageCarousel from "@/components/content/ImageCarousel.vue";
 import Grid from "@/components/content/grid/Grid.vue";
 import Recomendations from "@/components/content/Recomendations.vue";
+import getData from "@/composables/getData";
+
+const { getBannerImages } = getData();
+const banners = getBannerImages();
 </script>
 
 <style scoped>

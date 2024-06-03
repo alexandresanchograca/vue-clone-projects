@@ -4,21 +4,18 @@
       <h3>Ofertas Inesperadas <a href="">Ver mais</a></h3>
     </div>
     <div class="items-container">
-      <CarouselItem></CarouselItem>
-      <CarouselItem></CarouselItem>
-      <CarouselItem></CarouselItem>
-      <CarouselItem></CarouselItem>
-      <CarouselItem></CarouselItem>
-      <CarouselItem></CarouselItem>
-      <CarouselItem></CarouselItem>
-      <CarouselItem></CarouselItem>
-      <CarouselItem></CarouselItem>
+      <CarouselItem
+        v-for="product in products"
+        :key="product.title"
+        :product="product"
+      ></CarouselItem>
     </div>
   </div>
 </template>
 
 <script setup>
 import CarouselItem from "@/components/content/grid/carousel/CarouselItem.vue";
+const props = defineProps(["products"]);
 </script>
 
 <style scoped>
