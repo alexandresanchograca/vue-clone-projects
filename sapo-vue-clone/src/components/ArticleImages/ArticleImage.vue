@@ -4,22 +4,20 @@
       <img :src="articleImg.urlToImage" />
     </div>
     <div class="article-text">
-      <div v-if="articleImg.isSpecial" class="pill-wrapper">
+      <div v-if="true" class="pill-wrapper">
         <div class="img-green-pill">ESPECIAL</div>
       </div>
       <h1>{{ articleImg.title }}</h1>
-      <div v-if="articleImg.authorSignature" class="article-icons">
+      <div v-if="articleImg.author" class="article-icons">
         <div class="author-profile-card">
           <img
             class="author-profile-img"
-            :src="
-              require(`@/assets/news-files/${articleImg.authorSignature.picture}`)
-            "
+            :src="require(`@/assets/news-files/pabreu_perfil.avif`)"
           />
           <span class="author-desc">
-            <div class="author-name">{{ articleImg.authorSignature.name }}</div>
+            <div class="author-name">{{ articleImg.author }}</div>
             <div class="publish-date">
-              {{ articleImg.authorSignature.date }}
+              {{ articleImg.publishedAt.substring(0, 10) }}
             </div>
           </span>
         </div>
