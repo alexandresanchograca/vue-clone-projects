@@ -1,7 +1,7 @@
 <template>
   <div class="article-img article-img-secondary">
     <div class="img-wrapper">
-      <img :src="require(`@/assets/news-files/${articleImg.imgName}`)" />
+      <img :src="articleImg.urlToImage" />
     </div>
     <div class="article-text">
       <div v-if="articleImg.isSpecial" class="pill-wrapper">

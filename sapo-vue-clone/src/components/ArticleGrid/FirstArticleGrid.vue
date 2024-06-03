@@ -5,7 +5,7 @@
       <SmallNewsBox :news="smallNews"></SmallNewsBox>
     </div>
     <div class="col sec-col">
-      <LatestNews :newsList="latestNews"></LatestNews>
+      <LatestNews :newsList="headlineNews"></LatestNews>
     </div>
     <div class="col third-col">
       <Markets :stocks="stocks"></Markets>
@@ -21,12 +21,19 @@ import Markets from "./Markets.vue";
 import getData from "@/composables/getData";
 import { computed } from "vue";
 
-const { getStocks, getNewsList, getLatestNews, getNewsListData } = getData();
+const {
+  getStocks,
+  getNewsList,
+  getLatestNews,
+  getNewsListData,
+  getHeadNewsListData,
+} = getData();
 
 const stocks = getStocks();
 const newsList = getNewsList();
 const latestNews = getLatestNews();
 const dataList = getNewsListData();
+const headlineNews = getHeadNewsListData();
 
 const mainNews = computed(() => {
   const newsArr = dataList.splice(0, 1);

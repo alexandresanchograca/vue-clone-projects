@@ -1,14 +1,10 @@
 <template>
   <div v-if="news">
-    <img
-      v-if="news"
-      class="main-img"
-      :src="require(`@/assets/news-files/${news.imgName}`)"
-    />
+    <img v-if="news" class="main-img" :src="news.urlToImage" />
     <GreenBadge></GreenBadge>
   </div>
   <div v-if="news" class="big-news-card">
-    <div v-if="news.isExclusive"><RedPill></RedPill></div>
+    <div v-if="true"><RedPill></RedPill></div>
     <h2>{{ news.title }}</h2>
     <p>
       {{ news.description }}
@@ -43,6 +39,7 @@ div.big-news-card {
   flex-direction: column;
   margin-left: 0px;
   padding-left: 20px;
+  padding-top: 20px;
   padding-bottom: 20px;
   background-color: white;
   max-height: 350px;

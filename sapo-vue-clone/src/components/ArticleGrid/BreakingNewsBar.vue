@@ -27,11 +27,20 @@ import { computed } from "vue";
 const props = defineProps(["breakingNews"]);
 
 const liveBreakingNews = computed(() => {
-  return props.breakingNews.findLast((news) => news.live);
+  return props.breakingNews.findLast((news) => news.title.length < 50);
 });
 
 const pastBreakingNews = computed(() => {
-  return props.breakingNews.filter((news) => !news.live).slice(0, 3);
+  const newsList = [];
+
+  let counter = 0;
+  props.breakingNews.forEach((news, index) => {
+    if (news.title.length < 75 && counter < 3) {
+      newsList.push(...props.breakingNews.splice(index, 1));
+      counter++;
+    }
+  });
+  return newsList;
 });
 </script>
 

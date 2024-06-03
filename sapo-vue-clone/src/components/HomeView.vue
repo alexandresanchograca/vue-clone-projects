@@ -5,7 +5,6 @@
     <TabsBar></TabsBar>
     <ArticleImage></ArticleImage>
     <div class="main-content">
-      <NewsBar></NewsBar>
       <FirstArticleGrid></FirstArticleGrid>
     </div>
     <ArticleImage></ArticleImage>

@@ -1,7 +1,7 @@
 <template>
   <div class="article-img">
     <div class="img-wrapper">
-      <img :src="require(`@/assets/news-files/${articleImg.imgName}`)" />
+      <img :src="articleImg.urlToImage" />
     </div>
     <div class="article-text">
       <h1>{{ articleImg.title }}</h1>

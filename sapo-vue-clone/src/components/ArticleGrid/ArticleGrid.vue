@@ -16,7 +16,7 @@ import { computed, onBeforeMount } from "vue";
 const { getNewsList, getNewsListData } = getData();
 
 const xLargeNews = computed(() => {
-  return getNewsList().findLast((news) => news.size === "XL");
+  return getNewsListData().splice(0, 1)[0];
 });
 
 const dataNews = computed(() => {

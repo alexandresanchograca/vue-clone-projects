@@ -19,7 +19,16 @@ import { computed, defineProps } from "vue";
 const props = defineProps(["newsList"]);
 
 const smallNewsList = computed(() => {
-  return props.newsList.slice(0, 5);
+  const newsList = [];
+
+  let counter = 0;
+  props.newsList.forEach((news, index) => {
+    if (news.title.length < 75 && counter < 5) {
+      newsList.push(...props.newsList.splice(index, 1));
+      counter++;
+    }
+  });
+  return newsList;
 });
 </script>
 
