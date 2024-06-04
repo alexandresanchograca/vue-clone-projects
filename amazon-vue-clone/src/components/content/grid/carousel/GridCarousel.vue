@@ -4,18 +4,43 @@
       <h3>Ofertas Inesperadas <a href="">Ver mais</a></h3>
     </div>
     <div class="items-container">
-      <CarouselItem
-        v-for="product in products"
-        :key="product.title"
-        :product="product"
-      ></CarouselItem>
+      <button class="scroll-button left-btn" @click="scrollLeft"><</button>
+      <div class="items-wrapper" ref="itemsWrapper">
+        <CarouselItem
+          v-for="product in products"
+          :key="product.title"
+          :product="product"
+        ></CarouselItem>
+      </div>
+      <button class="scroll-button right-btn" @click="scrollRight">></button>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import CarouselItem from "@/components/content/grid/carousel/CarouselItem.vue";
 const props = defineProps(["products"]);
+
+const itemsWrapper = ref(null);
+
+const scrollLeft = () => {
+  if (itemsWrapper.value) {
+    itemsWrapper.value.scrollBy({
+      left: -800,
+      behavior: "smooth",
+    });
+  }
+};
+
+const scrollRight = () => {
+  if (itemsWrapper.value) {
+    itemsWrapper.value.scrollBy({
+      left: 800,
+      behavior: "smooth",
+    });
+  }
+};
 </script>
 
 <style scoped>
@@ -34,7 +59,9 @@ const props = defineProps(["products"]);
   display: flex;
   gap: 10px;
   box-sizing: border-box;
-  overflow-x: scroll;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
 }
 
 .items-carousel-item .carousel-title {
@@ -55,5 +82,35 @@ const props = defineProps(["products"]);
   font-size: 0.8rem;
   text-decoration: none;
   color: rgb(44, 114, 172);
+}
+
+.items-wrapper {
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+}
+
+.scroll-button {
+  position: absolute;
+  height: 100px;
+  width: 45px;
+  z-index: 3;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgb(124, 124, 124);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-button:hover {
+  background-color: rgba(255, 255, 255, 0.55);
+  color: rgb(75, 75, 75);
+}
+
+.left-btn {
+  left: 0;
+}
+
+.right-btn {
+  right: 0;
 }
 </style>
