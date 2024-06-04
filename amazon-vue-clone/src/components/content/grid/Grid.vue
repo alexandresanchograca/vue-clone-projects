@@ -4,14 +4,14 @@
     <TopOffer :product="topOffer"></TopOffer>
     <ProductsItem :products="productCategories"></ProductsItem>
     <LoginItem></LoginItem>
-    <div v-for="category in initalShopCategories" :key="category.title">
+    <div v-for="category in shopCats()" :key="category.title">
       <GridItem :category="category"></GridItem>
     </div>
     <CarouselItem :products="carouselProducts"></CarouselItem>
-    <div v-for="category in initalShopCategories" :key="category.title">
+    <div v-for="category in shopCats()" :key="category.title">
       <GridItem :category="category"></GridItem>
     </div>
-    <div v-for="category in initalShopCategories" :key="category.title">
+    <div v-for="category in shopCats()" :key="category.title">
       <GridItem :category="category"></GridItem>
     </div>
   </div>
@@ -25,14 +25,31 @@ import LoginItem from "@/components/content/grid/LoginItem.vue";
 import CarouselItem from "@/components/content/grid/carousel/GridCarousel.vue";
 import getData from "@/composables/getData.js";
 import getApiData from "@/composables/getApiData.js";
-import { computed } from "vue";
+import { computed, onBeforeMount, ref } from "vue";
 
 const { getShopCategories, getProducts } = getData();
-const { getApiProducts } = getApiData();
+const { getApiProducts, getApiCategories } = getApiData();
 
+const categories = getApiCategories();
 const shopCategories = getShopCategories();
-const products = getProducts();
 const apiProducts = getApiProducts();
+
+const initalShopCategories = ref(null);
+
+onBeforeMount(() => {
+  let foo = apiProducts.filter((prod) => {
+    if (categories.includes(prod.category)) {
+      const categoryIndex = categories.findIndex(
+        (cat) => cat === prod.category
+      );
+      categories.splice(categoryIndex, 1);
+      return true;
+    }
+    return false;
+  });
+
+  initalShopCategories.value = foo;
+});
 
 const topOffer = computed(() => {
   let highDiscountProduct = {
@@ -45,13 +62,12 @@ const topOffer = computed(() => {
     }
   });
 
-  console.log("wat", highDiscountProduct);
   return apiProducts.splice(highDiscountProduct.index, 1)[0];
 });
 
-const initalShopCategories = computed(() => {
-  return shopCategories.slice(0, 4);
-});
+const shopCats = () => {
+  return initalShopCategories.value.splice(0, 4);
+};
 
 const productCategories = computed(() => {
   return shopCategories.filter((prod) => prod.imageSize == "S").slice(0, 4);

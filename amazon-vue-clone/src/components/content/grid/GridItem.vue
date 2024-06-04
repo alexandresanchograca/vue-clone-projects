@@ -1,7 +1,11 @@
 <template>
   <div v-if="category" class="grid-item">
-    <h3 class="bold">{{ category.title }}</h3>
-    <img :src="require(`@/assets/grid/${category.imageName}`)" />
+    <h3 class="bold">
+      {{
+        category.category.charAt(0).toUpperCase() + category.category.slice(1)
+      }}
+    </h3>
+    <img v-if="category.thumbnail" :src="category.thumbnail" />
     <a href="#top">Ver mais</a>
   </div>
 </template>
