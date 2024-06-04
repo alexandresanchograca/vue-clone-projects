@@ -1,7 +1,7 @@
 <template>
   <div class="initial-grid">
     <ProductsItem :products="productCategories"></ProductsItem>
-    <TopOffer :product="topOffer()"></TopOffer>
+    <TopOffer :product="topOffer"></TopOffer>
     <ProductsItem :products="productCategories"></ProductsItem>
     <LoginItem></LoginItem>
     <div v-for="category in initalShopCategories" :key="category.title">
@@ -24,16 +24,30 @@ import GridItem from "@/components/content/grid/GridItem.vue";
 import LoginItem from "@/components/content/grid/LoginItem.vue";
 import CarouselItem from "@/components/content/grid/carousel/GridCarousel.vue";
 import getData from "@/composables/getData.js";
+import getApiData from "@/composables/getApiData.js";
 import { computed } from "vue";
 
 const { getShopCategories, getProducts } = getData();
+const { getApiProducts } = getApiData();
 
 const shopCategories = getShopCategories();
 const products = getProducts();
+const apiProducts = getApiProducts();
 
-const topOffer = () => {
-  return products.findLast((prod) => prod.discount > 35.0);
-};
+const topOffer = computed(() => {
+  let highDiscountProduct = {
+    index: 0,
+    discount: apiProducts[0].discountPercentage,
+  };
+  apiProducts.forEach((prod, index) => {
+    if (highDiscountProduct.discount < prod.discountPercentage) {
+      highDiscountProduct = { index, discount: prod.discountPercentage };
+    }
+  });
+
+  console.log("wat", highDiscountProduct);
+  return apiProducts.splice(highDiscountProduct.index, 1)[0];
+});
 
 const initalShopCategories = computed(() => {
   return shopCategories.slice(0, 4);
@@ -44,8 +58,8 @@ const productCategories = computed(() => {
 });
 
 const carouselProducts = computed(() => {
-  return products.filter(
-    (prod) => prod.discount > 20 && prod.title !== topOffer().title
+  return apiProducts.filter(
+    (prod) => prod.discountPercentage > 10 && prod.title !== topOffer.title
   );
 });
 </script>
