@@ -149,6 +149,7 @@ const props = defineProps(["articleImg"]);
 
 .article-icons > * {
   margin: 20px;
+  margin-left: 0px;
   color: #00d700;
   font-size: 1.4rem;
   cursor: pointer;

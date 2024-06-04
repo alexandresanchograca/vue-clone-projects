@@ -33,10 +33,10 @@ import Footer from "./components/Footer/Footer.vue";
 import getData from "./composables/getData";
 import { computed } from "vue";
 
-const stockItems = getStocks();
-const breakingNews = getHeadNewsListData();
 const { getArticleImages, getStocks, getNewsListData, getHeadNewsListData } =
   getData();
+const stockItems = getStocks();
+const breakingNews = getHeadNewsListData();
 
 const newsListData = getNewsListData();
 
@@ -50,9 +50,9 @@ const mainArticleImg = computed(() => {
 const articleImages = computed(() => {
   const newsList = [];
 
-  props.newsList.forEach((news, index) => {
-    if (news.source.name === "Expresso.pt") {
-      newsList.push(...props.newsList.splice(index, 1));
+  newsListData.forEach((news, index) => {
+    if (news.source.name === "Expresso.pt" && news.title.length < 100) {
+      newsList.push(...newsListData.splice(index, 1));
     }
   });
   return newsList;
