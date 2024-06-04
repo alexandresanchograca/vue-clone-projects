@@ -21,17 +21,11 @@ import Markets from "./Markets.vue";
 import getData from "@/composables/getData";
 import { computed } from "vue";
 
-const {
-  getStocks,
-  getNewsList,
-  getLatestNews,
-  getNewsListData,
-  getHeadNewsListData,
-} = getData();
+const { getStocks, getNewsList, getNewsListData, getHeadNewsListData } =
+  getData();
 
 const stocks = getStocks();
 const newsList = getNewsList();
-const latestNews = getLatestNews();
 const dataList = getNewsListData();
 const headlineNews = getHeadNewsListData();
 

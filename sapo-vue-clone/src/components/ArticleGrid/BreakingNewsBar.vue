@@ -2,8 +2,8 @@
   <div v-if="breakingNews" class="breaking-news-bar">
     <div class="markets-bar">
       <div v-if="liveBreakingNews" class="red-box live-news">Em Direto</div>
-      <h2>{{ liveBreakingNews.title }}</h2>
-      <div class="arrow-square">
+      <h2 v-if="liveBreakingNews">{{ liveBreakingNews.title }}</h2>
+      <div v-if="liveBreakingNews" class="arrow-square">
         <div class="square-box">
           <div class="skewed-box">
             <i class="fa-solid fa-arrow-right"></i>
@@ -26,8 +26,10 @@ import { computed } from "vue";
 
 const props = defineProps(["breakingNews"]);
 
+console.log(props.breakingNews);
+
 const liveBreakingNews = computed(() => {
-  return props.breakingNews.findLast((news) => news.title.length < 50);
+  return props.breakingNews.findLast((news) => news.title.length < 70);
 });
 
 const pastBreakingNews = computed(() => {

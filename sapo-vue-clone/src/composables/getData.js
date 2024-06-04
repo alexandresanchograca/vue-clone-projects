@@ -1,4 +1,3 @@
-import articleImages from "@/data/articleImages.js";
 import stockItems from "@/data/stocks";
 import news from "@/data/news";
 
@@ -6,20 +5,8 @@ const baseUrl = "https://newsapi.org";
 var newsData = null;
 var headlineData = null;
 
-function getArticleImages() {
-  return articleImages;
-}
-
 function getStocks() {
   return stockItems;
-}
-
-function getBreakingNews() {
-  return news.breakingNews;
-}
-
-function getLatestNews() {
-  return news.latestNews;
 }
 
 function getNewsList() {
@@ -91,11 +78,8 @@ function getData() {
     getHeadlinesData,
     getNewsListData,
     getHeadNewsListData,
-    getArticleImages,
     getStocks,
-    getBreakingNews,
     getNewsList,
-    getLatestNews,
   };
 }
 

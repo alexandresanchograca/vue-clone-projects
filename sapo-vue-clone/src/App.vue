@@ -33,8 +33,7 @@ import Footer from "./components/Footer/Footer.vue";
 import getData from "./composables/getData";
 import { computed } from "vue";
 
-const { getArticleImages, getStocks, getNewsListData, getHeadNewsListData } =
-  getData();
+const { getStocks, getNewsListData, getHeadNewsListData } = getData();
 const stockItems = getStocks();
 const breakingNews = getHeadNewsListData();
 
