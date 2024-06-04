@@ -13,7 +13,7 @@ import BigNewsBox from "./BigNewsBox.vue";
 import getData from "@/composables/getData";
 import { computed, onBeforeMount } from "vue";
 
-const { getNewsList, getNewsListData } = getData();
+const { getNewsListData } = getData();
 
 const xLargeNews = computed(() => {
   return getNewsListData().splice(0, 1)[0];

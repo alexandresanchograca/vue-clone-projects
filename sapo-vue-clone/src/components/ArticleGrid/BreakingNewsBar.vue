@@ -26,8 +26,6 @@ import { computed } from "vue";
 
 const props = defineProps(["breakingNews"]);
 
-console.log(props.breakingNews);
-
 const liveBreakingNews = computed(() => {
   return props.breakingNews.findLast((news) => news.title.length < 70);
 });
