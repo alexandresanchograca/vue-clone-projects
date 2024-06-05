@@ -5,9 +5,7 @@
     </div>
     <div class="article-description">
       <div class="article-text">
-        <div v-if="true" class="pill-wrapper">
-          <div class="img-green-pill">ESPECIAL</div>
-        </div>
+        <GreenPill :hollow="true"></GreenPill>
         <h1>{{ articleImg.title }}</h1>
         <p v-if="articleImg.description">
           {{ articleImg.author }}, {{ articleImg.publishedAt.substring(0, 10) }}
@@ -36,6 +34,7 @@
 
 <script setup>
 import { ref, defineProps, onBeforeMount } from "vue";
+import GreenPill from "@/components/ArticleGrid/badges/GreenPill.vue";
 import IconBar from "@/components/ArticleGrid/badges/IconBar.vue";
 const props = defineProps(["articleImg"]);
 
@@ -142,18 +141,5 @@ onBeforeMount(() => {
 
 p.author-note {
   color: rgb(200, 200, 200);
-}
-
-div.pill-wrapper {
-  padding-left: 0;
-  padding-top: 0;
-  margin-left: 0;
-}
-
-.img-green-pill {
-  color: #00d700;
-  border: 1px solid #00d700;
-  background-color: rgba(0, 0, 0, 0);
-  margin: 0;
 }
 </style>

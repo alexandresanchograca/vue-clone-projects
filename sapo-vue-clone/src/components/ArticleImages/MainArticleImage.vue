@@ -177,24 +177,4 @@ const props = defineProps(["articleImg"]);
   font-weight: 500;
   color: white;
 }
-
-.pill-wrapper {
-  width: 75%;
-  margin: auto;
-  display: flex;
-  padding: 20px;
-
-  @media (max-width: 800px) {
-    display: none;
-  }
-}
-
-.img-green-pill {
-  background-color: #00d700;
-  color: white;
-  border-radius: 20px;
-  padding: 10px;
-  font-size: 0.7rem;
-  font-weight: bold;
-}
 </style>
