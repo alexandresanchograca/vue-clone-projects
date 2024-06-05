@@ -1,8 +1,10 @@
 <template>
   <div v-if="news" class="small-news-box">
-    <img :src="require(`@/assets/news-files/${news.imgName}`)" />
+    <div class="image-container">
+      <img :src="news.urlToImage" />
+    </div>
     <div class="small-news-desc">
-      <div v-if="news.isExclusive"><RedPill></RedPill></div>
+      <div v-if="true"><RedPill></RedPill></div>
       {{ news.title }}
       <p v-if="news.authorSignature" class="author-note">
         {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
@@ -26,11 +28,19 @@ const props = defineProps(["news"]);
   border-radius: 2px;
 }
 
-img {
+.image-container {
   flex-shrink: 0;
-  max-width: 100%;
+  height: 150px;
+  width: 150px;
   overflow: hidden;
 }
+
+img {
+  max-width: none;
+  max-height: none;
+  transform: translate(-50%, -30%);
+}
+
 h3 {
   float: right;
   font-size: 1.3rem;

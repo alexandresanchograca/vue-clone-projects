@@ -1,5 +1,4 @@
 import stockItems from "@/data/stocks";
-import news from "@/data/news";
 
 const baseUrl = "https://newsapi.org";
 var newsData = null;
@@ -7,10 +6,6 @@ var headlineData = null;
 
 function getStocks() {
   return stockItems;
-}
-
-function getNewsList() {
-  return news.newsList;
 }
 
 function getNewsListData() {
@@ -79,7 +74,6 @@ function getData() {
     getNewsListData,
     getHeadNewsListData,
     getStocks,
-    getNewsList,
   };
 }
 

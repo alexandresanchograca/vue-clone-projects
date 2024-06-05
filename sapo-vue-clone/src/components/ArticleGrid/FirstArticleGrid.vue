@@ -25,7 +25,6 @@ const { getStocks, getNewsList, getNewsListData, getHeadNewsListData } =
   getData();
 
 const stocks = getStocks();
-const newsList = getNewsList();
 const dataList = getNewsListData();
 const headlineNews = getHeadNewsListData();
 
@@ -36,8 +35,13 @@ const mainNews = computed(() => {
     return newsArr[0];
   }
 });
+
 const smallNews = computed(() => {
-  return newsList.findLast((news) => news.size === "S");
+  const newsIndex = dataList.findIndex((news) => news.title.length < 56);
+  const newsArr = dataList.splice(newsIndex, 1);
+  if (newsArr.length) {
+    return newsArr[0];
+  }
 });
 </script>
 
