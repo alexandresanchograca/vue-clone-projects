@@ -32,6 +32,8 @@
 <script setup>
 import { defineProps } from "vue";
 const props = defineProps(["articleImg"]);
+
+console.log(props.articleImg);
 </script>
 
 <style scoped>

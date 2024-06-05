@@ -10,7 +10,11 @@
       <FirstArticleGrid></FirstArticleGrid>
     </div>
     <div v-for="articleImg in articleImages" :key="articleImg.title">
-      <SidebarArticleImage :articleImg="articleImg"></SidebarArticleImage>
+      <SidebarArticleImage
+        v-if="Math.random() * 100 < 25"
+        :articleImg="articleImg"
+      ></SidebarArticleImage>
+      <ArticleImage v-else :articleImg="articleImg"></ArticleImage>
       <div class="main-content">
         <ArticleGrid></ArticleGrid>
       </div>
