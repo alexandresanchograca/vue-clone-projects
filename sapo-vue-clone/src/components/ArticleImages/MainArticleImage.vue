@@ -72,7 +72,7 @@ const props = defineProps(["articleImg"]);
 
 .article-img h1 {
   font-weight: bold;
-  font-size: clamp(1.2rem, 6vw, 3.2rem);
+  font-size: clamp(1.2rem, 4vw, 3.2rem);
   width: 75%;
   margin: auto;
 }
