@@ -114,6 +114,7 @@ onBeforeMount(() => {
 .bar-items .item {
   padding-bottom: 20px;
   margin-bottom: 20px;
+  border-right: 0;
 }
 
 .bottom-border {
