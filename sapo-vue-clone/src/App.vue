@@ -10,7 +10,7 @@
       <FirstArticleGrid></FirstArticleGrid>
     </div>
     <div v-for="articleImg in articleImages" :key="articleImg.title">
-      <ArticleImage :articleImg="articleImg"></ArticleImage>
+      <SidebarArticleImage :articleImg="articleImg"></SidebarArticleImage>
       <div class="main-content">
         <ArticleGrid></ArticleGrid>
       </div>
@@ -22,6 +22,7 @@
 <script setup>
 import MainArticleImage from "@/components/ArticleImages/MainArticleImage.vue";
 import ArticleImage from "./components/ArticleImages/ArticleImage.vue";
+import SidebarArticleImage from "./components/ArticleImages/SidebarArticleImage.vue";
 import HeaderBar from "@/components/Header/HeaderBar.vue";
 import Navbar from "@/components/Header/Navbar.vue";
 import TabsBar from "@/components/Header/TabsBar.vue";
