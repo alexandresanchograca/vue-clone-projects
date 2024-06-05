@@ -11,7 +11,6 @@ const props = defineProps(["hollow"]);
 <style scoped>
 .pill-wrapper {
   width: 75%;
-  margin: auto;
   display: flex;
   padding: 20px;
   padding-left: 0;
