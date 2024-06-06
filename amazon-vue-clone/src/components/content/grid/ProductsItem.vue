@@ -12,7 +12,15 @@
 </template>
 
 <script setup>
-const props = defineProps(["products"]);
+import getData from "@/composables/getData.js";
+import { computed } from "vue";
+
+const { getShopCategories, getProducts } = getData();
+const shopCategories = getShopCategories();
+
+const products = computed(() => {
+  return shopCategories.filter((prod) => prod.imageSize == "S").slice(0, 4);
+});
 </script>
 
 <style scoped>

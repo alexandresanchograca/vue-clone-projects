@@ -14,7 +14,25 @@
 </template>
 
 <script setup>
-const props = defineProps(["product"]);
+import getApiData from "@/composables/getApiData.js";
+import { computed, onBeforeMount, ref } from "vue";
+
+const { getApiProducts, getApiCategories } = getApiData();
+const apiProducts = getApiProducts();
+
+const product = computed(() => {
+  let highDiscountProduct = {
+    index: 0,
+    discount: apiProducts[0].discountPercentage,
+  };
+  apiProducts.forEach((prod, index) => {
+    if (highDiscountProduct.discount < prod.discountPercentage) {
+      highDiscountProduct = { index, discount: prod.discountPercentage };
+    }
+  });
+
+  return apiProducts.splice(highDiscountProduct.index, 1)[0];
+});
 </script>
 
 <style scoped>

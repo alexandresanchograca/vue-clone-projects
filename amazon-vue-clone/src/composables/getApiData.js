@@ -39,12 +39,15 @@ async function getCategoriesData() {
   return productCategories;
 }
 
+async function requestApiData() {
+  return Promise.all([getProductsData(), getCategoriesData()]);
+}
+
 function getApiData() {
   return {
     getApiCategories,
     getApiProducts,
-    getProductsData,
-    getCategoriesData,
+    requestApiData,
   };
 }
 

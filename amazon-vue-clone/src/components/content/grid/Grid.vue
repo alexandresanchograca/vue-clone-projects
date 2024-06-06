@@ -1,15 +1,15 @@
 <template>
   <div class="initial-grid">
-    <ProductsItem :products="productCategories"></ProductsItem>
-    <TopOffer :product="topOffer"></TopOffer>
-    <ProductsItem :products="productCategories"></ProductsItem>
+    <ProductsItem></ProductsItem>
+    <TopOffer></TopOffer>
+    <ProductsItem></ProductsItem>
     <LoginItem></LoginItem>
     <GridItem
       v-for="category in shopCats()"
       :key="category.title"
       :category="category"
     ></GridItem>
-    <CarouselItem :products="carouselProducts"></CarouselItem>
+    <CarouselItem></CarouselItem>
     <GridItem
       v-for="category in shopCats()"
       :key="category.title"
@@ -57,33 +57,9 @@ onBeforeMount(() => {
   initalShopCategories.value = foo;
 });
 
-const topOffer = computed(() => {
-  let highDiscountProduct = {
-    index: 0,
-    discount: apiProducts[0].discountPercentage,
-  };
-  apiProducts.forEach((prod, index) => {
-    if (highDiscountProduct.discount < prod.discountPercentage) {
-      highDiscountProduct = { index, discount: prod.discountPercentage };
-    }
-  });
-
-  return apiProducts.splice(highDiscountProduct.index, 1)[0];
-});
-
 const shopCats = () => {
   return initalShopCategories.value.splice(0, 4);
 };
-
-const productCategories = computed(() => {
-  return shopCategories.filter((prod) => prod.imageSize == "S").slice(0, 4);
-});
-
-const carouselProducts = computed(() => {
-  return apiProducts.filter(
-    (prod) => prod.discountPercentage > 10 && prod.title !== topOffer.title
-  );
-});
 </script>
 
 <style>

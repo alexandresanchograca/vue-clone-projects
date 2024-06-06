@@ -2,8 +2,8 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import getApiData from "./composables/getApiData";
 
-const { getProductsData, getCategoriesData } = getApiData();
+const { requestApiData } = getApiData();
 
-Promise.all([getProductsData(), getCategoriesData()]).then((resp) => {
+requestApiData().then((resp) => {
   createApp(App).mount("#app");
 });

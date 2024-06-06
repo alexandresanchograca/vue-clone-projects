@@ -22,7 +22,10 @@
 </template>
 
 <script setup>
-const props = defineProps(["banners"]);
+import getData from "@/composables/getData";
+
+const { getBannerImages } = getData();
+const banners = getBannerImages();
 </script>
 
 <style scoped>

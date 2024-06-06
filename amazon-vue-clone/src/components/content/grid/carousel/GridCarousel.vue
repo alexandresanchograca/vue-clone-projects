@@ -20,9 +20,23 @@
 <script setup>
 import { ref } from "vue";
 import CarouselItem from "@/components/content/grid/carousel/CarouselItem.vue";
-const props = defineProps(["products"]);
+import getApiData from "@/composables/getApiData.js";
+import { computed, onBeforeMount } from "vue";
 
+const { getApiProducts, getApiCategories } = getApiData();
+
+const apiProducts = getApiProducts();
 const itemsWrapper = ref(null);
+const products = ref([]);
+
+onBeforeMount(() => {
+  apiProducts.forEach((prod, index) => {
+    if (prod.discountPercentage > 10) {
+      products.value.push(prod);
+      apiProducts.splice(index, 1);
+    }
+  });
+});
 
 const scrollLeft = () => {
   if (itemsWrapper.value) {
