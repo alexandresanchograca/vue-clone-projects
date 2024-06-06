@@ -2,8 +2,6 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import getData from "./composables/getData";
 
-const { getNewsData, getHeadlinesData } = getData();
+const { getNewsData } = getData();
 
-Promise.all([getNewsData(), getHeadlinesData()]).then((resp) => {
-  createApp(App).mount("#app");
-});
+getNewsData().then((newsData) => createApp(App).mount("#app"));

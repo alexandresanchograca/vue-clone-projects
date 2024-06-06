@@ -21,56 +21,48 @@ async function getNewsData() {
     return newsData;
   }
 
-  const endpoint = "/v2/everything";
+  const everythingEndpoint = "/v2/everything";
+  const headlinesEndpoint = "/v2/top-headlines";
 
   const getObservador = async () =>
     await fetch(
-      `${baseUrl}${endpoint}?q=Observador&language=pt&apiKey=3d4b854edbc046148c5a9aecb900194c`
+      `${baseUrl}${everythingEndpoint}?q=Observador&language=pt&apiKey=3d4b854edbc046148c5a9aecb900194c`
     );
 
   const getExpresso = async () =>
     await fetch(
-      `${baseUrl}${endpoint}?q=Expresso&language=pt&from=2024-06-02&apiKey=3d4b854edbc046148c5a9aecb900194c`
+      `${baseUrl}${everythingEndpoint}?q=Expresso&language=pt&from=2024-06-02&apiKey=3d4b854edbc046148c5a9aecb900194c`
     );
 
-  const jsonResponses = await Promise.all([getObservador(), getExpresso()]);
+  const getHeadlines = async () =>
+    await fetch(
+      `${baseUrl}${headlinesEndpoint}?country=pt&apiKey=3d4b854edbc046148c5a9aecb900194c`
+    );
+
+  const jsonResponses = await Promise.all([
+    getObservador(),
+    getExpresso(),
+    getHeadlines(),
+  ]);
+
   const responses = await Promise.all(
     jsonResponses.map((jResp) => jResp.json())
   );
 
-  if (responses.length) {
+  if (responses.length === 3) {
     newsData = responses[0].articles
       .concat(responses[1].articles)
       .filter((article) => article.urlToImage);
+
+    headlineData = responses[2].articles;
   }
 
   return newsData;
 }
 
-async function getHeadlinesData() {
-  if (headlineData !== null) {
-    return headlineData;
-  }
-
-  const endpoint = "/v2/top-headlines";
-
-  const jsonResp = await fetch(
-    `${baseUrl}${endpoint}?country=pt&apiKey=3d4b854edbc046148c5a9aecb900194c`
-  );
-
-  const response = await jsonResp.json();
-
-  if (response.articles) {
-    headlineData = response.articles;
-  }
-
-  return headlineData;
-}
-
 function getData() {
   return {
     getNewsData,
-    getHeadlinesData,
     getNewsListData,
     getHeadNewsListData,
     getStocks,
