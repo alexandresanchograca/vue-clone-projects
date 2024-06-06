@@ -22,8 +22,18 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
-const props = defineProps(["articleImg"]);
+import { computed } from "vue";
+import getData from "@/composables/getData";
+
+const { getNewsListData } = getData();
+const newsListData = getNewsListData();
+
+const articleImg = computed(() => {
+  const articleIndex = newsListData.findLastIndex(
+    (article) => article.source.name === "Expresso.pt"
+  );
+  return newsListData.splice(articleIndex, 1)[0];
+});
 </script>
 
 <style>

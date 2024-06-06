@@ -3,64 +3,27 @@
     <HeaderBar></HeaderBar>
     <Navbar></Navbar>
     <TabsBar></TabsBar>
-    <MainArticleImage :articleImg="mainArticleImg"></MainArticleImage>
+    <MainArticleImage></MainArticleImage>
     <div class="main-content">
-      <StocksBar :stockItems="stockItems"></StocksBar>
-      <BreakingNewsBar :breakingNews="breakingNews"></BreakingNewsBar>
+      <StocksBar></StocksBar>
+      <BreakingNewsBar></BreakingNewsBar>
       <FirstArticleGrid></FirstArticleGrid>
     </div>
-    <div v-for="articleImg in articleImages" :key="articleImg.title">
-      <SidebarArticleImage
-        v-if="Math.random() * 100 < 25"
-        :articleImg="articleImg"
-      ></SidebarArticleImage>
-      <ArticleImage v-else :articleImg="articleImg"></ArticleImage>
-      <div class="main-content">
-        <ArticleGrid></ArticleGrid>
-      </div>
-    </div>
+    <ArticleContainer></ArticleContainer>
     <Footer></Footer>
   </div>
 </template>
 
 <script setup>
 import MainArticleImage from "@/components/ArticleImages/MainArticleImage.vue";
-import ArticleImage from "./components/ArticleImages/ArticleImage.vue";
-import SidebarArticleImage from "./components/ArticleImages/SidebarArticleImage.vue";
+import ArticleContainer from "@/components/ArticleContainer.vue";
 import HeaderBar from "@/components/Header/HeaderBar.vue";
 import Navbar from "@/components/Header/Navbar.vue";
 import TabsBar from "@/components/Header/TabsBar.vue";
 import FirstArticleGrid from "@/components/ArticleGrid/FirstArticleGrid.vue";
-import ArticleGrid from "@/components/ArticleGrid/ArticleGrid.vue";
 import StocksBar from "./components/ArticleGrid/StocksBar.vue";
 import BreakingNewsBar from "@/components/ArticleGrid/BreakingNewsBar.vue";
 import Footer from "./components/Footer/Footer.vue";
-import getData from "./composables/getData";
-import { computed } from "vue";
-
-const { getStocks, getNewsListData, getHeadNewsListData } = getData();
-const stockItems = getStocks();
-const breakingNews = getHeadNewsListData();
-
-const newsListData = getNewsListData();
-
-const mainArticleImg = computed(() => {
-  const articleIndex = newsListData.findLastIndex(
-    (article) => article.source.name === "Expresso.pt"
-  );
-  return newsListData.splice(articleIndex, 1)[0];
-});
-
-const articleImages = computed(() => {
-  const newsList = [];
-
-  newsListData.forEach((news, index) => {
-    if (news.source.name === "Expresso.pt" && news.title.length < 100) {
-      newsList.push(...newsListData.splice(index, 1));
-    }
-  });
-  return newsList;
-});
 </script>
 
 <style>

@@ -23,20 +23,22 @@
 
 <script setup>
 import { computed } from "vue";
+import getData from "@/composables/getData";
 
-const props = defineProps(["breakingNews"]);
+const { getHeadNewsListData } = getData();
+const breakingNews = getHeadNewsListData();
 
 const liveBreakingNews = computed(() => {
-  return props.breakingNews.findLast((news) => news.title.length < 70);
+  return breakingNews.findLast((news) => news.title.length < 75);
 });
 
 const pastBreakingNews = computed(() => {
   const newsList = [];
 
   let counter = 0;
-  props.breakingNews.forEach((news, index) => {
-    if (news.title.length < 75 && counter < 3) {
-      newsList.push(...props.breakingNews.splice(index, 1));
+  breakingNews.forEach((news, index) => {
+    if (news.title.length < 78 && counter < 3) {
+      newsList.push(...breakingNews.splice(index, 1));
       counter++;
     }
   });

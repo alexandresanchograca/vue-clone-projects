@@ -16,7 +16,10 @@
 </template>
 
 <script setup>
-const props = defineProps(["stockItems"]);
+import getData from "@/composables/getData";
+
+const { getStocks } = getData();
+const stockItems = getStocks();
 </script>
 
 <style>
