@@ -1,9 +1,7 @@
 <template>
   <div class="main-article-grid">
     <BigNewsBox :news="xLargeNews"></BigNewsBox>
-    <div v-for="news in dataNews" :key="news.title">
-      <NewsBox :news="news"></NewsBox>
-    </div>
+    <NewsBox v-for="news in dataNews" :key="news.title" :news="news"></NewsBox>
   </div>
 </template>
 

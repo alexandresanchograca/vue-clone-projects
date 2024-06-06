@@ -4,16 +4,22 @@
     <TopOffer :product="topOffer"></TopOffer>
     <ProductsItem :products="productCategories"></ProductsItem>
     <LoginItem></LoginItem>
-    <div v-for="category in shopCats()" :key="category.title">
-      <GridItem :category="category"></GridItem>
-    </div>
+    <GridItem
+      v-for="category in shopCats()"
+      :key="category.title"
+      :category="category"
+    ></GridItem>
     <CarouselItem :products="carouselProducts"></CarouselItem>
-    <div v-for="category in shopCats()" :key="category.title">
-      <GridItem :category="category"></GridItem>
-    </div>
-    <div v-for="category in shopCats()" :key="category.title">
-      <GridItem :category="category"></GridItem>
-    </div>
+    <GridItem
+      v-for="category in shopCats()"
+      :key="category.title"
+      :category="category"
+    ></GridItem>
+    <GridItem
+      v-for="category in shopCats()"
+      :key="category.title"
+      :category="category"
+    ></GridItem>
   </div>
 </template>
 
