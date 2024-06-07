@@ -17,7 +17,7 @@
 import getApiData from "@/composables/getApiData.js";
 import { computed, onBeforeMount, ref } from "vue";
 
-const { getApiProducts, getApiCategories } = getApiData();
+const { getApiProducts } = getApiData();
 const apiProducts = getApiProducts();
 
 const product = computed(() => {
@@ -26,7 +26,7 @@ const product = computed(() => {
     discount: apiProducts[0].discountPercentage,
   };
   apiProducts.forEach((prod, index) => {
-    if (highDiscountProduct.discount < prod.discountPercentage) {
+    if (highDiscountProduct.discount < prod.discountPercentage && prod.brand) {
       highDiscountProduct = { index, discount: prod.discountPercentage };
     }
   });
