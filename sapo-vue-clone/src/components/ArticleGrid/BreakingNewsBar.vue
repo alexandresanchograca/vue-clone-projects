@@ -29,7 +29,7 @@ const { getHeadNewsListData } = getData();
 const breakingNews = getHeadNewsListData();
 
 const liveBreakingNews = computed(() => {
-  return breakingNews.findLast((news) => news.title.length < 75);
+  return breakingNews.findLast((news) => news.title.length < 70);
 });
 
 const pastBreakingNews = computed(() => {
