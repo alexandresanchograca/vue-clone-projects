@@ -18,16 +18,23 @@
 import { computed, defineProps } from "vue";
 const props = defineProps(["newsList"]);
 
+function* generateLatestNews(limit) {
+  for (let i = 0; i < limit; i++) {
+    yield props.newsList.splice(i, 1)[0];
+  }
+}
+
 const smallNewsList = computed(() => {
   const newsList = [];
+  const limit = Math.min(5, props.newsList.length);
 
-  let counter = 0;
-  props.newsList.forEach((news, index) => {
-    if (news.title.length < 75 && counter < 5) {
-      newsList.push(...props.newsList.splice(index, 1));
-      counter++;
+  for (let news of generateLatestNews(limit)) {
+    if (news.title.length > 70) {
+      news.title = news.title.substring(0, 70) + "...";
     }
-  });
+    newsList.push(news);
+  }
+
   return newsList;
 });
 </script>
