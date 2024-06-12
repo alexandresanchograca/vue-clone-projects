@@ -29,7 +29,6 @@ const { getNewsListData } = useData();
 const newsListData = getNewsListData();
 
 const articleImg = computed(() => {
-  console.log(newsListData);
   const articleIndex = newsListData.findLastIndex(
     (article) => article.source.name === "Expresso.pt"
   );

@@ -3,13 +3,16 @@
     <HeaderBar />
     <HeaderNavbar />
     <HeaderTabsBar />
-    <MainArticleImage />
-    <div class="main-content">
-      <StocksBar />
-      <BreakingNewsBar />
-      <MainArticleGrid />
+    <div v-if="loaded">
+      <MainArticleImage />
+      <div class="main-content">
+        <StocksBar />
+        <BreakingNewsBar />
+        <MainArticleGrid />
+      </div>
+      <ArticleContainer />
     </div>
-    <ArticleContainer />
+    <div v-else class="loading-placeholder">Loading...</div>
     <FooterDiv />
   </div>
 </template>
@@ -24,9 +27,17 @@ import MainArticleGrid from "@/components/ArticleGrid/MainArticleGrid.vue";
 import StocksBar from "./components/ArticleGrid/StocksBar.vue";
 import BreakingNewsBar from "@/components/ArticleGrid/BreakingNewsBar.vue";
 import FooterDiv from "./components/Footer/FooterDiv.vue";
+import useData from "./composables/useData";
+import { onBeforeMount, ref } from "vue";
 
-//TODO mount the API data here
-//const { getNewsData } = useData();
+const { getNewsData } = useData();
+const loaded = ref(false);
+
+getNewsData().then((resp) => {
+  if (!resp.error) {
+    loaded.value = true;
+  }
+});
 </script>
 
 <style>
