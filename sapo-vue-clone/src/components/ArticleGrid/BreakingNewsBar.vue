@@ -23,9 +23,9 @@
 
 <script setup>
 import { computed } from "vue";
-import getData from "@/composables/getData";
+import useData from "@/composables/useData";
 
-const { getHeadNewsListData } = getData();
+const { getHeadNewsListData } = useData();
 const breakingNews = getHeadNewsListData();
 
 const liveBreakingNews = computed(() => {

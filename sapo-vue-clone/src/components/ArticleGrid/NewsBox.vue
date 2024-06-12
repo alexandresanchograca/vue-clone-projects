@@ -6,7 +6,7 @@
       <p v-if="news.author" class="author-note">
         {{ news.author }}, {{ news.publishedAt.substring(0, 10) }}
       </p>
-      <IconBar></IconBar>
+      <IconBar />
     </div>
   </div>
 </template>

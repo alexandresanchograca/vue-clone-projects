@@ -5,7 +5,7 @@
     </div>
     <div class="article-text">
       <div v-if="true" class="my-pill">
-        <GreenPill></GreenPill>
+        <GreenPill />
       </div>
       <h1>{{ articleImg.title }}</h1>
       <div v-if="articleImg.author" class="article-icons">

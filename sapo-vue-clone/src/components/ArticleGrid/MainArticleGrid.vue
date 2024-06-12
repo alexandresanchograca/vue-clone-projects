@@ -1,14 +1,14 @@
 <template>
   <div class="first-main-article-grid">
     <div class="col first-col">
-      <MainNewsBox :news="mainNews"></MainNewsBox>
-      <SmallNewsBox :news="smallNews"></SmallNewsBox>
+      <MainNewsBox :news="mainNews" />
+      <SmallNewsBox :news="smallNews" />
     </div>
     <div class="col sec-col">
-      <LatestNews :newsList="headlineNews"></LatestNews>
+      <LatestNews :newsList="headlineNews" />
     </div>
     <div class="col third-col">
-      <Markets :stocks="stocks"></Markets>
+      <Markets :stocks="stocks" />
     </div>
   </div>
 </template>
@@ -18,11 +18,11 @@ import MainNewsBox from "@/components/ArticleGrid/MainNewsBox.vue";
 import SmallNewsBox from "@/components/ArticleGrid/SmallNewsBox.vue";
 import LatestNews from "./LatestNews.vue";
 import Markets from "./Markets.vue";
-import getData from "@/composables/getData";
+import useData from "@/composables/useData";
 import { computed } from "vue";
 
 const { getStocks, getNewsList, getNewsListData, getHeadNewsListData } =
-  getData();
+  useData();
 
 const stocks = getStocks();
 const dataList = getNewsListData();

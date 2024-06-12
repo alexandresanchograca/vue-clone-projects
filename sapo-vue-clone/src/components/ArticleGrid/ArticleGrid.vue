@@ -8,10 +8,10 @@
 <script setup>
 import NewsBox from "./NewsBox.vue";
 import BigNewsBox from "./BigNewsBox.vue";
-import getData from "@/composables/getData";
+import useData from "@/composables/useData";
 import { computed, onBeforeMount } from "vue";
 
-const { getNewsListData } = getData();
+const { getNewsListData } = useData();
 
 const xLargeNews = computed(() => {
   return getNewsListData().splice(0, 1)[0];

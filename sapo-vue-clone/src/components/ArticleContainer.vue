@@ -3,10 +3,10 @@
     <SidebarArticleImage
       v-if="Math.random() * 100 < 25"
       :articleImg="articleImg"
-    ></SidebarArticleImage>
-    <ArticleImage v-else :articleImg="articleImg"></ArticleImage>
+    />
+    <ArticleImage v-else :articleImg="articleImg" />
     <div class="main-content">
-      <ArticleGrid></ArticleGrid>
+      <ArticleGrid />
     </div>
   </div>
 </template>
@@ -15,10 +15,10 @@
 import ArticleImage from "@/components/ArticleImages/ArticleImage.vue";
 import SidebarArticleImage from "@/components/ArticleImages/SidebarArticleImage.vue";
 import ArticleGrid from "@/components/ArticleGrid/ArticleGrid.vue";
-import getData from "@/composables/getData";
+import useData from "@/composables/useData";
 import { computed } from "vue";
 
-const { getNewsListData } = getData();
+const { getNewsListData } = useData();
 
 const newsListData = getNewsListData();
 

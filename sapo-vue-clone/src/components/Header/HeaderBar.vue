@@ -5,7 +5,7 @@
         <a>MENU</a>| <a>MAIL</a><a>CAPAS DE JORNAIS</a>
       </div>
       <div class="sapo-logo">
-        <SapoLogo></SapoLogo>
+        <SapoLogo />
       </div>
     </div>
   </div>

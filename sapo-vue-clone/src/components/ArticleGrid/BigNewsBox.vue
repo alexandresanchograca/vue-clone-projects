@@ -1,15 +1,15 @@
 <template>
   <div v-if="news">
     <img v-if="news" class="main-img" :src="news.urlToImage" />
-    <GreenBadge></GreenBadge>
+    <GreenBadge />
   </div>
   <div v-if="news" class="big-news-card">
-    <div v-if="true"><RedPill></RedPill></div>
+    <div v-if="true"><RedPill /></div>
     <h2>{{ news.title }}</h2>
     <p>
       {{ news.description }}
     </p>
-    <IconBar :news="news"></IconBar>
+    <IconBar :news="news" />
   </div>
 </template>
 

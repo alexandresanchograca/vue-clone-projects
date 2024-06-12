@@ -1,10 +1,10 @@
 <template>
   <footer>
     <div class="footer-cols">
-      <Newsletters></Newsletters>
-      <Explore></Explore>
-      <About></About>
-      <Download></Download>
+      <Newsletters />
+      <Explore />
+      <About />
+      <Download />
     </div>
     <div class="footer-bottom">
       <p>

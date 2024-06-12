@@ -16,9 +16,9 @@
 </template>
 
 <script setup>
-import getData from "@/composables/getData";
+import useData from "@/composables/useData";
 
-const { getStocks } = getData();
+const { getStocks } = useData();
 const stockItems = getStocks();
 </script>
 

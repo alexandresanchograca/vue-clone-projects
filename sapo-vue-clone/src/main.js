@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import getData from "./composables/getData";
+import useData from "@/composables/useData";
 
-const { getNewsData } = getData();
+const { getNewsData, getNewsListData } = useData();
 
 getNewsData().then((newsData) => createApp(App).mount("#app"));

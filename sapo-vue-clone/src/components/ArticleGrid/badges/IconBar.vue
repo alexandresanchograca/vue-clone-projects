@@ -24,7 +24,7 @@ const props = defineProps(["news"]);
   align-items: center;
   color: green;
   padding-top: 20px;
-  margin-top: auto;
+  margin-top: 20px;
   width: 100%;
 }
 

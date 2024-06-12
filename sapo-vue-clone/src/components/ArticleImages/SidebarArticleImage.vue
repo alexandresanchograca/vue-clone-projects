@@ -5,12 +5,12 @@
     </div>
     <div class="article-description">
       <div class="article-text">
-        <GreenPill :hollow="true"></GreenPill>
+        <GreenPill :hollow="true" />
         <h1>{{ articleImg.title }}</h1>
         <p v-if="articleImg.description">
           {{ articleImg.author }}, {{ articleImg.publishedAt.substring(0, 10) }}
         </p>
-        <IconBar></IconBar>
+        <IconBar />
       </div>
       <div v-if="sideBarItems" class="side-bar">
         <div class="bar-items">

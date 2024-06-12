@@ -13,7 +13,7 @@
       <p>
         {{ news.description }}
       </p>
-      <IconBar></IconBar>
+      <IconBar />
     </div>
   </div>
 </template>

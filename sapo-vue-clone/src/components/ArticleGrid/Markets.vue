@@ -4,7 +4,7 @@
     <ul v-if="stocks">
       <li v-for="stock in stocks" :key="stock.name">
         <h4>{{ stock.fullName }}</h4>
-        <StockPill :stock="stock"></StockPill>
+        <StockPill :stock="stock" />
       </li>
     </ul>
   </div>

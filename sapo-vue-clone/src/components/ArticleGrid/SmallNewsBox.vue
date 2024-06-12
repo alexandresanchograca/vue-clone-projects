@@ -4,7 +4,7 @@
       <img :src="news.urlToImage" />
     </div>
     <div class="small-news-desc">
-      <div v-if="true"><RedPill></RedPill></div>
+      <div v-if="true"><RedPill /></div>
       {{ news.title }}
       <p v-if="news.authorSignature" class="author-note">
         {{ news.authorSignature.name }}, {{ news.authorSignature.time }}

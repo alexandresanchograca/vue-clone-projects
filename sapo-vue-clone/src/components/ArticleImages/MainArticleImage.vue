@@ -23,12 +23,13 @@
 
 <script setup>
 import { computed } from "vue";
-import getData from "@/composables/getData";
+import useData from "@/composables/useData.js";
 
-const { getNewsListData } = getData();
+const { getNewsListData } = useData();
 const newsListData = getNewsListData();
 
 const articleImg = computed(() => {
+  console.log(newsListData);
   const articleIndex = newsListData.findLastIndex(
     (article) => article.source.name === "Expresso.pt"
   );

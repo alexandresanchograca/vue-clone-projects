@@ -1,15 +1,15 @@
 <template>
   <div class="home">
-    <HeaderBar></HeaderBar>
-    <Navbar></Navbar>
-    <TabsBar></TabsBar>
-    <MainArticleImage></MainArticleImage>
+    <HeaderBar />
+    <Navbar />
+    <TabsBar />
+    <MainArticleImage />
     <div class="main-content">
-      <StocksBar></StocksBar>
-      <BreakingNewsBar></BreakingNewsBar>
-      <FirstArticleGrid></FirstArticleGrid>
+      <StocksBar />
+      <BreakingNewsBar />
+      <MainArticleGrid />
     </div>
-    <ArticleContainer></ArticleContainer>
+    <ArticleContainer />
     <Footer></Footer>
   </div>
 </template>
@@ -20,10 +20,13 @@ import ArticleContainer from "@/components/ArticleContainer.vue";
 import HeaderBar from "@/components/Header/HeaderBar.vue";
 import Navbar from "@/components/Header/Navbar.vue";
 import TabsBar from "@/components/Header/TabsBar.vue";
-import FirstArticleGrid from "@/components/ArticleGrid/FirstArticleGrid.vue";
+import MainArticleGrid from "@/components/ArticleGrid/MainArticleGrid.vue";
 import StocksBar from "./components/ArticleGrid/StocksBar.vue";
 import BreakingNewsBar from "@/components/ArticleGrid/BreakingNewsBar.vue";
 import Footer from "./components/Footer/Footer.vue";
+
+//TODO mount the API data here
+//const { getNewsData } = useData();
 </script>
 
 <style>
