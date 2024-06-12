@@ -1,10 +1,10 @@
 <template>
   <footer>
     <div class="footer-cols">
-      <Newsletters />
-      <Explore />
-      <About />
-      <Download />
+      <FooterNewsletters />
+      <FooterExplore />
+      <FooterAbout />
+      <FooterDownload />
     </div>
     <div class="footer-bottom">
       <p>
@@ -15,10 +15,10 @@
 </template>
 
 <script setup>
-import Newsletters from "@/components/Footer/Newsletters.vue";
-import Explore from "@/components/Footer/Explore.vue";
-import About from "@/components/Footer/About.vue";
-import Download from "@/components/Footer/Download.vue";
+import FooterNewsletters from "@/components/Footer/FooterNewsletters.vue";
+import FooterExplore from "@/components/Footer/FooterExplore.vue";
+import FooterAbout from "@/components/Footer/FooterAbout.vue";
+import FooterDownload from "@/components/Footer/FooterDownload.vue";
 </script>
 
 <style scoped>

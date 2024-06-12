@@ -5,14 +5,14 @@
         <a>MENU</a>| <a>MAIL</a><a>CAPAS DE JORNAIS</a>
       </div>
       <div class="sapo-logo">
-        <SapoLogo />
+        <HeaderSapoLogo />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import SapoLogo from "@/components/Header/SapoLogo.vue";
+import HeaderSapoLogo from "@/components/Header/HeaderSapoLogo.vue";
 </script>
 
 <style scoped>
