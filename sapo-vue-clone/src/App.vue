@@ -28,7 +28,7 @@ import StocksBar from "./components/ArticleGrid/StocksBar.vue";
 import BreakingNewsBar from "@/components/ArticleGrid/BreakingNewsBar.vue";
 import FooterDiv from "./components/Footer/FooterDiv.vue";
 import useData from "./composables/useData";
-import { onBeforeMount, ref } from "vue";
+import { ref } from "vue";
 
 const { getNewsData } = useData();
 const loaded = ref(false);
