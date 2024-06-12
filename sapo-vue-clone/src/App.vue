@@ -10,7 +10,7 @@
         <BreakingNewsBar />
         <MainArticleGrid />
       </div>
-      <ArticleContainer />
+      <ArticlesContainer />
     </div>
     <div v-else class="loading-placeholder">Loading...</div>
     <FooterDiv />
@@ -19,7 +19,7 @@
 
 <script setup>
 import MainArticleImage from "@/components/ArticleImages/MainArticleImage.vue";
-import ArticleContainer from "@/components/ArticleContainer.vue";
+import ArticlesContainer from "@/components/ArticlesContainer.vue";
 import HeaderBar from "@/components/Header/HeaderBar.vue";
 import HeaderNavbar from "@/components/Header/HeaderNavbar.vue";
 import HeaderTabsBar from "@/components/Header/HeaderTabsBar.vue";
