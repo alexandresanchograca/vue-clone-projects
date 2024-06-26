@@ -14,10 +14,6 @@
 </template>
 
 <script setup>
-import RedPill from "@/components/ArticleGrid/badges/RedPill.vue";
-import IconBar from "@/components/ArticleGrid/badges/IconBar.vue";
-import GreenBadge from "@/components/ArticleGrid/badges/GreenBadge.vue";
-
 import { defineProps } from "vue";
 const props = defineProps(["news"]);
 </script>

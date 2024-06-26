@@ -11,9 +11,7 @@
   </div>
 </template>
 
-<script setup>
-import HeaderSapoLogo from "@/components/Header/HeaderSapoLogo.vue";
-</script>
+<script setup></script>
 
 <style scoped>
 .header-bar-wrapper {

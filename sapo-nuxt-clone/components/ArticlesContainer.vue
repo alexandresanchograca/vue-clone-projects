@@ -12,10 +12,6 @@
 </template>
 
 <script setup>
-import ArticleImage from "@/components/ArticleImages/ArticleImage.vue";
-import SidebarArticleImage from "@/components/ArticleImages/SidebarArticleImage.vue";
-import ArticleGrid from "@/components/ArticleGrid/ArticleGrid.vue";
-import useData from "@/composables/useData";
 import { computed } from "vue";
 
 const { getNewsListData } = useData();

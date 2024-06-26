@@ -19,7 +19,6 @@
 </template>
 
 <script setup>
-import IconBar from "@/components/ArticleGrid/badges/IconBar.vue";
 import { defineProps } from "vue";
 const props = defineProps(["news"]);
 </script>

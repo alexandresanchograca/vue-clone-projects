@@ -23,7 +23,6 @@
 
 <script setup>
 import { computed } from "vue";
-import useData from "@/composables/useData";
 
 const { getHeadNewsListData } = useData();
 const breakingNews = getHeadNewsListData();
