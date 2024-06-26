@@ -6,8 +6,6 @@
 </template>
 
 <script setup>
-import { computed, onBeforeMount } from "vue";
-
 const { getNewsListData } = useData();
 
 const xLargeNews = computed(() => {

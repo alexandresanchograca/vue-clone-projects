@@ -22,8 +22,6 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-
 const { getHeadNewsListData } = useData();
 const breakingNews = getHeadNewsListData();
 

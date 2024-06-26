@@ -15,8 +15,6 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-
 const { getStocks, getNewsList, getNewsListData, getHeadNewsListData } =
   useData();
 

@@ -33,7 +33,6 @@
 </template>
 
 <script setup>
-import { ref, defineProps, onBeforeMount } from "vue";
 const props = defineProps(["articleImg"]);
 
 const sideBarItems = ref(null);

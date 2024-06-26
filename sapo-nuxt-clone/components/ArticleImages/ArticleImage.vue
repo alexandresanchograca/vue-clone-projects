@@ -28,7 +28,6 @@
 
 <script setup>
 import profilePic from "~/assets/news-files/pabreu_perfil.avif";
-import { defineProps } from "vue";
 const props = defineProps(["articleImg"]);
 </script>
 

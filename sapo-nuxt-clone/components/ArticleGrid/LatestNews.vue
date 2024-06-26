@@ -15,7 +15,6 @@
 </template>
 
 <script setup>
-import { computed, defineProps } from "vue";
 const props = defineProps(["newsList"]);
 
 function* generateLatestNews(limit) {
