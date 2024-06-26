@@ -33,9 +33,6 @@
 </template>
 
 <script setup>
-import { ref, defineProps, onBeforeMount } from "vue";
-import GreenPill from "@/components/ArticleGrid/badges/GreenPill.vue";
-import IconBar from "@/components/ArticleGrid/badges/IconBar.vue";
 const props = defineProps(["articleImg"]);
 
 const sideBarItems = ref(null);

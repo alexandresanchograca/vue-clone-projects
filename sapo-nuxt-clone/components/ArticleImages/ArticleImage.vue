@@ -28,8 +28,6 @@
 
 <script setup>
 import profilePic from "~/assets/news-files/pabreu_perfil.avif";
-import { defineProps } from "vue";
-import GreenPill from "../ArticleGrid/badges/GreenPill.vue";
 const props = defineProps(["articleImg"]);
 </script>
 

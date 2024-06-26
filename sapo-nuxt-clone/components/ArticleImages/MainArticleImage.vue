@@ -22,9 +22,6 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import useData from "@/composables/useData.js";
-
 const { getNewsListData } = useData();
 const newsListData = getNewsListData();
 

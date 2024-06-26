@@ -6,11 +6,6 @@
 </template>
 
 <script setup>
-import NewsBox from "@/components/ArticleGrid/NewsBox.vue";
-import BigNewsBox from "@/components/ArticleGrid/BigNewsBox.vue";
-import useData from "@/composables/useData";
-import { computed, onBeforeMount } from "vue";
-
 const { getNewsListData } = useData();
 
 const xLargeNews = computed(() => {

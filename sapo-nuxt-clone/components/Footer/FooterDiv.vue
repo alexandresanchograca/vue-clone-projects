@@ -14,12 +14,7 @@
   </footer>
 </template>
 
-<script setup>
-import FooterNewsletters from "@/components/Footer/FooterNewsletters.vue";
-import FooterExplore from "@/components/Footer/FooterExplore.vue";
-import FooterAbout from "@/components/Footer/FooterAbout.vue";
-import FooterDownload from "@/components/Footer/FooterDownload.vue";
-</script>
+<script setup></script>
 
 <style scoped>
 .footer-cols {

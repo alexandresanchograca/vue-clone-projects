@@ -14,8 +14,6 @@
 </template>
 
 <script setup>
-import RedPill from "@/components/ArticleGrid/badges/RedPill.vue";
-import { defineProps } from "vue";
 const props = defineProps(["news"]);
 </script>
 
