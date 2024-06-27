@@ -13,9 +13,18 @@
 
 <script setup>
 import useStocks from "~/composables/useStocks.ts";
+import useNews from "~/composables/useNews.ts";
 
 const { getNewsData } = useData();
 const loaded = ref(false);
+
+const data = await useNews();
+
+useNews().then((resp) => {
+  if (!resp.error) {
+    loaded.value = true;
+  }
+});
 
 getNewsData().then((resp) => {
   if (!resp.error) {
