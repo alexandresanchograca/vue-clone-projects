@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-const props = defineProps(["stocks"]);
+const stocks = await useStocks();
 </script>
 
 <style scoped>
