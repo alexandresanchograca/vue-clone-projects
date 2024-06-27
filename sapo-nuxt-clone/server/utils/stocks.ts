@@ -1,10 +1,10 @@
-const stockItems = [
-  {
-    name: "GALP",
-    fullName: "GALP Energia",
-    priceDelta: 0.88,
-    yesterdayIncrease: true,
-    svgChart: `<svg
+const stockItems : StockItem[] = [
+    {
+        name: "GALP",
+        fullName: "GALP Energia",
+        priceDelta: 0.88,
+        yesterdayIncrease: true,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -17,13 +17,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "BCP",
-    fullName: "Millenium BCP",
-    priceDelta: 1.27,
-    yesterdayIncrease: false,
-    svgChart: `<svg
+    },
+    {
+        name: "BCP",
+        fullName: "Millenium BCP",
+        priceDelta: 1.27,
+        yesterdayIncrease: false,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -36,13 +36,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "MSFT",
-    fullName: "Microsoft",
-    priceDelta: 1.88,
-    yesterdayIncrease: false,
-    svgChart: `<svg
+    },
+    {
+        name: "MSFT",
+        fullName: "Microsoft",
+        priceDelta: 1.88,
+        yesterdayIncrease: false,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -55,13 +55,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "GOOG",
-    fullName: "Alphabet Inc.",
-    priceDelta: 2.07,
-    yesterdayIncrease: true,
-    svgChart: `<svg
+    },
+    {
+        name: "GOOG",
+        fullName: "Alphabet Inc.",
+        priceDelta: 2.07,
+        yesterdayIncrease: true,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -74,13 +74,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "MSFT",
-    fullName: "Microsoft",
-    priceDelta: 1.88,
-    yesterdayIncrease: false,
-    svgChart: `<svg
+    },
+    {
+        name: "MSFT",
+        fullName: "Microsoft",
+        priceDelta: 1.88,
+        yesterdayIncrease: false,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -93,13 +93,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "GOOG",
-    fullName: "Alphabet Inc.",
-    priceDelta: 2.07,
-    yesterdayIncrease: true,
-    svgChart: `<svg
+    },
+    {
+        name: "GOOG",
+        fullName: "Alphabet Inc.",
+        priceDelta: 2.07,
+        yesterdayIncrease: true,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -112,13 +112,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "MSFT",
-    fullName: "Microsoft",
-    priceDelta: 1.88,
-    yesterdayIncrease: false,
-    svgChart: `<svg
+    },
+    {
+        name: "MSFT",
+        fullName: "Microsoft",
+        priceDelta: 1.88,
+        yesterdayIncrease: false,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -131,13 +131,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "GOOG",
-    fullName: "Alphabet Inc.",
-    priceDelta: 2.07,
-    yesterdayIncrease: true,
-    svgChart: `<svg
+    },
+    {
+        name: "GOOG",
+        fullName: "Alphabet Inc.",
+        priceDelta: 2.07,
+        yesterdayIncrease: true,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -150,13 +150,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "MSFT",
-    fullName: "Microsoft",
-    priceDelta: 1.88,
-    yesterdayIncrease: false,
-    svgChart: `<svg
+    },
+    {
+        name: "MSFT",
+        fullName: "Microsoft",
+        priceDelta: 1.88,
+        yesterdayIncrease: false,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -169,13 +169,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "GOOG",
-    fullName: "Alphabet Inc.",
-    priceDelta: 2.07,
-    yesterdayIncrease: true,
-    svgChart: `<svg
+    },
+    {
+        name: "GOOG",
+        fullName: "Alphabet Inc.",
+        priceDelta: 2.07,
+        yesterdayIncrease: true,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -188,13 +188,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "MSFT",
-    fullName: "Microsoft",
-    priceDelta: 1.88,
-    yesterdayIncrease: false,
-    svgChart: `<svg
+    },
+    {
+        name: "MSFT",
+        fullName: "Microsoft",
+        priceDelta: 1.88,
+        yesterdayIncrease: false,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -207,13 +207,13 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
-  {
-    name: "GOOG",
-    fullName: "Alphabet Inc.",
-    priceDelta: 2.07,
-    yesterdayIncrease: true,
-    svgChart: `<svg
+    },
+    {
+        name: "GOOG",
+        fullName: "Alphabet Inc.",
+        priceDelta: 2.07,
+        yesterdayIncrease: true,
+        svgChart: `<svg
       class="stock-chart-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 70 18">
@@ -226,7 +226,7 @@ const stockItems = [
         class="current-day"
         stroke-linejoin="round"></path>
     </svg>`,
-  },
+    },
 ];
 
 export default stockItems;

@@ -12,6 +12,8 @@
 </template>
 
 <script setup>
+import useStocks from "~/composables/useStocks.ts";
+
 const { getNewsData } = useData();
 const loaded = ref(false);
 

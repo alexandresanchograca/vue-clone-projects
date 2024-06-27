@@ -1,8 +1,7 @@
-import stockItems from "@/data/stocks";
-
 const baseUrl = "https://newsapi.org";
 var newsData = null;
 var headlineData = null;
+var stockItems = null;
 
 function useData() {
   function getStocks() {
@@ -41,6 +40,12 @@ function useData() {
         await fetch(
           `${baseUrl}${headlinesEndpoint}?country=pt&apiKey=3d4b854edbc046148c5a9aecb900194c`
         );
+
+
+      const getStockItems = async () =>
+          await $fetch(
+              `/api/stocks`
+          );
 
       const jsonResponses = await Promise.all([
         getObservador(),
