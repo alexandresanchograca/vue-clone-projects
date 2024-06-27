@@ -24,23 +24,9 @@ declare global {
         articles: Article[];
     }
 
-    type HeadlineArticle = {
-        id: string;
-        name: string;
-        description: string;
-        url: string;
-        category: string;
-        language: string;
-        country: string;
-    }
-
-    type HeadlineArticles = {
-        sources: HeadlineArticle[];
-    }
-
     type NewsCollection = {
         observador: NewsArticles;
         expresso: NewsArticles;
-        manchetes: HeadlineArticles;
+        manchetes: NewsArticles;
     }
 }
