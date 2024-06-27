@@ -12,9 +12,8 @@
 </template>
 
 <script setup>
-const { getNewsListData } = useData();
-
-const newsListData = getNewsListData();
+const data = await useNews();
+const newsListData = data.value.expresso.articles;
 
 const articleImages = computed(() => {
   const newsList = [];

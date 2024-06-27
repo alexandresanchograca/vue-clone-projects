@@ -6,14 +6,14 @@
 </template>
 
 <script setup>
-const { getNewsListData } = useData();
+const data = await useNews();
 
 const xLargeNews = computed(() => {
-  return getNewsListData().splice(0, 1)[0];
+  return  data.value.observador.articles.splice(0, 1)[0];
 });
 
 const dataNews = computed(() => {
-  return getNewsListData().splice(0, 4);
+  return data.value.observador.articles.splice(0, 4);
 });
 </script>
 

@@ -15,15 +15,10 @@
 </template>
 
 <script setup>
-const { getNewsList, getNewsListData, getHeadNewsListData } =
-  useData();
-
 const data = await useNews();
 
 const dataList = data.value.observador.articles;
 const headlineNews = data.value.manchetes.articles;
-
-console.log("manchetes", headlineNews);
 
 const mainNews = computed(() => {
   const newsArr = dataList.splice(0, 1);
