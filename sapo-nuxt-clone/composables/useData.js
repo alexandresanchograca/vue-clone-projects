@@ -41,12 +41,6 @@ function useData() {
           `${baseUrl}${headlinesEndpoint}?country=pt&apiKey=3d4b854edbc046148c5a9aecb900194c`
         );
 
-
-      const getStockItems = async () =>
-          await $fetch(
-              `/api/stocks`
-          );
-
       const jsonResponses = await Promise.all([
         getObservador(),
         getExpresso(),
@@ -75,7 +69,6 @@ function useData() {
     getNewsData,
     getNewsListData,
     getHeadNewsListData,
-    getStocks,
   };
 }
 
