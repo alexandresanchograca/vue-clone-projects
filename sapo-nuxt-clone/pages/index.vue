@@ -20,12 +20,6 @@ const loaded = ref(false);
 
 const data = await useNews();
 
-useNews().then((resp) => {
-  if (!resp.error) {
-    loaded.value = true;
-  }
-});
-
 getNewsData().then((resp) => {
   if (!resp.error) {
     loaded.value = true;

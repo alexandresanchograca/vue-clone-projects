@@ -22,8 +22,10 @@
 </template>
 
 <script setup>
+const data = await useNews();
+
 const { getNewsListData } = useData();
-const newsListData = getNewsListData();
+const newsListData = data.value.expresso.articles;
 
 const articleImg = computed(() => {
   const articleIndex = newsListData.findLastIndex(

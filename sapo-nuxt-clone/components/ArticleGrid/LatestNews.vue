@@ -28,7 +28,9 @@ const smallNewsList = computed(() => {
   const limit = Math.min(8, props.newsList.length);
 
   for (let news of generateLatestNews(limit)) {
-    if (news?.title?.length > 70) {
+    if(!news) continue;
+
+    if (news?.title.length > 70) {
       news.title = news.title.substring(0, 70) + "...";
     }
     newsList.push(news);

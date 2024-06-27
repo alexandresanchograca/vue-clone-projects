@@ -18,8 +18,12 @@
 const { getNewsList, getNewsListData, getHeadNewsListData } =
   useData();
 
-const dataList = getNewsListData();
-const headlineNews = getHeadNewsListData();
+const data = await useNews();
+
+const dataList = data.value.observador.articles;
+const headlineNews = data.value.manchetes.articles;
+
+console.log("manchetes", headlineNews);
 
 const mainNews = computed(() => {
   const newsArr = dataList.splice(0, 1);
