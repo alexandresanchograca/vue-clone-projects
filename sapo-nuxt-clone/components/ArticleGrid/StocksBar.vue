@@ -16,8 +16,7 @@
 </template>
 
 <script setup>
-const { getStocks } = useData();
-const stockItems = getStocks();
+const stockItems = await useStocks();
 </script>
 
 <style>
