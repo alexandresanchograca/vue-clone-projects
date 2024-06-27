@@ -1,4 +1,4 @@
-const stockItems = [
+const stockItems : StockItem[] = [
     {
         name: "GALP",
         fullName: "GALP Energia",
