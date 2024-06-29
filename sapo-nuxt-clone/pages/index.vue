@@ -17,12 +17,11 @@ const loaded = ref(false);
 const stockItems = await useStocks();
 provide("stockItems", stockItems);
 
-const data = await useNews();
+const { observador, expresso, manchetes } = await useNews();
 
-if(data){
+if(observador && expresso && manchetes) {
  loaded.value = true;
 }
-
 
 
 </script>

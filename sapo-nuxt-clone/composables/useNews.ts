@@ -2,7 +2,7 @@ import {useNuxtData} from "#app";
 import type {Ref} from "@vue/reactivity";
 
 
-export default async function useNews() : Promise<Ref<NewsCollection> | null | undefined>   {
+export default async function useNews() : Promise<NewsCollection> {
     const everythingEndpoint : string = "/v2/everything";
     const headlinesEndpoint : string = "/v2/top-headlines";
 
