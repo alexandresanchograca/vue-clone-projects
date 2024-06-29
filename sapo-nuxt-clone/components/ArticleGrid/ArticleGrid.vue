@@ -1,20 +1,14 @@
 <template>
-  <div class="main-article-grid">
-    <BigNewsBox :news="xLargeNews"></BigNewsBox>
-    <NewsBox v-for="news in dataNews" :key="news.title" :news="news"></NewsBox>
+  <div class="main-article-grid" >
+    <div v-for="(article, index) in articleContents" :key="article?.title">
+      <BigNewsBox v-if="index === 1" :news="article"></BigNewsBox>
+      <NewsBox v-else :news="article"></NewsBox>
+    </div>
   </div>
 </template>
 
 <script setup>
-const observadorNews = inject("observadorNews");
-
-const xLargeNews = computed(() => {
-  return  observadorNews.articles.splice(0, 1)[0];
-});
-
-const dataNews = computed(() => {
-  return observadorNews.articles.splice(0, 4);
-});
+const props = defineProps(["articleContents"]);
 </script>
 
 <style scoped>

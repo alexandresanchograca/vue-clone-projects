@@ -29,4 +29,9 @@ declare global {
         expresso: NewsArticles;
         manchetes: NewsArticles;
     }
+
+    type ArticleContent = {
+        imageArticle: Article;
+        gridArticles: Article[];
+    }
 }
