@@ -18,7 +18,6 @@
 //const props = defineProps(["newsList"]);
 const data = await useNews();
 const newsList = data.observador.articles;
-console.log(newsList)
 
 function* generateLatestNews(limit) {
   for (let i = 0; i < limit; i++) {
