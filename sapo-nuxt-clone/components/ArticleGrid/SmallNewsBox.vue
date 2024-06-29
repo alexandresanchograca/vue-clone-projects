@@ -14,7 +14,15 @@
 </template>
 
 <script setup>
-const props = defineProps(["news"]);
+const dataList = inject("observadorNews");
+
+const news = computed(() => {
+  const newsIndex = dataList.articles.findIndex((news) => news.title?.length < 56);
+  const newsArr = dataList.articles.splice(newsIndex, 1);
+  if (newsArr.length) {
+    return newsArr[0];
+  }
+});
 </script>
 
 <style scoped>

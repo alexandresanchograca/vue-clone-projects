@@ -2,7 +2,7 @@
   <div class="first-main-article-grid">
     <div class="col first-col">
       <MainNewsBox />
-      <SmallNewsBox :news="smallNews" />
+      <SmallNewsBox />
     </div>
     <div class="col sec-col">
       <LatestNews :newsList="headlineNews.articles" />
@@ -15,18 +15,7 @@
 </template>
 
 <script setup>
-const dataList = inject("observadorNews");
 const headlineNews = inject("manchetesNews");
-
-
-
-const smallNews = computed(() => {
-  const newsIndex = dataList.articles.findIndex((news) => news.title?.length < 56);
-  const newsArr = dataList.articles.splice(newsIndex, 1);
-  if (newsArr.length) {
-    return newsArr[0];
-  }
-});
 </script>
 
 <style scoped>
