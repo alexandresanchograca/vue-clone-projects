@@ -24,5 +24,7 @@ if(observador && expresso && manchetes) {
 }
 
 provide("expressoNews", expresso);
+provide("observadorNews", observador);
+provide("manchetesNews", manchetes);
 
 </script>
