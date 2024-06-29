@@ -19,7 +19,16 @@
 </template>
 
 <script setup>
-const props = defineProps(["news"]);
+const dataList = inject("observadorNews");
+
+
+const news = computed(() => {
+  const newsArr = dataList.articles.splice(0, 1);
+
+  if (newsArr.length) {
+    return newsArr[0];
+  }
+});
 </script>
 
 <style scoped>
