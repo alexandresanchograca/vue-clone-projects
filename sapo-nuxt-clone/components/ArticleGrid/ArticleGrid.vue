@@ -1,11 +1,10 @@
 <template>
-  <div class="main-article-grid" >
-    <div v-for="(article, index) in articleContents" :key="article?.title">
-      <BigNewsBox v-if="index === 1" :news="article"></BigNewsBox>
-      <NewsBox v-else :news="article"></NewsBox>
-    </div>
+  <div class="main-article-grid">
+    <BigNewsBox :news="articleContents[0]"></BigNewsBox>
+    <NewsBox v-for="news in articleContents.slice(0)" :key="news.title" :news="news"></NewsBox>
   </div>
 </template>
+
 
 <script setup>
 const props = defineProps(["articleContents"]);

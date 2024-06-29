@@ -19,8 +19,6 @@ provide("stockItems", stockItems);
 
 const {observador, expresso, manchetes } = await useNews();
 
-console.log(manchetes)
-
 if(observador && expresso && manchetes) {
   provide("expressoNews", expresso);
   provide("observadorNews", observador);
