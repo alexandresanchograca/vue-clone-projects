@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-const stockItems = await useStocks();
+const stockItems = inject("stockItems");
 </script>
 
 <style>

@@ -14,9 +14,15 @@
 <script setup>
 const loaded = ref(false);
 
+const stockItems = await useStocks();
+provide("stockItems", stockItems);
+
 const data = await useNews();
 
 if(data){
  loaded.value = true;
 }
+
+
+
 </script>
