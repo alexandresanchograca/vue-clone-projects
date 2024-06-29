@@ -5,7 +5,7 @@
       <SmallNewsBox />
     </div>
     <div class="col sec-col">
-      <LatestNews :newsList="headlineNews.articles" />
+      <LatestNews />
     </div>
     <div class="col third-col">
       <AdBox />
