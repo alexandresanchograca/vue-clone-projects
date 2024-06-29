@@ -22,8 +22,8 @@
 </template>
 
 <script setup>
-const { getHeadNewsListData } = useData();
-const breakingNews = getHeadNewsListData();
+const data = await useNews();
+const breakingNews = data.manchetes.articles;
 
 const liveBreakingNews = computed(() => {
   return breakingNews.findLast((news) => news.title.length < 70);

@@ -15,20 +15,24 @@
 </template>
 
 <script setup>
-const props = defineProps(["newsList"]);
+//const props = defineProps(["newsList"]);
+const data = await useNews();
+const newsList = data.observador.articles;
 
 function* generateLatestNews(limit) {
   for (let i = 0; i < limit; i++) {
-    yield props.newsList.splice(i, 1)[0];
+    yield newsList.splice(i, 1)[0];
   }
 }
 
 const smallNewsList = computed(() => {
   const newsList = [];
-  const limit = Math.min(8, props.newsList.length);
+  const limit = Math.min(8, newsList.length);
 
   for (let news of generateLatestNews(limit)) {
-    if (news?.title?.length > 70) {
+    if(!news) continue;
+
+    if (news?.title.length > 70) {
       news.title = news.title.substring(0, 70) + "...";
     }
     newsList.push(news);

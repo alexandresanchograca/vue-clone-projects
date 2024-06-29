@@ -1,5 +1,5 @@
 <template>
-  <div class="article-img">
+  <div v-if="articleImg" class="article-img">
     <div class="img-wrapper">
       <img :src="articleImg.urlToImage" />
     </div>
@@ -22,14 +22,14 @@
 </template>
 
 <script setup>
-const { getNewsListData } = useData();
-const newsListData = getNewsListData();
+const data = await useNews();
+const newsListData = data.expresso.articles;
 
 const articleImg = computed(() => {
   const articleIndex = newsListData.findLastIndex(
     (article) => article.source.name === "Expresso.pt"
   );
-  return newsListData.splice(articleIndex, 1)[0];
+  return newsListData.splice(articleIndex, articleIndex + 1)[0];
 });
 </script>
 
