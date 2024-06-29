@@ -6,14 +6,14 @@
 </template>
 
 <script setup>
-const data = await useNews();
+const observadorNews = inject("observadorNews");
 
 const xLargeNews = computed(() => {
-  return  data.observador.articles.splice(0, 1)[0];
+  return  observadorNews.articles.splice(0, 1)[0];
 });
 
 const dataNews = computed(() => {
-  return data.observador.articles.splice(0, 4);
+  return observadorNews.articles.splice(0, 4);
 });
 </script>
 

@@ -15,7 +15,6 @@
 </template>
 
 <script setup>
-const headlineNews = inject("manchetesNews");
 </script>
 
 <style scoped>
