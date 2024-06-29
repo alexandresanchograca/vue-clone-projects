@@ -16,7 +16,7 @@ const loaded = ref(false);
 
 const data = await useNews();
 
-if(data.value){
+if(data){
  loaded.value = true;
 }
 </script>

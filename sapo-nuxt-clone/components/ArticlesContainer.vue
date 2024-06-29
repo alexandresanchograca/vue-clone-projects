@@ -13,7 +13,7 @@
 
 <script setup>
 const data = await useNews();
-const newsListData = data.value.expresso.articles;
+const newsListData = data.expresso.articles;
 
 const articleImages = computed(() => {
   const newsList = [];

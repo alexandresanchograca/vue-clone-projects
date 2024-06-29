@@ -17,8 +17,8 @@
 <script setup>
 const data = await useNews();
 
-const dataList = data.value.observador.articles;
-const headlineNews = data.value.manchetes.articles;
+const dataList = data.observador.articles;
+const headlineNews = data.manchetes.articles;
 
 const mainNews = computed(() => {
   const newsArr = dataList.splice(0, 1);

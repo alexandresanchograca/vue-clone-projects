@@ -23,7 +23,7 @@
 
 <script setup>
 const data = await useNews();
-const breakingNews = data.value.manchetes.articles;
+const breakingNews = data.manchetes.articles;
 
 const liveBreakingNews = computed(() => {
   return breakingNews.findLast((news) => news.title.length < 70);

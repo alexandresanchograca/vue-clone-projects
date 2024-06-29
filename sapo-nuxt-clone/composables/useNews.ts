@@ -8,7 +8,7 @@ export default async function useNews() : Promise<Ref<NewsCollection> | null | u
 
     const { data: newsData } = useNuxtData("newsData");
     if(newsData.value){
-        return newsData;
+        return JSON.parse(JSON.stringify(newsData.value))
     }
 
     const baseUrl = "https://newsapi.org";
@@ -36,7 +36,7 @@ export default async function useNews() : Promise<Ref<NewsCollection> | null | u
             }
         );
 
-        return data;
+        return JSON.parse(JSON.stringify(data.value))
     }catch(e){
         console.error(e);
     }

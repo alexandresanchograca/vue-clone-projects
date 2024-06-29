@@ -9,11 +9,11 @@
 const data = await useNews();
 
 const xLargeNews = computed(() => {
-  return  data.value.observador.articles.splice(0, 1)[0];
+  return  data.observador.articles.splice(0, 1)[0];
 });
 
 const dataNews = computed(() => {
-  return data.value.observador.articles.splice(0, 4);
+  return data.observador.articles.splice(0, 4);
 });
 </script>
 
