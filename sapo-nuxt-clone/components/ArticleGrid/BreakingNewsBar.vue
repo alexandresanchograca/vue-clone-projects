@@ -22,20 +22,19 @@
 </template>
 
 <script setup>
-const data = await useNews();
-const breakingNews = data.manchetes.articles;
+const breakingNews = inject("manchetesNews");
 
 const liveBreakingNews = computed(() => {
-  return breakingNews.findLast((news) => news.title.length < 70);
+  return breakingNews.articles.findLast((news) => news.title.length < 70);
 });
 
 const pastBreakingNews = computed(() => {
   const newsList = [];
 
   let counter = 0;
-  breakingNews.forEach((news, index) => {
+  breakingNews.articles.forEach((news, index) => {
     if (news.title.length < 78 && counter < 3) {
-      newsList.push(...breakingNews.splice(index, 1));
+      newsList.push(...breakingNews.articles.splice(index, 1));
       counter++;
     }
   });
