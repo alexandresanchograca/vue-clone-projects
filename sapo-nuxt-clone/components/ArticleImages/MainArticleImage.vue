@@ -22,14 +22,13 @@
 </template>
 
 <script setup>
-const data = await useNews();
-const newsListData = data.expresso.articles;
+const newsListData = inject("expressoNews");
 
 const articleImg = computed(() => {
-  const articleIndex = newsListData.findLastIndex(
+  const articleIndex = newsListData.articles.findLastIndex(
     (article) => article.source.name === "Expresso.pt"
   );
-  return newsListData.splice(articleIndex, articleIndex + 1)[0];
+  return newsListData.articles.splice(articleIndex, articleIndex + 1)[0];
 });
 </script>
 

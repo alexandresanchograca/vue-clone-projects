@@ -23,5 +23,6 @@ if(observador && expresso && manchetes) {
  loaded.value = true;
 }
 
+provide("expressoNews", expresso);
 
 </script>
