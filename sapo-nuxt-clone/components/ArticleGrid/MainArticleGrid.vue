@@ -5,7 +5,7 @@
       <SmallNewsBox :news="smallNews" />
     </div>
     <div class="col sec-col">
-      <LatestNews :newsList="headlineNews" />
+      <LatestNews :newsList="headlineNews.articles" />
     </div>
     <div class="col third-col">
       <AdBox />
@@ -15,13 +15,11 @@
 </template>
 
 <script setup>
-const data = await useNews();
-
-const dataList = data.observador.articles;
-const headlineNews = data.manchetes.articles;
+const dataList = inject("observadorNews");
+const headlineNews = inject("manchetesNews");
 
 const mainNews = computed(() => {
-  const newsArr = dataList.splice(0, 1);
+  const newsArr = dataList.articles.splice(0, 1);
 
   if (newsArr.length) {
     return newsArr[0];
@@ -29,8 +27,8 @@ const mainNews = computed(() => {
 });
 
 const smallNews = computed(() => {
-  const newsIndex = dataList.findIndex((news) => news.title?.length < 56);
-  const newsArr = dataList.splice(newsIndex, 1);
+  const newsIndex = dataList.articles.findIndex((news) => news.title?.length < 56);
+  const newsArr = dataList.articles.splice(newsIndex, 1);
   if (newsArr.length) {
     return newsArr[0];
   }
