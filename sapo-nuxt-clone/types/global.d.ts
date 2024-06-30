@@ -1,6 +1,8 @@
 export {};
 
 declare global {
+    type Some<T> = T | null | undefined;
+
     type StockItem = {
         name: string;
         fullName: string;
@@ -39,7 +41,7 @@ declare global {
     }
 
     type ArticleContent = {
-        imageArticle: Article;
-        gridArticles: Article[];
+        imageArticle: Some<Article>;
+        gridArticles: Array<Some<Article>>;
     }
 }
