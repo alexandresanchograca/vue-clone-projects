@@ -21,7 +21,7 @@ export default defineEventHandler(async (event): Promise<NewsCollection> => {
         );
 
     try {
-        let observador, expresso, manchetes;
+        let observador: NewsArticles, expresso: NewsArticles, manchetes: NewsArticles;
         [observador, expresso, manchetes] = await Promise.all([getObservador(), getExpresso(), getHeadlines()]);
 
         observador.articles = observador.articles.filter((article) => article.urlToImage !== null);
@@ -29,12 +29,12 @@ export default defineEventHandler(async (event): Promise<NewsCollection> => {
         manchetes.articles = manchetes.articles.filter((article) => article.author !== null);
 
         //Adding related news items
-        expresso.articles = expresso.articles.map((article) => ({
+        expresso.articles = expresso.articles.map((article): Article => ({
             ...article,
             relatedNews: Math.random() < 0.5 ? staticNews : null
         }));
 
-        return {observador, expresso, manchetes};
+        return {observador, expresso, manchetes} as NewsCollection;
     } catch
         (e) {
         console.error(e);
