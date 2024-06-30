@@ -1,10 +1,10 @@
 <template>
   <div v-if="stockItems" class="stocks-carousel">
     <div
-      v-for="stock in stockItems"
-      :key="stock.company"
-      :class="{ 'stock-item-down': !stock.yesterdayIncrease }"
-      class="stock-item"
+        v-for="stock in stockItems"
+        :key="stock.company"
+        :class="{ 'stock-item-down': !stock.yesterdayIncrease }"
+        class="stock-item"
     >
       <h4>{{ stock.name }}</h4>
       <div class="stock-status">
@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-const stockItems = await useStocks();
+const stockItems = inject("stockItems");
 </script>
 
 <style>

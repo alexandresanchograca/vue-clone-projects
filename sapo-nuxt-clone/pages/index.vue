@@ -14,9 +14,16 @@
 <script setup>
 const loaded = ref(false);
 
-const data = await useNews();
+const stockItems = await useStocks();
+provide("stockItems", stockItems);
 
-if(data){
+const {observador, expresso, manchetes } = await useNews();
+
+if(observador && expresso && manchetes) {
+  provide("expressoNews", expresso);
+  provide("observadorNews", observador);
+  provide("manchetesNews", manchetes);
  loaded.value = true;
 }
+
 </script>

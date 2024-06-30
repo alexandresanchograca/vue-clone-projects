@@ -15,19 +15,17 @@
 </template>
 
 <script setup>
-//const props = defineProps(["newsList"]);
-const data = await useNews();
-const newsList = data.observador.articles;
+const headlineNews = inject("manchetesNews");
 
 function* generateLatestNews(limit) {
   for (let i = 0; i < limit; i++) {
-    yield newsList.splice(i, 1)[0];
+    yield headlineNews.articles.splice(i, 1)[0];
   }
 }
 
 const smallNewsList = computed(() => {
   const newsList = [];
-  const limit = Math.min(8, newsList.length);
+  const limit = Math.min(8, headlineNews.articles.length);
 
   for (let news of generateLatestNews(limit)) {
     if(!news) continue;

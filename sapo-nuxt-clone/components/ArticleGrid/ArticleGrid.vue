@@ -1,20 +1,13 @@
 <template>
   <div class="main-article-grid">
-    <BigNewsBox :news="xLargeNews"></BigNewsBox>
-    <NewsBox v-for="news in dataNews" :key="news.title" :news="news"></NewsBox>
+    <BigNewsBox :news="articleContents[0]"></BigNewsBox>
+    <NewsBox v-for="news in articleContents.slice(0)" :key="news.title" :news="news"></NewsBox>
   </div>
 </template>
 
+
 <script setup>
-const data = await useNews();
-
-const xLargeNews = computed(() => {
-  return  data.observador.articles.splice(0, 1)[0];
-});
-
-const dataNews = computed(() => {
-  return data.observador.articles.splice(0, 4);
-});
+const props = defineProps(["articleContents"]);
 </script>
 
 <style scoped>
