@@ -1,7 +1,7 @@
 <template>
   <div v-for="content in articleContents" :key="content.imageArticle.title">
     <SidebarArticleImage
-        v-if="Math.random() * 100 < 25"
+        v-if="content.imageArticle.relatedNews"
         :articleImg="content.imageArticle"
     />
     <ArticleImage v-else :articleImg="content.imageArticle"/>
@@ -19,7 +19,7 @@ const hasImageArticle = (): boolean => (
     expressoNews.articles.length && expressoNews.articles[0].title.length < 100
 )
 
-const hasGridContents = (): boolean => (observadorNews.articles.length >= 6);
+const hasGridContents = (): boolean => (observadorNews.articles.length >= 5);
 
 function* generateGridArticles(limit: number) {
   for (let i = 0; i < limit; i++) {

@@ -1,6 +1,6 @@
-import stockItems from "~/server/utils/stocks";
+import staticNews from "~/server/utils/staticNews";
 
-export default defineEventHandler(async (event) : Promise<NewsCollection> => {
+export default defineEventHandler(async (event): Promise<NewsCollection> => {
     const baseUrl = "https://newsapi.org";
     const everythingEndpoint: string = "/v2/everything";
     const headlinesEndpoint: string = "/v2/top-headlines";
@@ -27,6 +27,12 @@ export default defineEventHandler(async (event) : Promise<NewsCollection> => {
         observador.articles = observador.articles.filter((article) => article.urlToImage !== null);
         expresso.articles = expresso.articles.filter((article) => article.urlToImage !== null);
         manchetes.articles = manchetes.articles.filter((article) => article.author !== null);
+
+        //Adding related news items
+        expresso.articles = expresso.articles.map((article) => ({
+            ...article,
+            relatedNews: Math.random() < 0.5 ? staticNews : null
+        }));
 
         return {observador, expresso, manchetes};
     } catch

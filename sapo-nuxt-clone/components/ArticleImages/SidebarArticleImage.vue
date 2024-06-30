@@ -1,24 +1,24 @@
 <template>
   <div class="article-img">
     <div class="img-wrapper">
-      <img :src="articleImg.urlToImage" />
+      <img :src="articleImg.urlToImage"/>
     </div>
     <div class="article-description">
       <div class="article-text">
-        <GreenPill :hollow="true" />
+        <GreenPill :hollow="true"/>
         <h1>{{ articleImg.title }}</h1>
         <p v-if="articleImg.description">
           {{ articleImg.author }}, {{ articleImg.publishedAt.substring(0, 10) }}
         </p>
-        <IconBar />
+        <IconBar/>
       </div>
-      <div v-if="sideBarItems" class="side-bar">
+      <div v-if="articleImg.relatedNews" class="side-bar">
         <div class="bar-items">
           <div
-            v-for="(item, index) in sideBarItems"
-            :key="item.title"
-            class="item"
-            :class="{ 'bottom-border': index < sideBarItems.length - 1 }"
+              v-for="(item, index) in articleImg.relatedNews"
+              :key="item.title"
+              class="item"
+              :class="{ 'bottom-border': index < articleImg.relatedNews.length - 1 }"
           >
             <div class="item-news-desc">
               <p>{{ item.title }}</p>
@@ -34,25 +34,6 @@
 
 <script setup>
 const props = defineProps(["articleImg"]);
-
-const sideBarItems = ref(null);
-
-onBeforeMount(() => {
-  sideBarItems.value = [
-    {
-      title: "Estas são 41 medidas do governo para as migrações.",
-      imgName: "small-crop.jpg",
-      author: "José mendes",
-      time: "06-06-2024",
-    },
-    {
-      title: "O governo vai deportar todos os cidadãos portugueses.",
-      imgName: "small-crop.jpg",
-      author: "José mendes",
-      time: "06-06-2024",
-    },
-  ];
-});
 </script>
 
 <style scoped>
@@ -77,9 +58,11 @@ onBeforeMount(() => {
 .article-description h1 {
   margin: 0;
 }
+
 .article-description p {
   margin: 0;
 }
+
 .article-text p {
   margin-top: 25px;
 }

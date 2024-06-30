@@ -3,10 +3,17 @@ export {};
 declare global {
     type StockItem = {
         name: string;
-        fullName : string;
+        fullName: string;
         priceDelta: number;
         yesterdayIncrease: boolean;
         svgChart: string;
+    }
+
+    type ShortArticle = {
+        title: string;
+        imageName: string;
+        author: string;
+        time: string;
     }
 
     type Article = {
@@ -18,6 +25,7 @@ declare global {
         publishedAt: string;
         content: string;
         source: object;
+        relatedNews?: boolean
     }
 
     type NewsArticles = {
