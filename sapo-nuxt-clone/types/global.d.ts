@@ -25,7 +25,7 @@ declare global {
         publishedAt: string;
         content: string;
         source: object;
-        relatedNews?: ShortArticle[];
+        relatedNews?: ShortArticle[] | null;
     }
 
     type NewsArticles = {
