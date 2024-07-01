@@ -23,8 +23,10 @@
       </div>
       <div v-if="content" class="news-content">
         <h3 v-html="content[0]"></h3>
-        <AdVideo></AdVideo>
-        <p v-html="content.slice(1).join(' ')"></p>
+        <div v-for="(paragraph, index) in content.slice(1)" :key="paragraph">
+          <p v-html="paragraph"></p>
+          <AdVideo v-if="index === 1" class="video-ad"></AdVideo>
+        </div>
       </div>
     </div>
   </div>
@@ -44,17 +46,16 @@ const aditionalContent = ". O Fundo adianta que uma reforma fiscal “abrangente
 
 const content = computed(() => {
   if (newsDetails.value?.content) {
-    newsDetails.value.content += aditionalContent;
+    const tempContent = newsDetails.value.content + aditionalContent;
 
     let c = 0;
     const result = [];
-    for (let i = 0; i <= newsDetails.value.content.length; i++) {
-      if ((i - c) > 200 && newsDetails.value.content.charAt(i) === '.' || i == newsDetails.value.content.length) {
-        result.push(newsDetails.value.content.substring(c, i + 1) + "<br><br>");
+    for (let i = 0; i <= tempContent.length; i++) {
+      if ((i - c) > 200 && tempContent.charAt(i) === '.' || i == tempContent.length) {
+        result.push(tempContent.substring(c, i + 1) + "<br><br>");
         c = i + 1;
       }
     }
-
     return result;
   }
   return null;
@@ -104,5 +105,9 @@ const content = computed(() => {
 
 .author-details > :first-child {
   font-weight: bold;
+}
+
+.video-ad {
+  margin-bottom: 40px;
 }
 </style>
