@@ -33,7 +33,7 @@ const articleContent = (): Some<ArticleContent> => {
     imageArticle = expressoNews?.articles.splice(0, 1)[0];
 
     let gridArticles = [];
-    for (let article of generateGridArticles(4)) {
+    for (let article of generateGridArticles(5)) {
       gridArticles.push(article);
     }
 
