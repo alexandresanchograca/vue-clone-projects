@@ -1,10 +1,12 @@
 <template>
   <div v-if="articleImg" class="article-img">
     <div class="img-wrapper">
-      <img :src="articleImg.urlToImage" />
+      <img :src="articleImg.urlToImage"/>
     </div>
     <div class="article-text">
-      <h1>{{ articleImg.title }}</h1>
+      <h1>
+        <NuxtLink :to="`/details/${articleImg.title}`">{{ articleImg.title }}</NuxtLink>
+      </h1>
       <p v-if="articleImg.description">
         {{ articleImg.description }}
       </p>
@@ -12,7 +14,7 @@
     <div v-if="articleImg.barItems" class="bottom-bar">
       <div v-if="articleImg.barItems.length" class="bar-items">
         <div v-for="item in articleImg.barItems" :key="item.title" class="item">
-          <img :src="require(`@/assets/news-files/${item.imgName}`)" />
+          <img :src="require(`@/assets/news-files/${item.imgName}`)"/>
           <p>{{ item.title }}</p>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -26,10 +28,14 @@ const newsListData = inject("expressoNews");
 
 const articleImg = computed(() => {
   const articleIndex = newsListData.articles.findLastIndex(
-    (article) => article.source.name === "Expresso.pt"
+      (article) => article.source.name === "Expresso.pt"
   );
   return newsListData.articles.splice(articleIndex, articleIndex + 1)[0];
 });
+
+const handleClick = (e) => {
+  console.log('clicked');
+}
 </script>
 
 <style>
@@ -59,11 +65,6 @@ const articleImg = computed(() => {
   color: white;
 }
 
-.article-text h1:hover {
-  cursor: pointer;
-  color: #00d700;
-}
-
 .img-wrapper {
   display: flex;
   align-items: center;
@@ -81,6 +82,18 @@ const articleImg = computed(() => {
   font-size: clamp(1.2rem, 4vw, 3.2rem);
   width: 75%;
   margin: auto;
+}
+
+
+h1 a {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+h1 a:hover {
+  cursor: pointer;
+  color: #00d700;
 }
 
 .article-img p {
