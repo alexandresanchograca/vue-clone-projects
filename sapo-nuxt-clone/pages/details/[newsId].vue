@@ -23,6 +23,7 @@
       </div>
       <div v-if="content" class="news-content">
         <h3 v-html="content[0]"></h3>
+        <AdVideo></AdVideo>
         <p v-html="content.slice(1).join(' ')"></p>
       </div>
     </div>
