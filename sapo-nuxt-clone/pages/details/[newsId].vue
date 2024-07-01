@@ -1,7 +1,7 @@
 <template>
   <div class="news-detail-container">
     <div class="news-title">
-      <GreenPill :hollow="true"/>
+      <GreenPill :hollow="true">Impostos</GreenPill>
       <h1>{{ newsDetails.title }}</h1>
       <div class="author-note">
         <IconBar/>
