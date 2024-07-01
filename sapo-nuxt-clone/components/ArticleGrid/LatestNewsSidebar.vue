@@ -1,13 +1,16 @@
 <template>
   <div v-if="headlineNews" class="latest-news-box">
-    <h3>
+    <h1>
       Últimas
       <i class="fa-solid fa-arrow-right"></i>
-    </h3>
+    </h1>
     <ul>
-      <li v-for="news in smallNewsList" :key="news.title">
-        <p>{{ news.time }}</p>
-        {{ news.title }}
+      <li v-for="(news,index) in smallNewsList" :key="news.title">
+        <span>{{ index + 1 }}</span>
+        <div class="headline-content">
+          <p>{{ news.time }}</p>
+          <p>{{ news.title }}</p>
+        </div>
       </li>
     </ul>
     <a>+</a>
@@ -25,15 +28,17 @@ function* generateLatestNews(limit) {
 
 const smallNewsList = computed(() => {
   const newsList = [];
-  const limit = Math.min(6, headlineNews.articles.length);
+  const limit = Math.min(5, headlineNews.articles.length);
 
   for (let news of generateLatestNews(limit)) {
     if (!news) continue;
 
+    const time = news.publishedAt.substring("YYYY-MM-DDT".length, news.publishedAt.length - 1)
+
     if (news?.title.length > 70) {
-      news.title = news.title.substring(0, 70) + "...";
+      news.title = news.title.substring(0, 40) + "...";
     }
-    newsList.push(news);
+    newsList.push({...news, time});
   }
 
   return newsList;
@@ -44,17 +49,19 @@ const smallNewsList = computed(() => {
 .latest-news-box {
   display: flex;
   flex-direction: column;
-  width: 240px;
-  max-height: 760px;
+  align-items: center;
+  justify-content: flex-end;
+  width: 300px;
+  max-height: 670px;
 }
 
-h3 {
+h1 {
   text-align: center;
   font-weight: bold;
+  color: #00d700;
   margin-left: 12px;
   margin-right: 12px;
   padding: 10px;
-  color: rgb(0, 0, 0);
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
@@ -64,23 +71,44 @@ h3 i {
 }
 
 ul {
-  overflow-y: scroll;
   list-style-type: none;
   padding: 0px;
 }
 
 li {
+  display: flex;
+  gap: 15px;
+  align-items: center;
   font-size: large;
   margin: auto;
-  font-weight: bold;
-  color: #00b100;
   cursor: pointer;
   margin: 10px;
   padding: 5px;
   line-height: 1.4rem;
 }
 
-li p {
+li span {
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #00d700;
+  border: 3px solid #00d700;
+  border-radius: 50%;
+  padding: 1.3rem 1rem 0.9rem 1rem;
+  box-sizing: border-box;
+}
+
+li div {
+  display: flex;
+  flex-direction: column;
+}
+
+.headline-content p {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.headline-content > p:first-child {
   color: gray;
   font-size: 0.8rem;
 }

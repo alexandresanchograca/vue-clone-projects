@@ -1,6 +1,8 @@
 <template>
   <div v-if="true" class="pill-wrapper">
-    <div class="img-green-pill" :class="{ hollow: hollow }">ESPECIAL</div>
+    <div class="img-green-pill" :class="{ hollow: hollow }">
+      <slot/>
+    </div>
   </div>
 </template>
 

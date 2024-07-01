@@ -1,16 +1,16 @@
 <template>
   <div class="article-img article-img-secondary">
     <div class="img-wrapper">
-      <img :src="articleImg.urlToImage" />
+      <img :src="articleImg.urlToImage"/>
     </div>
     <div class="article-text">
       <div v-if="true" class="my-pill">
-        <GreenPill />
+        <GreenPill>ESPECIAL</GreenPill>
       </div>
       <h1>{{ articleImg.title }}</h1>
       <div v-if="articleImg.author" class="article-icons">
         <div class="author-profile-card">
-          <img class="author-profile-img" :src="profilePic" />
+          <img class="author-profile-img" :src="profilePic"/>
           <span class="author-desc">
             <div class="author-name">{{ articleImg.author }}</div>
             <div class="publish-date">
@@ -28,6 +28,7 @@
 
 <script setup>
 import profilePic from "~/assets/news-files/pabreu_perfil.avif";
+
 const props = defineProps(["articleImg"]);
 </script>
 

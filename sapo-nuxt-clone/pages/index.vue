@@ -1,12 +1,12 @@
 <template>
   <div v-if="loaded">
-    <MainArticleImage />
+    <MainArticleImage/>
     <div class="main-content">
-      <StocksBar />
-      <BreakingNewsBar />
-      <MainArticleGrid />
+      <StocksBar/>
+      <BreakingNewsBar/>
+      <MainArticleGrid/>
     </div>
-    <ArticlesContainer />
+    <ArticlesContainer/>
   </div>
   <div v-else class="loading-placeholder">Loading...</div>
 </template>
@@ -17,13 +17,12 @@ const loaded = ref(false);
 const stockItems = await useStocks();
 provide("stockItems", stockItems);
 
-const {observador, expresso, manchetes } = await useNews();
+const {observador, expresso, manchetes} = await useNews();
 
-if(observador && expresso && manchetes) {
+if (observador && expresso && manchetes) {
   provide("expressoNews", expresso);
   provide("observadorNews", observador);
   provide("manchetesNews", manchetes);
- loaded.value = true;
+  loaded.value = true;
 }
-
 </script>
