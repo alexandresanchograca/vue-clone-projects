@@ -6,7 +6,7 @@ export default async function useNews(): Promise<NewsCollection> {
     const {data: newsData} = useNuxtData("newsData");
 
     if (newsData.value) {
-        return newsData.value as NewsCollection;
+        return JSON.parse(JSON.stringify(newsData.value)) as NewsCollection;
     }
 
     const {data} = await useFetch("/api/news", {key: "newsData"});
