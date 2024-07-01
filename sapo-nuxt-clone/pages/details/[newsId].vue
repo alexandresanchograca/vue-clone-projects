@@ -1,33 +1,36 @@
 <template>
   <div class="main-content">
     <AdBanner></AdBanner>
-    <div v-if="newsDetails" class="news-details-container">
-      <div class="news-title">
-        <GreenPill :hollow="true">Impostos</GreenPill>
-        <h1>{{ newsDetails.title }}</h1>
-        <div class="news-info">
-          <div v-if="newsDetails.author" class="author-details">
-            <p>{{ newsDetails.author }}</p>
-            <p>{{ newsDetails.publishedAt.substring(0, 10) }}</p>
+    <div class="page-container">
+      <div v-if="newsDetails" class="news-details-container">
+        <div class="news-title">
+          <GreenPill :hollow="true">Impostos</GreenPill>
+          <h1>{{ newsDetails.title }}</h1>
+          <div class="news-info">
+            <div v-if="newsDetails.author" class="author-details">
+              <p>{{ newsDetails.author }}</p>
+              <p>{{ newsDetails.publishedAt.substring(0, 10) }}</p>
+            </div>
+            <IconsSlot>
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-linkedin-in"></i>
+            </IconsSlot>
+            <IconsSlot>
+              <i class="fa-regular fa-comment"></i>
+            </IconsSlot>
           </div>
-          <IconsSlot>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-linkedin-in"></i>
-          </IconsSlot>
-          <IconsSlot>
-            <i class="fa-regular fa-comment"></i>
-          </IconsSlot>
+        </div>
+        <div v-if="content" class="news-content">
+          <h3 v-html="content[0]"></h3>
+          <div v-for="(paragraph, index) in content.slice(1)" :key="paragraph">
+            <p v-html="paragraph"></p>
+            <AdVideo v-if="index === 1" class="video-ad"></AdVideo>
+          </div>
         </div>
       </div>
-      <div v-if="content" class="news-content">
-        <h3 v-html="content[0]"></h3>
-        <div v-for="(paragraph, index) in content.slice(1)" :key="paragraph">
-          <p v-html="paragraph"></p>
-          <AdVideo v-if="index === 1" class="video-ad"></AdVideo>
-        </div>
-      </div>
+      <LatestNewsSidebar/>
     </div>
   </div>
 </template>
@@ -35,7 +38,11 @@
 <script setup lang="ts">
 const route = useRoute()
 
+const {manchetes} = await useNews();
+provide("manchetesNews", manchetes);
+
 const {data: newsDetails} = await useFetch<Article>(`/api/news${route.fullPath}`);
+
 
 //Adding content due to external API limitation that truncates at 200chars
 const aditionalContent = ". O Fundo adianta que uma reforma fiscal “abrangente” iria permitir reduzir “distorções e aumentaria as receitas”, designadamente através de uma “simplificação do sistema e da redução de isenções, o que compensaria “as perdas decorrentes das reduções pretendidas no imposto sobre os rendimentos de singulares e coletivos”. " +
@@ -64,6 +71,10 @@ const content = computed(() => {
 
 
 <style scoped>
+.page-container {
+  display: flex;
+}
+
 .news-details-container {
   margin: 50px 0;
   width: 75%;
