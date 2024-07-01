@@ -1,28 +1,77 @@
 <template>
-  <div class="news-detail-container">
-    <div class="news-title">
-      <GreenPill :hollow="true">Impostos</GreenPill>
-      <h1>{{ newsDetails.title }}</h1>
-      <div class="author-note">
-        <IconBar/>
+  <div class="main-content">
+    <div class="news-details-container">
+      <div class="news-title">
+        <GreenPill :hollow="true">Impostos</GreenPill>
+        <h1>{{ newsDetails.title }}</h1>
+        <div class="author-note">
+          <IconBar/>
+        </div>
       </div>
-    </div>
-    <div class="news-content">
-      <p>{{ newsDetails.content }}</p>
+      <div v-if="content" class="news-content">
+        <h3 v-html="content[0]"></h3>
+        <p v-html="content.slice(1).join(' ')"></p>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const route = useRoute()
-const data = await $fetch<Article>(`/api/news${route.fullPath}`);
 
-const newsDetails = computed(() => {
-  return data;
+const {data: newsDetails} = await useFetch<Article>(`/api/news${route.fullPath}`);
+
+const contentT = computed(() => {
+  //Adding content due to external API limitation that truncates at 200chars
+  if (newsDetails.value?.content) {
+    newsDetails.value.content += ". O Fundo adianta que uma reforma fiscal “abrangente” iria permitir reduzir “distorções e aumentaria as receitas”, designadamente através de uma “simplificação do sistema e da redução de isenções, o que compensaria “as perdas decorrentes das reduções pretendidas no imposto sobre os rendimentos de singulares e coletivos”. " +
+        "A equipa do FMI considera que os novos cortes fiscais e os aumentos de despesas planeados devem ser cuidadosamente concebidos” para assegurar que as contas públicas se mantêm equilibradas — e até com excedente em 2024. Caso contrário, terá de haver uma compensação através der outras medidas, avisa." +
+        "Segundo o Fundo, uma política “algo expansionista” deste ano, e sendo consistente com o excedente de 0,2% ou 0,3% previsto pelo Governo, seria “apropriada”, pois “apoiaria o crescimento” económico, enquanto as taxas de juro ainda em níveis elevados conteriam as pressões inflacionistas." +
+        "Para 2025, recomenda o FMI, o Governo deveria passar para uma “orientação orçamental globalmente neutra”, quando se espera que o Banco Central Europeu (BCE) alivie a sua política monetária para níveis mais flexíveis. Isso “ajudará a alcançar uma aterragem suave”, apontam os técnicos do Fundo. " +
+        "“A médio prazo, a posição orçamental deverá manter-se globalmente equilibrada”, acrescenta o FMI. “Isto garantirá que a dívida ainda elevada continue a diminuir, reduzindo assim a vulnerabilidade às mudanças no sentimento do mercado e reconstruindo as reservas para choques futuros“, conclui.";
+
+    let c = 0;
+    const result = [];
+    for (let i = 0; i <= newsDetails.value.content.length; i++) {
+      if ((i - c) > 200 && newsDetails.value.content.charAt(i) === '.' || i == newsDetails.value.content.length) {
+        result.push(newsDetails.value.content.substring(c, i + 1) + "<br><br>");
+        c = i + 1;
+      }
+    }
+
+    return result;
+  }
+
+  return null;
 })
-
 </script>
 
-<style scoped>
 
+<style scoped>
+.news-details-container {
+  margin: 50px auto;
+  width: 75%;
+}
+
+.news-title h1 {
+  font-weight: bold;
+  font-size: clamp(1.2rem, 4vw, 3.2rem);
+}
+
+.news-title h1 {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.news-content h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  color: #00af00;
+}
+
+.news-content p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
 </style>
