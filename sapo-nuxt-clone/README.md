@@ -2,9 +2,7 @@
 
 ## Todo
 
-- Add a news page to the nuxt clone
 - Clean up code
-- Refactor Article Container, maybe add Slots?
 - Definir API key como variavel de ambiente ?
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
