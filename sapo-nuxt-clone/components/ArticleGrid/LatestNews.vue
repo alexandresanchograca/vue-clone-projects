@@ -10,7 +10,7 @@
         <NuxtLink :to="`/details/${news.title}`">{{ news.shortTitle }}</NuxtLink>
       </li>
     </ul>
-    <a>+</a>
+    <a class="more-news">+</a>
   </div>
 </template>
 
@@ -40,7 +40,6 @@ const smallNewsList = computed(() => {
     }
     newsList.push({...news, time, shortTitle});
   }
-
   return newsList;
 });
 </script>
@@ -94,7 +93,7 @@ li p {
   font-size: 0.8rem;
 }
 
-div > a:last-child {
+.more-news {
   display: block;
   text-align: center;
   font-size: x-large;
