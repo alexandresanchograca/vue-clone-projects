@@ -35,6 +35,8 @@ const smallNewsList = computed(() => {
 
     if (shortTitle?.length > 70) {
       shortTitle = shortTitle.substring(0, 40) + "...";
+    } else if (shortTitle?.length < 30 && news.description.length > 70) {
+      shortTitle = news.description.substring(0, 40) + "...";
     }
     newsList.push({...news, time, shortTitle});
   }
