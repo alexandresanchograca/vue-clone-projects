@@ -2,7 +2,7 @@
   <div v-if="news" class="main-news-box">
     <div class="head-news">
       <h3>
-        <NuxtLink :to="`/details/${news.title}`">{{ news.title }}</NuxtLink>
+        <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
       </h3>
       <p v-if="news.author" class="author-note">
         {{ news.author }}, {{ news.publishedAt.substring(0, 10) }}

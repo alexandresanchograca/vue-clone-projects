@@ -9,7 +9,7 @@
         <span>{{ index + 1 }}</span>
         <div class="headline-content">
           <p>{{ news.time }}</p>
-          <NuxtLink :to="`/details/${news.title}`">{{ news.shortTitle }}</NuxtLink>
+          <NuxtLink :to="`/details/${news.titleUri}`">{{ news.shortTitle }}</NuxtLink>
         </div>
       </li>
     </ul>

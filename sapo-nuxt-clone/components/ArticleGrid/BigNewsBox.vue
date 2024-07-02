@@ -8,7 +8,7 @@
       <RedPill/>
     </div>
     <h2>
-      <NuxtLink :to="`/details/${news.title}`">{{ news.title }}</NuxtLink>
+      <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
     </h2>
     <p>
       {{ news.description }}

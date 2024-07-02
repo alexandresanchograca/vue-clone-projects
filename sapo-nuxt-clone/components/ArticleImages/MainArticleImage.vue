@@ -5,7 +5,7 @@
     </div>
     <div class="article-text">
       <h1>
-        <NuxtLink :to="`/details/${articleImg.title}`">{{ articleImg.title }}</NuxtLink>
+        <NuxtLink :to="`/details/${articleImg.titleUri}`">{{ articleImg.title }}</NuxtLink>
       </h1>
       <p v-if="articleImg.description">
         {{ articleImg.description }}

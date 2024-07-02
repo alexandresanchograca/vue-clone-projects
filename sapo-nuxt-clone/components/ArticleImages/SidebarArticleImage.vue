@@ -7,7 +7,7 @@
       <div class="article-text">
         <GreenPill :hollow="true">ESPECIAL</GreenPill>
         <h1>
-          <NuxtLink :to="`/details/${articleImg.title}`">{{ articleImg.title }}</NuxtLink>
+          <NuxtLink :to="`/details/${articleImg.titleUri}`">{{ articleImg.title }}</NuxtLink>
         </h1>
         <p v-if="articleImg.description">
           {{ articleImg.author }}, {{ articleImg.publishedAt.substring(0, 10) }}

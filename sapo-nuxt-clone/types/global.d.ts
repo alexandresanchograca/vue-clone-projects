@@ -21,6 +21,7 @@ declare global {
     type Article = {
         author: string;
         title: string;
+        titleUri: string;
         description: string;
         url: string;
         urlToImage: string;

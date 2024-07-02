@@ -2,11 +2,11 @@
   <div v-if="breakingNews" class="breaking-news-bar">
     <div class="markets-bar">
       <div v-if="liveBreakingNews" class="red-box live-news">Em Direto</div>
-      <NuxtLink :to="`/details/${liveBreakingNews.title}`">{{ liveBreakingNews.title }}</NuxtLink>
+      <NuxtLink :to="`/details/${liveBreakingNews.titleUri}`">{{ liveBreakingNews.title }}</NuxtLink>
       <div v-if="liveBreakingNews" class="arrow-square">
         <div class="square-box">
           <div class="skewed-box">
-            <NuxtLink :to="`/details/${liveBreakingNews.title}`"><i class="fa-solid fa-arrow-right"></i></NuxtLink>
+            <NuxtLink :to="`/details/${liveBreakingNews.titleUri}`"><i class="fa-solid fa-arrow-right"></i></NuxtLink>
           </div>
         </div>
       </div>
@@ -15,7 +15,7 @@
     <div v-if="pastBreakingNews" class="news-bar">
       <div v-for="news in pastBreakingNews" :key="news.title" class="news-item">
         <i class="fa-regular fa-clock"></i>
-        <NuxtLink :to="`/details/${news.title}`">{{ news.title }}</NuxtLink>
+        <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
       </div>
     </div>
   </div>
