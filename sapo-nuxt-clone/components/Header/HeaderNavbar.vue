@@ -3,7 +3,7 @@
     <div class="main-bar">
       <i class="fa-solid fa-bars"></i>
       <i class="fa-solid fa-magnifying-glass"></i>
-      <img src="../../assets/eco-logo.svg" />
+      <NuxtLink to="/"><img src="../../assets/eco-logo.svg"/></NuxtLink>
       <div class="main-bar-links">
         <a>Entrar</a>
         <a class="btn">Assinatura premimum</a>
@@ -12,7 +12,8 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+</script>
 
 <style scoped>
 .main-bar-wrapper {
@@ -31,10 +32,12 @@
   max-width: 1140px;
   margin: auto;
 }
+
 .main-bar i {
   margin: auto;
   font-size: x-large;
 }
+
 .main-bar i:hover {
   cursor: pointer;
 }
@@ -50,7 +53,11 @@
   }
 }
 
-.main-bar img:hover {
+.main-bar a {
+  margin: auto 0;
+}
+
+.main-bar a:hover {
   cursor: pointer;
 }
 
@@ -60,11 +67,13 @@
   align-items: center;
   font-size: 0.9rem;
 }
+
 .main-bar-links > a {
   margin-right: 5px;
   padding: 8px;
   text-wrap: nowrap;
 }
+
 .main-bar-links > a:hover {
   color: green;
   cursor: pointer;
