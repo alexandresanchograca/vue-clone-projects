@@ -9,7 +9,7 @@
         <span>{{ index + 1 }}</span>
         <div class="headline-content">
           <p>{{ news.time }}</p>
-          <p>{{ news.title }}</p>
+          <p>{{ news.shortTitle }}</p>
         </div>
       </li>
     </ul>
@@ -34,15 +34,17 @@ const smallNewsList = computed(() => {
     if (!news) continue;
 
     const time = news.publishedAt.substring("YYYY-MM-DDT".length, news.publishedAt.length - 1)
+    let shortTitle = news.title;
 
-    if (news?.title.length > 70) {
-      news.title = news.title.substring(0, 40) + "...";
+    if (shortTitle?.length > 70) {
+      shortTitle = shortTitle.substring(0, 40) + "...";
     }
-    newsList.push({...news, time});
+    newsList.push({...news, time, shortTitle});
   }
 
   return newsList;
 });
+
 </script>
 
 <style scoped>

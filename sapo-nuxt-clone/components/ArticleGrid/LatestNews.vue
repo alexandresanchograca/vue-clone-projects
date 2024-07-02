@@ -7,7 +7,7 @@
     <ul>
       <li v-for="news in smallNewsList" :key="news.title">
         <p>{{ news.time }}</p>
-        {{ news.title }}
+        <NuxtLink :to="`/details/${news.title}`">{{ news.shortTitle }}</NuxtLink>
       </li>
     </ul>
     <a>+</a>
@@ -25,15 +25,18 @@ function* generateLatestNews(limit) {
 
 const smallNewsList = computed(() => {
   const newsList = [];
-  const limit = Math.min(6, headlineNews.articles.length);
+  const limit = Math.min(5, headlineNews.articles.length);
 
   for (let news of generateLatestNews(limit)) {
     if (!news) continue;
 
-    if (news?.title.length > 70) {
-      news.title = news.title.substring(0, 70) + "...";
+    const time = news.publishedAt.substring("YYYY-MM-DDT".length, news.publishedAt.length - 4)
+    let shortTitle = news.title;
+
+    if (shortTitle?.length > 70) {
+      shortTitle = shortTitle.substring(0, 40) + "...";
     }
-    newsList.push(news);
+    newsList.push({...news, time, shortTitle});
   }
 
   return newsList;
@@ -72,12 +75,16 @@ ul {
 li {
   font-size: large;
   margin: auto;
-  font-weight: bold;
-  color: #00b100;
-  cursor: pointer;
   margin: 10px;
   padding: 5px;
   line-height: 1.4rem;
+}
+
+li a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #00b100;
+  cursor: pointer;
 }
 
 li p {
@@ -85,7 +92,7 @@ li p {
   font-size: 0.8rem;
 }
 
-a {
+div > a:last-child {
   display: block;
   text-align: center;
   font-size: x-large;

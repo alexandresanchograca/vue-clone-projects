@@ -13,7 +13,7 @@ export default defineEventHandler(async (event): Promise<NewsCollection | undefi
 
     const getExpresso = async (): Promise<NewsArticles> =>
         await $fetch(
-            `${baseUrl}${everythingEndpoint}?q=Expresso&language=pt&from=2024-06-02&apiKey=${newsApiKey}`
+            `${baseUrl}${everythingEndpoint}?q=Expresso&language=pt&apiKey=${newsApiKey}`
         );
 
     const getHeadlines = async (): Promise<NewsArticles> =>
