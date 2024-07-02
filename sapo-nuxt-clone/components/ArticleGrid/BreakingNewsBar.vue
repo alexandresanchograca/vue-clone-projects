@@ -33,7 +33,7 @@ const pastBreakingNews = computed(() => {
 
   let counter = 0;
   breakingNews.articles.forEach((news, index) => {
-    if (news.title.length < 78 && counter < 3) {
+    if (news.title.length < 78 && news.title.length > 30 && counter < 3) {
       newsList.push(...breakingNews.articles.splice(index, 1));
       counter++;
     }
@@ -102,6 +102,7 @@ const pastBreakingNews = computed(() => {
   color: white;
   cursor: pointer;
 }
+
 .news-bar {
   display: flex;
   justify-content: flex-start;
@@ -128,6 +129,7 @@ const pastBreakingNews = computed(() => {
   justify-content: center;
   align-items: center;
 }
+
 .news-item i {
   color: gray;
   font-size: large;

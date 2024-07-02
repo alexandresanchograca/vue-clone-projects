@@ -3,7 +3,6 @@ import staticNews from "~/server/utils/staticNews";
 export default defineEventHandler(async (event): Promise<NewsCollection | undefined> => {
     const baseUrl = "https://newsapi.org";
     const everythingEndpoint: string = "/v2/everything";
-    const headlinesEndpoint: string = "/v2/top-headlines";
     const {newsApiKey} = useRuntimeConfig();
 
     const getObservador = async (): Promise<NewsArticles> =>
@@ -18,7 +17,7 @@ export default defineEventHandler(async (event): Promise<NewsCollection | undefi
 
     const getHeadlines = async (): Promise<NewsArticles> =>
         await $fetch(
-            `${baseUrl}${headlinesEndpoint}?country=pt&apiKey=${newsApiKey}`
+            `${baseUrl}${everythingEndpoint}?domains=sapo.pt&apiKey=${newsApiKey}`
         );
 
     try {
