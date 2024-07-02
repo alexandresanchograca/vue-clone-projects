@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      <LatestNewsSidebar/>
+      <LatestNewsSidebar class="latest-news-box"/>
     </div>
   </div>
 </template>
@@ -142,6 +142,10 @@ const content = computed(() => {
 
 .video-ad {
   margin-bottom: 40px;
+}
+
+.latest-news-box {
+  margin-top: 80px;
 }
 
 .social-share {
