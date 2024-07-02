@@ -40,6 +40,7 @@
 
 .signature-card .green-pill-btn {
   justify-content: center;
+  margin: auto;
   font-size: 1.2rem;
 }
 

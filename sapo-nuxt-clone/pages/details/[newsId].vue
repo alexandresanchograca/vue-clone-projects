@@ -42,6 +42,14 @@
             </IconsSlot>
           </div>
           <SignatureCard class="signature-card"/>
+          <div class="additional-content-grid">
+            <NewsBox :largeImage="true" v-for="news in observador.articles.slice(0 , 1)" :key="news.title"
+                     :news="news"></NewsBox>
+            <div>
+              <NewsBox v-for="news in observador.articles.slice(1 , 3)" :key="news.title" :news="news"
+              ></NewsBox>
+            </div>
+          </div>
         </div>
       </div>
       <LatestNewsSidebar/>
@@ -52,8 +60,9 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const {manchetes} = await useNews();
+const {manchetes, observador} = await useNews();
 provide("manchetesNews", manchetes);
+provide("observadorNews", observador);
 
 const {data: newsDetails} = await useFetch<Article>(`/api/news${route.fullPath}`);
 
@@ -142,5 +151,16 @@ const content = computed(() => {
 
 .signature-card {
   margin-top: 40px;
+}
+
+.additional-content-grid {
+  margin-top: 80px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 20px;
+}
+
+.additional-content-grid > div:first-child {
+  background-color: rgba(148, 148, 148, 0.08);
 }
 </style>
