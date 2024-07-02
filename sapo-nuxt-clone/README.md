@@ -9,6 +9,15 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Setup
 
+You have to set your API key as an environment variable inside a `.env` file.
+
+Example:
+`.env`
+
+```
+NEWS_API_KEY="YOUR_API_KEY"
+```
+
 Make sure to install the dependencies:
 
 ```bash
