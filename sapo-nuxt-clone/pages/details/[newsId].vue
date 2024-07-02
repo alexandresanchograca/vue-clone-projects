@@ -29,6 +29,20 @@
             <AdVideo v-if="index === 1" class="video-ad"></AdVideo>
           </div>
         </div>
+        <div class="additional-content">
+          <div class="social-share">
+            <IconsSlot>
+              <i class="fa-regular fa-comment"></i>
+            </IconsSlot>
+            <IconsSlot>
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-linkedin-in"></i>
+            </IconsSlot>
+          </div>
+          <SignatureCard class="signature-card"/>
+        </div>
       </div>
       <LatestNewsSidebar/>
     </div>
@@ -119,5 +133,14 @@ const content = computed(() => {
 
 .video-ad {
   margin-bottom: 40px;
+}
+
+.social-share {
+  display: flex;
+  gap: 40px;
+}
+
+.signature-card {
+  margin-top: 40px;
 }
 </style>
