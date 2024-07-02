@@ -1,6 +1,6 @@
 <template>
   <div v-if="news" class="medium-news-box">
-    <img :src="news.urlToImage"/>
+    <img :src="news.urlToImage" :class="{'large-image' : largeImage}"/>
     <div class="news-desc">
       <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
       <p v-if="news.author" class="author-note">
@@ -12,14 +12,13 @@
 </template>
 
 <script setup>
-const props = defineProps(["news"]);
+const props = defineProps(["news", "largeImage"]);
 </script>
 
 <style scoped>
 .medium-news-box {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .medium-news-box:hover {
@@ -28,9 +27,12 @@ const props = defineProps(["news"]);
 
 .medium-news-box img {
   flex-shrink: 0;
-  max-width: 100%;
   max-height: 175px;
   overflow: hidden;
+}
+
+.medium-news-box .large-image {
+  max-height: 320px;
 }
 
 .news-desc {

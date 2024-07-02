@@ -29,8 +29,30 @@
             <AdVideo v-if="index === 1" class="video-ad"></AdVideo>
           </div>
         </div>
+        <div class="additional-content">
+          <div class="social-share">
+            <IconsSlot>
+              <i class="fa-regular fa-comment"></i>
+            </IconsSlot>
+            <IconsSlot>
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-linkedin-in"></i>
+            </IconsSlot>
+          </div>
+          <SignatureCard class="signature-card"/>
+          <div class="additional-content-grid">
+            <NewsBox :largeImage="true" v-for="news in observador.articles.slice(0 , 1)" :key="news.title"
+                     :news="news"></NewsBox>
+            <div>
+              <NewsBox v-for="news in observador.articles.slice(1 , 3)" :key="news.title" :news="news"
+              ></NewsBox>
+            </div>
+          </div>
+        </div>
       </div>
-      <LatestNewsSidebar/>
+      <LatestNewsSidebar class="latest-news-box"/>
     </div>
   </div>
 </template>
@@ -38,8 +60,9 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const {manchetes} = await useNews();
+const {manchetes, observador} = await useNews();
 provide("manchetesNews", manchetes);
+provide("observadorNews", observador);
 
 const {data: newsDetails} = await useFetch<Article>(`/api/news${route.fullPath}`);
 
@@ -119,5 +142,29 @@ const content = computed(() => {
 
 .video-ad {
   margin-bottom: 40px;
+}
+
+.latest-news-box {
+  margin-top: 80px;
+}
+
+.social-share {
+  display: flex;
+  gap: 40px;
+}
+
+.signature-card {
+  margin-top: 40px;
+}
+
+.additional-content-grid {
+  margin-top: 80px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 20px;
+}
+
+.additional-content-grid > div:first-child {
+  background-color: rgba(148, 148, 148, 0.08);
 }
 </style>
