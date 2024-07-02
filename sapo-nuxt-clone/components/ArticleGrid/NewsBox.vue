@@ -1,12 +1,12 @@
 <template>
   <div v-if="news" class="medium-news-box">
-    <img :src="news.urlToImage" />
+    <img :src="news.urlToImage"/>
     <div class="news-desc">
-      {{ news.title }}
+      <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
       <p v-if="news.author" class="author-note">
         {{ news.author }}, {{ news.publishedAt.substring(0, 10) }}
       </p>
-      <IconBar />
+      <IconBar/>
     </div>
   </div>
 </template>
@@ -32,6 +32,7 @@ const props = defineProps(["news"]);
   max-height: 175px;
   overflow: hidden;
 }
+
 .news-desc {
   display: flex;
   flex-direction: column;
@@ -40,6 +41,13 @@ const props = defineProps(["news"]);
   font-size: 1.1rem;
   font-weight: bold;
 }
+
+.news-desc a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .news-desc .author-note {
   margin-top: 15px;
 }

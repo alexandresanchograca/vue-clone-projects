@@ -1,9 +1,9 @@
 import staticNews from "~/server/utils/staticNews";
+import removeSpecialCharFromTitle from "~/server/utils/removeSpecialChars";
 
 export default defineEventHandler(async (event): Promise<NewsCollection | undefined> => {
     const baseUrl = "https://newsapi.org";
     const everythingEndpoint: string = "/v2/everything";
-    const headlinesEndpoint: string = "/v2/top-headlines";
     const {newsApiKey} = useRuntimeConfig();
 
     const getObservador = async (): Promise<NewsArticles> =>
@@ -13,12 +13,12 @@ export default defineEventHandler(async (event): Promise<NewsCollection | undefi
 
     const getExpresso = async (): Promise<NewsArticles> =>
         await $fetch(
-            `${baseUrl}${everythingEndpoint}?q=Expresso&language=pt&from=2024-06-02&apiKey=${newsApiKey}`
+            `${baseUrl}${everythingEndpoint}?q=Expresso&language=pt&apiKey=${newsApiKey}`
         );
 
     const getHeadlines = async (): Promise<NewsArticles> =>
         await $fetch(
-            `${baseUrl}${headlinesEndpoint}?country=pt&apiKey=${newsApiKey}`
+            `${baseUrl}${everythingEndpoint}?domains=sapo.pt&apiKey=${newsApiKey}`
         );
 
     try {
@@ -28,6 +28,10 @@ export default defineEventHandler(async (event): Promise<NewsCollection | undefi
         observador.articles = observador.articles.filter((article) => article.urlToImage !== null);
         expresso.articles = expresso.articles.filter((article) => article.urlToImage !== null);
         manchetes.articles = manchetes.articles.filter((article) => article.author !== null);
+
+        removeSpecialCharFromTitle(observador);
+        removeSpecialCharFromTitle(expresso);
+        removeSpecialCharFromTitle(manchetes);
 
         //Adding related news items
         expresso.articles = expresso.articles.map((article): Article => ({

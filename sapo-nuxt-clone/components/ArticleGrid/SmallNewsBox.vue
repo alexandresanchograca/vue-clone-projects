@@ -1,11 +1,13 @@
 <template>
   <div v-if="news" class="small-news-box">
     <div class="image-container">
-      <img :src="news.urlToImage" />
+      <img :src="news.urlToImage"/>
     </div>
     <div class="small-news-desc">
-      <div v-if="true"><RedPill /></div>
-      {{ news.title }}
+      <div v-if="true">
+        <RedPill/>
+      </div>
+      <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
       <p v-if="news.authorSignature" class="author-note">
         {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
       </p>
@@ -47,16 +49,21 @@ img {
   transform: translate(-50%, -30%);
 }
 
-h3 {
-  float: right;
-  font-size: 1.3rem;
-  font-weight: bold;
-}
 .small-news-desc {
   display: block;
   font-size: 1.3rem;
   font-weight: bold;
   margin: 0.8rem;
+}
+
+.small-news-desc a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.small-news-desc a:hover {
+  color: #00d700;
 }
 
 .author-note {

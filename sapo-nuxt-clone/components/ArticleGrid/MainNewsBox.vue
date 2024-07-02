@@ -2,18 +2,18 @@
   <div v-if="news" class="main-news-box">
     <div class="head-news">
       <h3>
-        {{ news.title }}
+        <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
       </h3>
       <p v-if="news.author" class="author-note">
         {{ news.author }}, {{ news.publishedAt.substring(0, 10) }}
       </p>
     </div>
-    <img :src="news.urlToImage" />
+    <img :src="news.urlToImage"/>
     <div class="news-content">
       <p>
         {{ news.description }}
       </p>
-      <IconBar />
+      <IconBar/>
     </div>
   </div>
 </template>
@@ -43,8 +43,15 @@ const news = computed(() => {
   padding: 20px;
 }
 
-h3 {
+h3 a {
   font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+h3 a:hover {
+  cursor: pointer;
+  color: #00d700;
 }
 
 img {

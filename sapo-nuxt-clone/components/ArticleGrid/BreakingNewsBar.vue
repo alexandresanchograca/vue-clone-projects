@@ -2,11 +2,11 @@
   <div v-if="breakingNews" class="breaking-news-bar">
     <div class="markets-bar">
       <div v-if="liveBreakingNews" class="red-box live-news">Em Direto</div>
-      <h2 v-if="liveBreakingNews">{{ liveBreakingNews.title }}</h2>
+      <NuxtLink :to="`/details/${liveBreakingNews.titleUri}`">{{ liveBreakingNews.title }}</NuxtLink>
       <div v-if="liveBreakingNews" class="arrow-square">
         <div class="square-box">
           <div class="skewed-box">
-            <i class="fa-solid fa-arrow-right"></i>
+            <NuxtLink :to="`/details/${liveBreakingNews.titleUri}`"><i class="fa-solid fa-arrow-right"></i></NuxtLink>
           </div>
         </div>
       </div>
@@ -15,7 +15,7 @@
     <div v-if="pastBreakingNews" class="news-bar">
       <div v-for="news in pastBreakingNews" :key="news.title" class="news-item">
         <i class="fa-regular fa-clock"></i>
-        <p>{{ news.title }}</p>
+        <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ const pastBreakingNews = computed(() => {
 
   let counter = 0;
   breakingNews.articles.forEach((news, index) => {
-    if (news.title.length < 78 && counter < 3) {
+    if (news.title.length < 78 && news.title.length > 30 && counter < 3) {
       newsList.push(...breakingNews.articles.splice(index, 1));
       counter++;
     }
@@ -71,10 +71,11 @@ const pastBreakingNews = computed(() => {
   padding: 8px;
 }
 
-.markets-bar h2 {
+.markets-bar a {
   font-size: 1.5rem;
   font-weight: bold;
   color: rgb(0, 170, 0);
+  text-decoration: none;
 }
 
 .markets-bar .arrow-square {
@@ -102,6 +103,7 @@ const pastBreakingNews = computed(() => {
   color: white;
   cursor: pointer;
 }
+
 .news-bar {
   display: flex;
   justify-content: flex-start;
@@ -112,10 +114,6 @@ const pastBreakingNews = computed(() => {
   box-shadow: 2px 5px 2px 2px rgba(0, 0, 0, 0.168);
 }
 
-.news-bar p:hover {
-  cursor: pointer;
-  color: rgb(0, 151, 0);
-}
 
 .news-bar div:not(:first-child) {
   @media (max-width: 700px) {
@@ -128,10 +126,21 @@ const pastBreakingNews = computed(() => {
   justify-content: center;
   align-items: center;
 }
+
 .news-item i {
   color: gray;
   font-size: large;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.news-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-item a:hover {
+  cursor: pointer;
+  color: rgb(0, 151, 0);
 }
 </style>

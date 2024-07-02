@@ -43,7 +43,6 @@ provide("manchetesNews", manchetes);
 
 const {data: newsDetails} = await useFetch<Article>(`/api/news${route.fullPath}`);
 
-
 //Adding content due to external API limitation that truncates at 200chars
 const aditionalContent = ". O Fundo adianta que uma reforma fiscal “abrangente” iria permitir reduzir “distorções e aumentaria as receitas”, designadamente através de uma “simplificação do sistema e da redução de isenções, o que compensaria “as perdas decorrentes das reduções pretendidas no imposto sobre os rendimentos de singulares e coletivos”. " +
     "A equipa do FMI considera que os novos cortes fiscais e os aumentos de despesas planeados devem ser cuidadosamente concebidos” para assegurar que as contas públicas se mantêm equilibradas — e até com excedente em 2024. Caso contrário, terá de haver uma compensação através der outras medidas, avisa." +

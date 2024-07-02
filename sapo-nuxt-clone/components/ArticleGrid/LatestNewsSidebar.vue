@@ -9,11 +9,11 @@
         <span>{{ index + 1 }}</span>
         <div class="headline-content">
           <p>{{ news.time }}</p>
-          <p>{{ news.title }}</p>
+          <NuxtLink :to="`/details/${news.titleUri}`">{{ news.shortTitle }}</NuxtLink>
         </div>
       </li>
     </ul>
-    <a>+</a>
+    <a class="more-news">+</a>
   </div>
 </template>
 
@@ -34,13 +34,15 @@ const smallNewsList = computed(() => {
     if (!news) continue;
 
     const time = news.publishedAt.substring("YYYY-MM-DDT".length, news.publishedAt.length - 1)
+    let shortTitle = news.title;
 
-    if (news?.title.length > 70) {
-      news.title = news.title.substring(0, 40) + "...";
+    if (shortTitle?.length > 70) {
+      shortTitle = shortTitle.substring(0, 40) + "...";
+    } else if (shortTitle?.length < 30 && news.description.length > 70) {
+      shortTitle = news.description.substring(0, 40) + "...";
     }
-    newsList.push({...news, time});
+    newsList.push({...news, time, shortTitle});
   }
-
   return newsList;
 });
 </script>
@@ -103,9 +105,11 @@ li div {
   flex-direction: column;
 }
 
-.headline-content p {
+.headline-content a {
   font-weight: bold;
   font-size: 0.95rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .headline-content > p:first-child {
@@ -113,7 +117,7 @@ li div {
   font-size: 0.8rem;
 }
 
-a {
+.more-news {
   display: block;
   text-align: center;
   font-size: x-large;
