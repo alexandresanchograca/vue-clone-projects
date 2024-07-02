@@ -1,15 +1,19 @@
 <template>
   <div v-if="news">
-    <img v-if="news" class="main-img" :src="news.urlToImage" />
-    <GreenBadge />
+    <img v-if="news" class="main-img" :src="news.urlToImage"/>
+    <GreenBadge/>
   </div>
   <div v-if="news" class="big-news-card">
-    <div v-if="true"><RedPill /></div>
-    <h2>{{ news.title }}</h2>
+    <div v-if="true">
+      <RedPill/>
+    </div>
+    <h2>
+      <NuxtLink :to="`/details/${news.title}`">{{ news.title }}</NuxtLink>
+    </h2>
     <p>
       {{ news.description }}
     </p>
-    <IconBar :news="news" />
+    <IconBar :news="news"/>
   </div>
 </template>
 
@@ -40,11 +44,14 @@ div.big-news-card {
   max-height: 350px;
 }
 
-h2 {
+h2 a {
+  text-decoration: none;
   font-size: 1.3em;
+  color: black;
   font-weight: bold;
 }
-h2:hover {
+
+h2 a:hover {
   cursor: pointer;
   color: rgb(0, 170, 0);
 }
