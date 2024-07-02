@@ -7,7 +7,9 @@
       <div v-if="true" class="my-pill">
         <GreenPill>ESPECIAL</GreenPill>
       </div>
-      <h1>{{ articleImg.title }}</h1>
+      <h1>
+        <NuxtLink :to="`/details/${articleImg.title}`">{{ articleImg.title }}</NuxtLink>
+      </h1>
       <div v-if="articleImg.author" class="article-icons">
         <div class="author-profile-card">
           <img class="author-profile-img" :src="profilePic"/>
