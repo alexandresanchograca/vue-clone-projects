@@ -7,7 +7,7 @@
     <ul>
       <li v-for="news in smallNewsList" :key="news.title">
         <p>{{ news.time }}</p>
-        <NuxtLink :to="`/details/${news.title}`">{{ news.shortTitle }}</NuxtLink>
+        <NuxtLink :to="`/details/${news.titleUri}`">{{ news.shortTitle }}</NuxtLink>
       </li>
     </ul>
     <a class="more-news">+</a>
@@ -25,7 +25,7 @@ function* generateLatestNews(limit) {
 
 const smallNewsList = computed(() => {
   const newsList = [];
-  const limit = Math.min(5, headlineNews.articles.length);
+  const limit = Math.min(20, headlineNews.articles.length);
 
   for (let news of generateLatestNews(limit)) {
     if (!news) continue;

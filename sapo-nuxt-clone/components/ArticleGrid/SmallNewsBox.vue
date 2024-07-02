@@ -7,7 +7,7 @@
       <div v-if="true">
         <RedPill/>
       </div>
-      <NuxtLink :to="`/details/${news.title}`">{{ news.title }}</NuxtLink>
+      <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
       <p v-if="news.authorSignature" class="author-note">
         {{ news.authorSignature.name }}, {{ news.authorSignature.time }}
       </p>

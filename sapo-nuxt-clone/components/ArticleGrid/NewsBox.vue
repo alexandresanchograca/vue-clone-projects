@@ -2,7 +2,7 @@
   <div v-if="news" class="medium-news-box">
     <img :src="news.urlToImage"/>
     <div class="news-desc">
-      <NuxtLink :to="`/details/${news.title}`">{{ news.title }}</NuxtLink>
+      <NuxtLink :to="`/details/${news.titleUri}`">{{ news.title }}</NuxtLink>
       <p v-if="news.author" class="author-note">
         {{ news.author }}, {{ news.publishedAt.substring(0, 10) }}
       </p>
