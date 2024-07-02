@@ -4,20 +4,21 @@ export default defineEventHandler(async (event): Promise<NewsCollection | undefi
     const baseUrl = "https://newsapi.org";
     const everythingEndpoint: string = "/v2/everything";
     const headlinesEndpoint: string = "/v2/top-headlines";
+    const {newsApiKey} = useRuntimeConfig();
 
     const getObservador = async (): Promise<NewsArticles> =>
         await $fetch(
-            `${baseUrl}${everythingEndpoint}?q=Observador&language=pt&apiKey=3d4b854edbc046148c5a9aecb900194c`
+            `${baseUrl}${everythingEndpoint}?q=Observador&language=pt&apiKey=${newsApiKey}`
         );
 
     const getExpresso = async (): Promise<NewsArticles> =>
         await $fetch(
-            `${baseUrl}${everythingEndpoint}?q=Expresso&language=pt&from=2024-06-02&apiKey=3d4b854edbc046148c5a9aecb900194c`
+            `${baseUrl}${everythingEndpoint}?q=Expresso&language=pt&from=2024-06-02&apiKey=${newsApiKey}`
         );
 
     const getHeadlines = async (): Promise<NewsArticles> =>
         await $fetch(
-            `${baseUrl}${headlinesEndpoint}?country=pt&apiKey=3d4b854edbc046148c5a9aecb900194c`
+            `${baseUrl}${headlinesEndpoint}?country=pt&apiKey=${newsApiKey}`
         );
 
     try {

@@ -6,6 +6,9 @@ export default defineNuxtConfig({
             enabled: true,
         },
     },
+    runtimeConfig: {
+        newsApiKey: process.env.NEWS_API_KEY,
+    },
     components: [
         {
             path: "~/components",
