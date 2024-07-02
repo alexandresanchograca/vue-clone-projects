@@ -59,6 +59,8 @@ h2 a:hover {
 p {
   height: 100%;
   margin-top: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .green-pill {
