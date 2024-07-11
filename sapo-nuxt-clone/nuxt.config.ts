@@ -7,7 +7,8 @@ export default defineNuxtConfig({
         },
     },
     runtimeConfig: {
-        newsApiKey: process.env.NEWS_API_KEY,
+        newsApiSecretPath: "projects/174638299956/secrets/NEWS_API_KEY/versions/latest",
+        newsApiKey: "",
     },
     components: [
         {

@@ -1,10 +1,11 @@
 import staticNews from "~/server/utils/staticNews";
 import removeSpecialCharFromTitle from "~/server/utils/removeSpecialChars";
+import getSecretValue from "~/server/utils/getSecret";
 
 export default defineEventHandler(async (event): Promise<NewsCollection | undefined> => {
     const baseUrl = "https://newsapi.org";
     const everythingEndpoint: string = "/v2/everything";
-    const {newsApiKey} = useRuntimeConfig();
+    const newsApiKey = await getSecretValue();
 
     const getObservador = async (): Promise<NewsArticles> =>
         await $fetch(
